@@ -9,6 +9,7 @@ using UnityEngine;
 
 namespace Code.Core.ServiceLocator.Editor
 {
+#if UNITY_EDITOR
     public static class InstallerGenerator
     {
         [MenuItem("Tools/Sync All Installers")]
@@ -148,4 +149,6 @@ namespace Code.Core.ServiceLocator.Editor
             return type.FullName!.Replace('+', '.'); // вложенные классы
         }
     }
+    
+#endif
 }
