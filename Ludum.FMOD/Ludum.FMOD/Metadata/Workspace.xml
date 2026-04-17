@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="Workspace" id="{0fec5086-c36a-40bb-b8bd-7878f0caa569}">
+		<property name="builtBanksOutputDirectory">
+			<value>../../Ludum.Unity/Assets/Audio</value>
+		</property>
+		<relationship name="masterEventFolder">
+			<destination>{97e4eeab-4ba2-4f08-a7d5-b135fa4c16ff}</destination>
+		</relationship>
+		<relationship name="masterTagFolder">
+			<destination>{f276109e-61f1-40e2-9649-8409391035ff}</destination>
+		</relationship>
+		<relationship name="masterEffectPresetFolder">
+			<destination>{67b98860-86b7-4e15-8540-53f11352a954}</destination>
+		</relationship>
+		<relationship name="masterParameterPresetFolder">
+			<destination>{22b7eabd-b231-4a43-961d-475afa9ac652}</destination>
+		</relationship>
+		<relationship name="masterBankFolder">
+			<destination>{678e37cf-5a0f-42e6-a23f-36924ea79897}</destination>
+		</relationship>
+		<relationship name="masterSandboxFolder">
+			<destination>{8a08e3bc-ba8d-4d15-af5c-bebc34efd905}</destination>
+		</relationship>
+		<relationship name="masterAssetFolder">
+			<destination>{c62893bc-ff35-4987-972f-338739a0a3a6}</destination>
+		</relationship>
+		<relationship name="mixer">
+			<destination>{c4ddb3e5-2a55-4a28-bd44-59b9500c015f}</destination>
+		</relationship>
+		<relationship name="profilerSessionFolder">
+			<destination>{3f935fbb-d1d0-493c-b1c1-bf7c7555bc45}</destination>
+		</relationship>
+		<relationship name="platforms">
+			<destination>{0b495aea-22f0-4903-89f3-b4c782c7f9b7}</destination>
+		</relationship>
+	</object>
+</objects>
