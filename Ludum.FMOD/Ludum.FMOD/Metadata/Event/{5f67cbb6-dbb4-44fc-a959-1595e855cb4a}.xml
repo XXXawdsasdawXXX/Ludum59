@@ -138,6 +138,9 @@
 		<property name="length">
 			<value>20</value>
 		</property>
+		<property name="volume">
+			<value>6</value>
+		</property>
 		<property name="soundStealing">
 			<value>3</value>
 		</property>
