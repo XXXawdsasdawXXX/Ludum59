@@ -1,10 +1,9 @@
 ﻿using Code.Core.GameLoop;
 using Code.Core.ServiceLocator;
-using Code.Game.Characters.Player;
 using Code.Tools;
 using UnityEngine;
 
-namespace Code.Game.Player
+namespace Code.Game.Characters.Player
 {
     public class PlayerMovement : ICharacterComponent, IFixedUpdateListener
     {
@@ -14,11 +13,11 @@ namespace Code.Game.Player
         private readonly PlayerInput _input;
         private readonly PlayerStats _playerStats;
         private readonly PlayerConfiguration _playerConfiguration;
-
-
+        
         public PlayerMovement(PlayerView player)
         {
             _rigidbody2D = player.Rigidbody2D;
+            
             _playerStats = player.Stats;
             
             _playerConfiguration = Container.Instance.GetConfiguration<PlayerConfiguration>();
@@ -28,12 +27,10 @@ namespace Code.Game.Player
 
         public void GameFixedUpdate()
         {
-            Debug.Log("=)");
             if (Condition.AreMet())
             {
-                _rigidbody2D.velocity = _input.Forward.PropertyValue 
-                                        * _playerConfiguration.Speed 
-                                        * _playerStats.SpeedMultiplayer;
+                float speed = _playerConfiguration.Speed * _playerStats.SpeedMultiplayer;
+                _rigidbody2D.velocity = _input.Forward.PropertyValue * speed;
             }
         }
     }

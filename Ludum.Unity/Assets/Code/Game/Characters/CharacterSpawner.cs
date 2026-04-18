@@ -1,20 +1,23 @@
-﻿using Code.Core.Pools;
-using Code.Game.Characters;
+﻿using System;
+using Code.Core.Pools;
+using Code.Core.ServiceLocator;
 using TriInspector;
 using UnityEngine;
 
-namespace Code.Game
+namespace Code.Game.Characters
 {
-    public class CharacterSpawner : MonoBehaviour
+    public abstract class CharacterSpawner<TCharacter> : MonoBehaviour, IService 
+        where TCharacter: Character
     {
-        [SerializeField] private MonoPool<Character> _pool;
-        [SerializeField] private int _maxCharactersCount = 1;
-
+        [field: SerializeField] public MonoPool<TCharacter> Pool { get; private set; }
+     
+        [SerializeField] protected int maxCharactersCount = 1;
+        
 
         [Button]
         public void Spawn(Vector2 position)
         {
-            Character character = _pool.GetNext();
+            Character character = Pool.GetNext();
 
             character.InitializeComponents();
             
@@ -25,9 +28,11 @@ namespace Code.Game
         
         public bool CanSpawn()
         {
-            return _pool.Count() < _maxCharactersCount;
+            return Pool.Count() < maxCharactersCount;
         }
         
         //todo despawn
+
+
     }
 }

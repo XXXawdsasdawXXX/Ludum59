@@ -15,6 +15,7 @@ namespace Code.Core.ServiceLocator
 
         private MonoBehaviour[] _allObjects;
         private List<IService> _services = new();
+        private List<IView> _viewes = new();
 
         private Type[] _cachedOrderedTypes;
         private IAssemblyInstaller[] _cachedInstallers;
@@ -53,6 +54,7 @@ namespace Code.Core.ServiceLocator
             _allObjects = FindObjectsOfType<MonoBehaviour>();
 
             _createTypes(ref _services);
+            _createTypes(ref _viewes);
         }
 
         public T GetConfiguration<T>() where T : ScriptableObject
@@ -75,6 +77,19 @@ namespace Code.Core.ServiceLocator
                 if (service is T findService)
                 {
                     return findService;
+                }
+            }
+
+            return default;
+        }
+        
+        public T GetView<T>() where T : IView
+        {
+            foreach (IView view in _viewes)
+            {
+                if (view is T findView)
+                {
+                    return findView;
                 }
             }
 

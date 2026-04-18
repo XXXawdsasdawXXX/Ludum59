@@ -1,6 +1,6 @@
 using Code.Tools;
 
-namespace Code.Game
+namespace Code.Game.Characters
 {
     public interface ICharacterComponent
     {

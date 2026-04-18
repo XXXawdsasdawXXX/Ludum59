@@ -1,10 +1,11 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Code.Game.Characters.Player
 {
     [Serializable]
     public class PlayerStats
     {
-        public float SpeedMultiplayer { get; private set; } = 1;
+        [field: SerializeField] public float SpeedMultiplayer { get; private set; } = 1;
     }
 }

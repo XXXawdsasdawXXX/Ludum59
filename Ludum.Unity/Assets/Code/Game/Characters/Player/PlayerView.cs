@@ -1,8 +1,7 @@
-﻿using Code.Game.Characters;
-using Code.Game.Characters.Player;
+﻿using Code.Core.ServiceLocator;
 using UnityEngine;
 
-namespace Code.Game.Player
+namespace Code.Game.Characters.Player
 {
     public class PlayerView : Character
     {
