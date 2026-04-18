@@ -5,6 +5,9 @@ using System.Reflection;
 
 namespace FoW
 {
+
+#if UNITY_EDITOR
+
     // This hack is required to call OnCompileScripts AFTER the AssetDatabase has refreshed (there doesn't seem to be any other way to do this)
     class FogOfWarSetup_CallCompileScriptsHack : AssetPostprocessor
     {
@@ -341,4 +344,7 @@ namespace FoW
             ForceAddShaderBuild("FogOfWarHardwareVisibleToPartial");
         }
     }
+    
+        
+#endif
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using Code.Core.GameLoop;
 using Code.Core.Save;
 using UnityEngine;
@@ -129,19 +130,32 @@ namespace Code.Core.ServiceLocator
         {
             foreach (Type type in _collectOrderedTypes<T>())
             {
-                if (Activator.CreateInstance(type) is T item)
+                object instance;
+        
+                try
                 {
-                    collection.Add(item);
+                    // сначала пробуем обычный конструктор
+                    if (type.GetConstructor(Type.EmptyTypes) != null)
+                        instance = Activator.CreateInstance(type);
+                    else
+                        instance = FormatterServices.GetUninitializedObject(type);
                 }
+                catch (Exception e)
+                {
+                    Debug.LogError($"Failed to create {type.Name}: {e.Message}");
+                    continue;
+                }
+
+                if (instance is T item)
+                    collection.Add(item);
             }
-            
+    
+            // остальное без изменений
             IEnumerable<T> ofType = _allObjects.OfType<T>();
             IEnumerable<T> enumerable = ofType as T[] ?? ofType.ToArray();
-            
+    
             if (enumerable.Any())
-            {
                 collection.AddRange(enumerable);
-            }
         }
 
         private List<Type> _collectOrderedTypes<T>()

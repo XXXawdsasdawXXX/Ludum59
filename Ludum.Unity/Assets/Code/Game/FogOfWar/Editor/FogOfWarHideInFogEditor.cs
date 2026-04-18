@@ -3,6 +3,8 @@ using UnityEditor;
 
 namespace FoW
 {
+#if UNITY_EDITOR
+    
     [CustomEditor(typeof(FogOfWarHideInFog))]
     [CanEditMultipleObjects]
     public class FogOfWarHideInFogEditor : Editor
@@ -24,4 +26,5 @@ namespace FoW
                 FogOfWarError.Error(hideinfog, "Pointing to FogOfWarTeam index '" + hideinfog.hideFromTeam + "' that does not exist.");
         }
     }
+#endif
 }

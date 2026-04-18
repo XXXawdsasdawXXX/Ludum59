@@ -5,11 +5,9 @@ namespace Code.Game.Characters.Player
 {
     public class PlayerView : Character
     {
+        [field: SerializeField] public SpriteRenderer Renderer { get; private set; }
         [field: SerializeField] public Rigidbody2D Rigidbody2D { get; set; }
         [field: SerializeField] public PlayerStats Stats { get; set; }
-        
-        [field: SerializeField] public FogOfWarTeam FogOfWarTeam { get; private set; } 
-      
         [field: SerializeField] public FogOfWarUnit FogOfWarUnit { get; private set; } 
         
         

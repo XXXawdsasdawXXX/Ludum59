@@ -4,6 +4,8 @@ using UnityEngine.UIElements;
 
 namespace FoW
 {
+#if UNITY_EDITOR
+    
     [CustomPropertyDrawer(typeof(EnableIfAttribute))]
     public class EnableIfAttributeDrawer : PropertyDrawer
     {
@@ -47,4 +49,6 @@ namespace FoW
             throw new System.Exception("Unsupported type for EnableIfAttribute.");
         }
     }
+#endif
+
 }

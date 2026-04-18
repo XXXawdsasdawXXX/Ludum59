@@ -118,10 +118,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c269ac485474b32a4e7b9f399418495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Renderer>k__BackingField: {fileID: 2694642843422969073}
   <Rigidbody2D>k__BackingField: {fileID: 1615675235}
   <Stats>k__BackingField:
     <SpeedMultiplayer>k__BackingField: 1
-  <FogOfWarTeam>k__BackingField: {fileID: 0}
   <FogOfWarUnit>k__BackingField: {fileID: 7002137434329873431}
 --- !u!70 &5313406691046678596
 CapsuleCollider2D:

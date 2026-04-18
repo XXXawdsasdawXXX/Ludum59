@@ -3,6 +3,8 @@ using UnityEditor;
 
 namespace FoW
 {
+#if UNITY_EDITOR
+
     [CustomEditor(typeof(FogOfWarTeam))]
     [CanEditMultipleObjects]
     public class FogOfWarTeamEditor : Editor
@@ -85,4 +87,6 @@ namespace FoW
                 FogOfWarError.Warning(team, "Multithreading will have no effect in hardware mode!");
         }
     }
+        
+#endif
 }

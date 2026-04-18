@@ -4,6 +4,8 @@ using UnityEditor;
 
 namespace FoW
 {
+#if UNITY_EDITOR
+    
     public struct FogOfWarError
     {
         public Object owner;
@@ -59,4 +61,6 @@ namespace FoW
             _cachedErrors.Clear();
         }
     }
+#endif
+    
 }

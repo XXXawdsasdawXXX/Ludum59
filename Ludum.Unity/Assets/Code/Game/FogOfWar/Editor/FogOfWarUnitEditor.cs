@@ -3,6 +3,7 @@ using UnityEditor;
 
 namespace FoW
 {
+#if UNITY_EDITOR
     [CustomEditor(typeof(FogOfWarUnit))]
     [CanEditMultipleObjects]
     public class FogOfWarUnitEditor : Editor
@@ -36,4 +37,5 @@ namespace FoW
                 FogOfWarError.Warning(unit, "Shape is set to mesh, but has no mesh specified.");
         }
     }
+#endif
 }

@@ -3,6 +3,7 @@ using UnityEditor;
 
 namespace FoW
 {
+#if UNITY_EDITOR
     [CustomEditor(typeof(FogOfWarChunkManager))]
     public class FogOfWarChunkManagerEditor : Editor
     {
@@ -40,4 +41,5 @@ namespace FoW
             }
         }
     }
+#endif
 }
