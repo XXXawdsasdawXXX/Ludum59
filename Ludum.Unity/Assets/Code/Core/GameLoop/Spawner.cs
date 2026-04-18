@@ -25,9 +25,9 @@ namespace Code.Core.GameLoop
                 return instance;
             }
             
-            IGameListeners[] listeners = instance.GetComponentsInChildren<IGameListeners>(true).ToArray();
+            IGameListener[] listeners = instance.GetComponentsInChildren<IGameListener>(true).ToArray();
 
-            foreach (IGameListeners listener in listeners)
+            foreach (IGameListener listener in listeners)
             {
                 _gameEventDispatcher.AddRuntimeListener(listener);
             }
@@ -44,9 +44,9 @@ namespace Code.Core.GameLoop
                 return instance;
             }
             
-            IGameListeners[] listeners = instance.GetComponentsInChildren<IGameListeners>(true).ToArray();
+            IGameListener[] listeners = instance.GetComponentsInChildren<IGameListener>(true).ToArray();
 
-            foreach (IGameListeners listener in listeners)
+            foreach (IGameListener listener in listeners)
             {
                 _gameEventDispatcher.AddRuntimeListener(listener);
             }
@@ -63,9 +63,9 @@ namespace Code.Core.GameLoop
                 return instance;
             }
 
-            IGameListeners[] listeners = instance.GetComponentsInChildren<IGameListeners>(true).ToArray();
+            IGameListener[] listeners = instance.GetComponentsInChildren<IGameListener>(true).ToArray();
 
-            foreach (IGameListeners listener in listeners)
+            foreach (IGameListener listener in listeners)
             {
                 _gameEventDispatcher.AddRuntimeListener(listener);
             }
@@ -75,9 +75,9 @@ namespace Code.Core.GameLoop
 
         public static void Destroy(GameObject instance)
         {
-            IGameListeners[] listeners = instance.GetComponentsInChildren<IGameListeners>(true).ToArray();
+            IGameListener[] listeners = instance.GetComponentsInChildren<IGameListener>(true).ToArray();
 
-            foreach (IGameListeners listener in listeners)
+            foreach (IGameListener listener in listeners)
             {
                 _gameEventDispatcher.RemoveRuntimeListener(listener);
             }

@@ -55,7 +55,7 @@ namespace Code.Core.ServiceLocator
             _createTypes(ref _services);
         }
 
-        public T GetConfig<T>() where T : ScriptableObject
+        public T GetConfiguration<T>() where T : ScriptableObject
         {
             foreach (ScriptableObject scriptableObject in _configs)
             {
@@ -81,9 +81,9 @@ namespace Code.Core.ServiceLocator
             return default;
         }
         
-        public List<IGameListeners> GetGameListeners()
+        public List<IGameListener> GetGameListeners()
         {
-            return _getContainerComponents<IGameListeners>();
+            return _getContainerComponents<IGameListener>();
         }
 
         public List<IProgressReader> GetProgressReaders()

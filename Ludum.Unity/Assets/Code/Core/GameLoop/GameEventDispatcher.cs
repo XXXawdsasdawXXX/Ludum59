@@ -22,16 +22,18 @@ namespace Code.Core.GameLoop
             Exit
         }
 
-       // private UniWindowController _controller;
+        // private UniWindowController _controller;
 
         private readonly List<IInitializeListener> _initListeners = new List<IInitializeListener>();
         private readonly List<ILoadListener> _loadListeners = new List<ILoadListener>();
         private readonly List<IStartListener> _startListeners = new List<IStartListener>();
         private readonly List<IUpdateListener> _updateListeners = new List<IUpdateListener>();
+        private readonly List<IFixedUpdateListener> _fixedUpdateListeners = new List<IFixedUpdateListener>();
         private readonly List<IExitListener> _exitListeners = new List<IExitListener>();
-        private readonly List<ISubscriber> _subscribers = new  List<ISubscriber>();
+        private readonly List<ISubscriber> _subscribers = new List<ISubscriber>();
 
-        private readonly Dictionary<IUpdateListener, string> _updateListenerName = new Dictionary<IUpdateListener, string>();
+        private readonly Dictionary<IUpdateListener, string> _updateListenerName =
+            new Dictionary<IUpdateListener, string>();
 
         private ProfilerMarker _updateMarker = new ProfilerMarker("update");
 
@@ -40,21 +42,19 @@ namespace Code.Core.GameLoop
         private void Awake()
         {
             _initializeListeners();
-            
+
             //_controller = Container.Instance.GetUniWindowController();
             _bootGame(); // когда вернем кирубо - удаляем строку и возвращаем закомментированный код
-            
+
             if (Application.isEditor)
             {
-            //    _controller.gameObject.SetActive(false);
-              
-             //   _bootGame();
-                
+                //    _controller.gameObject.SetActive(false);
+
+                //   _bootGame();
             }
             else
             {
                 //_controller.OnStateChanged += _onWindowInitialized;
-                
             }
         }
 
@@ -63,7 +63,7 @@ namespace Code.Core.GameLoop
             await UniTask.WaitUntil(() => _currentState is State.Start);
 
             await _notifyGameStart();
-            
+
             _currentState = State.Update;
         }
 
@@ -75,6 +75,15 @@ namespace Code.Core.GameLoop
             }
         }
 
+        private void FixedUpdate()
+        {
+            if (_currentState is State.Update)
+            {
+                _notifyGameFixedUpdate();
+            }
+        }
+
+
         private void OnApplicationQuit()
         {
             if (_currentState > State.Subscribe)
@@ -83,7 +92,7 @@ namespace Code.Core.GameLoop
             }
         }
 
-        public async void AddRuntimeListener(IGameListeners listener)
+        public async void AddRuntimeListener(IGameListener listener)
         {
             if (listener is IInitializeListener initListener) await initListener.GameInitialize();
 
@@ -97,14 +106,18 @@ namespace Code.Core.GameLoop
 
             if (listener is IStartListener startListener) await startListener.GameStart();
 
-            if (listener is IUpdateListener tickListener) _updateListeners.Add(tickListener);
+            if (listener is IUpdateListener updateListener) _updateListeners.Add(updateListener);
+            
+            if (listener is IFixedUpdateListener fixedUpdateListener) _fixedUpdateListeners.Add(fixedUpdateListener);
 
             if (listener is IExitListener exitListener) _exitListeners.Add(exitListener);
         }
 
-        public void RemoveRuntimeListener(IGameListeners listener)
+        public void RemoveRuntimeListener(IGameListener listener)
         {
-            if (listener is IUpdateListener tickListener) _updateListeners.Remove(tickListener);
+            if (listener is IUpdateListener updateListener) _updateListeners.Remove(updateListener);
+            
+            if (listener is IFixedUpdateListener fixedUpdateListener) _fixedUpdateListeners.Remove(fixedUpdateListener);
 
             if (listener is IExitListener exitListener) _exitListeners.Remove(exitListener);
 
@@ -125,18 +138,21 @@ namespace Code.Core.GameLoop
             {
                 _currentState = State.Initialize;
             }
+
             await _notifyGameInitialize();
 
             using (new ProfilerMarker("Subscribe").Auto())
             {
                 _currentState = State.Subscribe;
             }
+
             await _notifySubscribe();
 
             using (new ProfilerMarker("Load").Auto())
             {
                 _currentState = State.Load;
             }
+
             await _notifyGameLoad();
 
             _currentState = State.Start;
@@ -156,9 +172,9 @@ namespace Code.Core.GameLoop
 
         private void _initializeListeners()
         {
-            List<IGameListeners> gameListeners = Container.Instance.GetGameListeners();
+            List<IGameListener> gameListeners = Container.Instance.GetGameListeners();
 
-            foreach (IGameListeners listener in gameListeners)
+            foreach (IGameListener listener in gameListeners)
             {
                 if (listener is IInitializeListener initListener) _initListeners.Add(initListener);
 
@@ -168,7 +184,9 @@ namespace Code.Core.GameLoop
 
                 if (listener is IStartListener startListener) _startListeners.Add(startListener);
 
-                if (listener is IUpdateListener tickListener) _updateListeners.Add(tickListener);
+                if (listener is IUpdateListener updateListener) _updateListeners.Add(updateListener);
+                
+                if (listener is IFixedUpdateListener fixedUpdateListener) _fixedUpdateListeners.Add(fixedUpdateListener);
 
                 if (listener is IExitListener exitListener) _exitListeners.Add(exitListener);
             }
@@ -196,7 +214,7 @@ namespace Code.Core.GameLoop
             {
                 subscriber.Subscribe();
             }
-            
+
             return UniTask.CompletedTask;
         }
 
@@ -233,6 +251,14 @@ namespace Code.Core.GameLoop
 #endif
         }
 
+        private void _notifyGameFixedUpdate()
+        {
+            foreach (IFixedUpdateListener listener in _fixedUpdateListeners)
+            {
+                listener.GameFixedUpdate();
+            }
+        }
+
         private void _notifyGameExit()
         {
 #if UNITY_EDITOR
@@ -247,6 +273,7 @@ namespace Code.Core.GameLoop
             {
                 listener.GameExit();
             }
+
             marker.End();
 #else
             foreach (ISubscriber subscriber in _subscribers)
