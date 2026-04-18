@@ -112,7 +112,7 @@
 			<value>8</value>
 		</property>
 		<property name="volume">
-			<value>8</value>
+			<value>5</value>
 		</property>
 		<property name="soundStealing">
 			<value>3</value>
@@ -150,9 +150,6 @@
 	<object class="SoundScatterer" id="{2256183e-2843-435e-ac22-ad1390b492ab}">
 		<property name="length">
 			<value>8</value>
-		</property>
-		<property name="volume">
-			<value>3.5</value>
 		</property>
 		<property name="soundStealing">
 			<value>3</value>
