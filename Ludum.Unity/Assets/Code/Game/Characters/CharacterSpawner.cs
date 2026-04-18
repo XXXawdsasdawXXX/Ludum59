@@ -1,7 +1,6 @@
 ﻿using System;
 using Code.Core.Pools;
 using Code.Core.ServiceLocator;
-using TriInspector;
 using UnityEngine;
 
 namespace Code.Game.Characters
@@ -14,16 +13,17 @@ namespace Code.Game.Characters
         [SerializeField] protected int maxCharactersCount = 1;
         
 
-        [Button]
-        public void Spawn(Vector2 position)
+        public TCharacter Spawn(Vector2 position)
         {
-            Character character = Pool.GetNext();
+            TCharacter character = Pool.GetNext();
 
             character.InitializeComponents();
             
             character.transform.position = position;
             
             character.Enable();
+
+            return character;
         }
         
         public bool CanSpawn()

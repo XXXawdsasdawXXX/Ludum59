@@ -4,12 +4,14 @@ using UnityEngine;
 
 namespace Code.Game.Characters.Player
 {
-    public class PlayerSpawner : CharacterSpawner<PlayerView>, IStartListener
+    public class PlayerSpawner : CharacterSpawner<PlayerView>, IInitializeListener
     {
-        public UniTask GameStart()
+        public PlayerView Player;
+
+        public UniTask GameInitialize()
         {
-            Spawn(Vector2.zero);
-            
+            Player = Spawn(Vector2.zero);
+
             return UniTask.CompletedTask;
         }
     }
