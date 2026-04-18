@@ -1,4 +1,5 @@
-﻿using FoW;
+﻿using Code.Core.ServiceLocator;
+using FoW;
 using UnityEngine;
 
 namespace Code.Game.Characters.Player
@@ -13,18 +14,34 @@ namespace Code.Game.Characters.Player
         
         public override void InitializeComponents()
         {
-            Stats = new PlayerStats();
+            PlayerConfiguration playerConfiguration = Container.Instance.GetConfiguration<PlayerConfiguration>();
             
+            Stats = new PlayerStats
+            {
+                Energy =
+                {
+                    PropertyValue = playerConfiguration.MaxEnergy
+                },
+                Health =
+                {
+                    PropertyValue = playerConfiguration.MaxHealth
+                }
+            };
+
             PlayerMovement movement = new(this);
             Components.Add(typeof(PlayerMovement), movement);
 
             PlayerCamera playerCamera = new(this);
             Components.Add(typeof(PlayerCamera), playerCamera);
 
-            PlayerFog fog = new PlayerFog(this);
+            PlayerFog fog = new(this);
             Components.Add(typeof(PlayerFog), fog);
+
+            PlayerRadar radar = new(this);
+            Components.Add(typeof(PlayerRadar), radar);
             
-            movement.Condition.Add(() => true);
+            radar.Condition.Add(() => Stats.Energy.PropertyValue >= playerConfiguration.RadarEnergyPrice);
+            movement.Condition.Add(() => Stats.Health.PropertyValue > 0);
         }
     }
 }

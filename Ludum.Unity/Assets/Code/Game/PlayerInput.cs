@@ -13,11 +13,14 @@ namespace Code.Game
     {
         private const string HORIZONTAL_AXIS_NAME = "Horizontal";
         private const string VERTICAL_AXIS_NAME = "Vertical";
-        private const KeyCode ACTION_KEY = KeyCode.Space;
+        
+        private const KeyCode ULT_KEY = KeyCode.Space;
+        private const KeyCode RADAR_KEY = KeyCode.LeftShift;
 
         public Action UltPressed;
+        public Action RadarPressed;
+        
         public ReactiveProperty<Vector2> Forward { get; private set; }
-
         
         public UniTask GameStart()
         {
@@ -34,9 +37,14 @@ namespace Code.Game
 
             Forward.PropertyValue = input;
 
-            if (Input.GetKeyDown(ACTION_KEY))
+            if (Input.GetKeyDown(ULT_KEY))
             {
                 UltPressed?.Invoke();
+            }
+            
+            if (Input.GetKeyDown(RADAR_KEY))
+            {
+                RadarPressed?.Invoke();
             }
         }
     }
