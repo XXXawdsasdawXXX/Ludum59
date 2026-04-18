@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Models>k__BackingField:
   - <Type>k__BackingField: 0
-    <Sprite>k__BackingField: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    <Sprite>k__BackingField: {fileID: -934356509, guid: d72f21d110382a44bb1ea1ae5a405109, type: 3}
     <Size>k__BackingField: 0
-    <Speed>k__BackingField: 5
+    <Speed>k__BackingField: 2
   - <Type>k__BackingField: 1
-    <Sprite>k__BackingField: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    <Sprite>k__BackingField: {fileID: -745640491, guid: d72f21d110382a44bb1ea1ae5a405109, type: 3}
     <Size>k__BackingField: 1
-    <Speed>k__BackingField: 3
+    <Speed>k__BackingField: 1
