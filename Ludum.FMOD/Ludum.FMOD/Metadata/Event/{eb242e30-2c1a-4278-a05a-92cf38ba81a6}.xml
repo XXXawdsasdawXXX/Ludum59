@@ -112,7 +112,7 @@
 			<value>8</value>
 		</property>
 		<property name="volume">
-			<value>6</value>
+			<value>8</value>
 		</property>
 		<property name="soundStealing">
 			<value>3</value>
@@ -152,7 +152,7 @@
 			<value>8</value>
 		</property>
 		<property name="volume">
-			<value>2</value>
+			<value>2.5</value>
 		</property>
 		<property name="soundStealing">
 			<value>3</value>
@@ -170,7 +170,7 @@
 			<value>7</value>
 		</property>
 		<property name="volumeRandomization">
-			<value>-4</value>
+			<value>-3.5</value>
 		</property>
 		<property name="pitchRandomization">
 			<value>1</value>
