@@ -29,22 +29,26 @@ namespace Code.Game.Characters
         
         public void Enable()
         {
+            GameEventDispatcher eventDispatcher = Container.Instance.GetService<GameEventDispatcher>();
+         
             foreach (KeyValuePair<Type,ICharacterComponent> component in Components)
             {
                 if (component.Value is IGameListener listener)
                 {
-                    Container.Instance.GetService<GameEventDispatcher>().AddRuntimeListener(listener);
+                    eventDispatcher.AddRuntimeListener(listener);
                 }
             }
         }
 
         public void Disable()
         {
+            GameEventDispatcher eventDispatcher = Container.Instance.GetService<GameEventDispatcher>();
+
             foreach (KeyValuePair<Type,ICharacterComponent> component in Components)
             {
                 if (component.Value is IGameListener listener)
                 {
-                    Container.Instance.GetService<GameEventDispatcher>().RemoveRuntimeListener(listener);
+                    eventDispatcher.RemoveRuntimeListener(listener);
                 }
             }
         }

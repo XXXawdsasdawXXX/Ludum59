@@ -12,6 +12,8 @@ namespace Code.Game.Characters.Player
         [field: SerializeField] public Rigidbody2D Rigidbody2D { get; set; }
         [field: SerializeField] public PlayerModel Model { get; private set; }
         [field: SerializeField] public FogOfWarUnit FogOfWarUnit { get; private set; } 
+        [field: SerializeField] public Trigger RadarTrigger { get; private set; } 
+        [field: SerializeField] public CircleCollider2D RadarCircle { get; private set; } 
         
         
         public override void InitializeComponents()

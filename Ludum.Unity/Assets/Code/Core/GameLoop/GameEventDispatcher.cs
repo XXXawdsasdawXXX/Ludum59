@@ -210,9 +210,7 @@ namespace Code.Core.GameLoop
         
         private void _notifyGameUpdate()
         {
-            List<IUpdateListener> list = new(_updateListeners);
-
-            foreach (IUpdateListener listener in list)
+            foreach (IUpdateListener listener in _updateListeners)
             {
                 listener.GameUpdate();
             }

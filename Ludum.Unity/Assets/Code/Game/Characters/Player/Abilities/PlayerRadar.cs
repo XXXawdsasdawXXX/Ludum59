@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using Code.Core.GameLoop;
 using Code.Core.ServiceLocator;
+using Code.Game.Characters.Enemy;
 using Code.Tools;
 using FMODUnity;
 using UnityEngine;
@@ -13,64 +15,101 @@ namespace Code.Game.Characters.Player.Abilities
         public Action Used;
         public Condition Condition { get; } = new();
         public Timer Cooldown { get; }
-        
-        private readonly PlayerModel _model;
+
         private readonly PlayerInput _input;
+        private readonly PlayerView _view;
 
         private readonly AudioConfiguration _audioConfiguration;
-        
+        private readonly List<EnemyView> _observedEnemy = new();
+
+        private bool _isActive;
+
 
         public PlayerRadar(PlayerView view)
         {
-            Debug.Log("construct radar");
-            _model = view.Model;
+            _view = view;
+ 
             _input = Container.Instance.GetService<PlayerInput>();
-
             _audioConfiguration = Container.Instance.GetConfiguration<AudioConfiguration>();
 
-            Cooldown = new Timer(_model.Radar.Cooldown);
-            Cooldown.Finish();
+            Cooldown = new Timer();
         }
-        
+
         public void Subscribe()
         {
             _input.RadarPressed += _onRadarPressed;
-            
-            _model.Radar.PerkDuration.SubscribeToValue(_updateCooldownValue);
+            _view.Model.Radar.PerkRadius.SubscribeToValue(_updateRadius);
+            _view.RadarTrigger.Enter += _onTriggerEnter;
+            _view.RadarTrigger.Exit += _onTriggerExit;
         }
-
+        
         public void Unsubscribe()
         {
             _input.RadarPressed -= _onRadarPressed;
+            _view.Model.Radar.PerkRadius.UnsubscibeFromValue(_updateRadius);
+            _view.RadarTrigger.Enter -= _onTriggerEnter;
+            _view.RadarTrigger.Exit -= _onTriggerExit;
         }
 
         public void GameUpdate()
         {
-            if (Cooldown.AreMet())
+            if (_isActive && Cooldown.IsFinish())
             {
-                return;
+                foreach (EnemyView enemyView in _observedEnemy)
+                {
+                    enemyView.Model.ShowMarker.PropertyValue = false;
+                }
+                
+                _isActive = false;
             }
-
-            Cooldown.Update(Time.deltaTime);
         }
 
         private void _onRadarPressed()
         {
-            if (Condition.AreMet() && Cooldown.AreMet())
+            if (Condition.AreMet() && Cooldown.IsFinish())
             {
-                Used?.Invoke();
-                
-                _model.Energy.PropertyValue -= _model.Radar.EnergyPrice;
-                
+                _isActive = true;
+
+                _view.Model.Energy.PropertyValue -= _view.Model.Radar.EnergyPrice;
+
+                Cooldown.Start(_view.Model.Radar.Duration + _view.Model.Radar.PerkDuration.PropertyValue);
+
                 RuntimeManager.PlayOneShot(_audioConfiguration.Radar);
+
+                foreach (EnemyView enemyView in _observedEnemy)
+                {
+                    enemyView.Model.ShowMarker.PropertyValue = true;
+                }
                 
-                Cooldown.Reset();
+                Used?.Invoke();
+            }
+        }
+        
+        private void _updateRadius(float perkRadius)
+        {
+            _view.RadarCircle.radius = _view.Model.Radar.Radius + perkRadius;
+        }
+        
+        private void _onTriggerExit(GameObject obj)
+        {
+            if (obj.TryGetComponent(out EnemyView enemyView))
+            {
+                enemyView.Model.ShowMarker.PropertyValue = false;
+                _observedEnemy.Remove(enemyView);
             }
         }
 
-        private void _updateCooldownValue(float perkCooldown)
+        private void _onTriggerEnter(GameObject obj)
         {
-            Cooldown.SetMaxTime(_model.Radar.Cooldown + perkCooldown);
+            if (obj.TryGetComponent(out EnemyView enemyView))
+            {
+                if (_isActive)
+                {
+                    enemyView.Model.ShowMarker.PropertyValue = true;
+                }
+                
+                _observedEnemy.Add(enemyView);
+            }
         }
     }
 }

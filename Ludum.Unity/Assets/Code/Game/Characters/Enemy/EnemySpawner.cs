@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Code.Core.GameLoop;
+using Code.Game.World;
 using Cysharp.Threading.Tasks;
+using PolyNav;
 using TriInspector;
 using UnityEngine;
 
@@ -8,18 +10,27 @@ namespace Code.Game.Characters.Enemy
 {
     public class EnemySpawner : CharacterSpawner<EnemyView>, IStartListener
     {
+        [SerializeField] private PolyNavMap _map;
+        
         public UniTask GameStart()
         {
-            for (int i = 0; i < Random.Range(2, 5); i++)
+            for (int i = 0; i < Random.Range(20, 50); i++)
             {
-                Vector2 position = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5));
-                _spawn((EEnemyType)Random.Range(0,2), position);
+                if (_map.GetRandomPoint(out Vector2 randomPoint))
+                {
+                    _spawn((EEnemyType)Random.Range(0,2), randomPoint);
+                }
+
+                if (!canSpawn())
+                {
+                    break;
+                }
             }
             
             return UniTask.CompletedTask;
         }
 
-        public List<EnemyView> GetNearEnemies(Transform target, float distance)
+        public IEnumerable<EnemyView> GetNearEnemies(Transform target, float distance)
         {
             IReadOnlyList<EnemyView> allEnabled = Pool.GetAllEnabled();
     
@@ -47,12 +58,14 @@ namespace Code.Game.Characters.Enemy
         {
             EnemyView character = Pool.GetNext();
 
-            character.InitializeComponents();
-
+            character.transform.position = position;
+            
             character.SetType(enemyType);
 
-            character.transform.position = position;
-
+            character.InitializeComponents();
+            
+            Spawner.ConnectToGameLoop(character.gameObject);
+            
             character.Enable();
         }
     }

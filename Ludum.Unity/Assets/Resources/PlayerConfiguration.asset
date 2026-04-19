@@ -23,9 +23,9 @@ MonoBehaviour:
     Cooldown: 20
     PerkCooldown:
       _propertyValue: -7
-    Radius: 1.2
+    Radius: 3.2
     PerkRadius:
-      _propertyValue: 0
+      _propertyValue: 0.8
     ShownCoolStuff:
       _propertyValue: 1
     ShowEnemyForwardDuration:

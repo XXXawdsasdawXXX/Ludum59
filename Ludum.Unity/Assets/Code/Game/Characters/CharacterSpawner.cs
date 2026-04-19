@@ -12,8 +12,7 @@ namespace Code.Game.Characters
      
         [SerializeField] protected int maxCharactersCount = 1;
         
-
-        public TCharacter Spawn(Vector2 position)
+        protected TCharacter spawn(Vector2 position)
         {
             TCharacter character = Pool.GetNext();
 
@@ -23,16 +22,14 @@ namespace Code.Game.Characters
             
             character.Enable();
 
+            Spawner.ConnectToGameLoop(character.gameObject);
+            
             return character;
         }
         
-        public bool CanSpawn()
+        protected bool canSpawn()
         {
             return Pool.Count() < maxCharactersCount;
         }
-        
-        //todo despawn
-
-
     }
 }

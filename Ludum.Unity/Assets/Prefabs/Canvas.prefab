@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7058824}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
@@ -398,6 +398,7 @@ MonoBehaviour:
   <Rect>k__BackingField: {fileID: 4007538279722413045}
   <Image>k__BackingField: {fileID: 4007538279722413044}
   _defaultSize: {x: 1000, y: 1000}
+  _enemyView: {fileID: 0}
 --- !u!1 &4007538279783869767
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,11 +475,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Rect>k__BackingField: {fileID: 4007538279783869766}
   root: {fileID: 4007538279783869766}
-  MarkerPool:
-    _root: {fileID: 4007538279783869766}
-    _prefab: {fileID: 7587650201463010207, guid: 8de07981294b7bb45832504041cf7dad, type: 3}
-    _all: []
-    _enabled: []
   <MainCircle>k__BackingField: {fileID: 4007538279722413046}
 --- !u!223 &4007538279783869787
 Canvas:
@@ -970,6 +966,7 @@ MonoBehaviour:
   <Rect>k__BackingField: {fileID: 1782944648241200486}
   root: {fileID: 1782944648241200486}
   <Fill>k__BackingField: {fileID: 4404853954397465569}
+  <Background>k__BackingField: {fileID: 3457662943854130508}
 --- !u!1 &7220388765612942248
 GameObject:
   m_ObjectHideFlags: 0

@@ -234,7 +234,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 233
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -311,9 +311,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AssetsPPU: 80
-  m_RefResolutionX: 320
-  m_RefResolutionY: 180
+  m_AssetsPPU: 320
+  m_RefResolutionX: 1920
+  m_RefResolutionY: 1080
   m_UpscaleRT: 1
   m_PixelSnapping: 0
   m_CropFrameX: 1
@@ -418,7 +418,8 @@ MonoBehaviour:
     _prefab: {fileID: 5899132126634959798, guid: d42639cae7ad76c42abbb1b13db7af27, type: 3}
     _all: []
     _enabled: []
-  maxCharactersCount: 1
+  maxCharactersCount: 10
+  _map: {fileID: 1319776027}
 --- !u!1 &1273415093
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,8 +464,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
-  mapResolution: {x: 2048, y: 2048}
-  mapSize: 128
+  mapResolution: {x: 128, y: 128}
+  mapSize: 16
   mapOffset: {x: 0, y: 0}
   plane: 0
   physics: 1
@@ -472,11 +473,11 @@ MonoBehaviour:
   updateUnits: 1
   updateAutomatically: 1
   outputToTexture: 1
-  fadeDuration: 0.2
-  blurType: 1
-  blurIterations: 15
+  fadeDuration: 0.1
+  blurType: 0
+  blurIterations: 5
   lineOfSightAntiAliasing: 0
-  renderType: 0
+  renderType: 1
   multithreaded: 0
   threads: 2
   maxMillisecondsPerFrame: 5
@@ -497,6 +498,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1319776027 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6225079517791780049, guid: 223c123fef868a04ab6e8ce2b4f3c691, type: 3}
+  m_PrefabInstance: {fileID: 6225079515987174682}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f01b895e078212419b3a7c52085d19e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1380822528
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,6 +754,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6225079517791780048, guid: 223c123fef868a04ab6e8ce2b4f3c691, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6225079517791780048, guid: 223c123fef868a04ab6e8ce2b4f3c691, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: -14.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6225079517791780048, guid: 223c123fef868a04ab6e8ce2b4f3c691, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
+      value: -5.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6225079517791780051, guid: 223c123fef868a04ab6e8ce2b4f3c691, type: 3}
       propertyPath: m_Name
       value: Map

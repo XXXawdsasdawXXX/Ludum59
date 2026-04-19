@@ -10,39 +10,26 @@ using UnityEngine;
 
 namespace Code.Game.Characters.Enemy
 {
-    public class EnemyView : Character, IInitializeListener
+    public class EnemyView : Character, ISubscriber
     {
         [field: SerializeField] public EnemyRender Render { get; private set; }
         [field: SerializeField] public PolyNavAgent Agent { get; private set; }
         [ShowInInspector, ReadOnly] public EEnemyType Type { get; private set; }
         [ShowInInspector, ReadOnly] public EnemyModel Model { get; private set; }
+
+        [SerializeField] private Trigger _rangeTrigger;
+        [SerializeField] private Trigger _milleTrigger;
+        
         private MapView _mapView;
         
-        
-        public UniTask GameInitialize()
-        {
-            _mapView = Container.Instance.GetView<MapView>();
-            return UniTask.CompletedTask;
-        }
-        
-        public override void InitializeComponents()
-        {
-            EnemyMovement enemyMovement = new(this);
-            Components.Add(typeof(EnemyMovement), enemyMovement);
-
-            EnemyAnimation enemyAnimation = new EnemyAnimation(this);
-            Components.Add(typeof(EnemyAnimation), enemyAnimation);
-            
-            enemyMovement.Condition.Add(() => true);
-        }
-
         public void SetType(EEnemyType type)
         {
             Type = type;
             
             Model = Container.Instance.GetConfiguration<EnemiesConfiguration>()
                 .Models
-                .FirstOrDefault(m => m.Type == Type);
+                .FirstOrDefault(m => m.Type == Type)?
+                .Clone();
 
             if (Model == null)
             {
@@ -50,11 +37,46 @@ namespace Code.Game.Characters.Enemy
                 return;
             }
             
-            Agent.maxSpeed = Model.Speed;
-            Agent.maxForce = Model.Speed;
-            Agent.map = _mapView.Maps[Math.Min(_mapView.Maps.Length - 1, Model.Size)];
-            
             Render.SetModel(Model);
+        }
+
+        public override void InitializeComponents()
+        {
+            EnemyMovement enemyMovement = new(this, transform.position);
+            Components.Add(typeof(EnemyMovement), enemyMovement);
+
+            EnemyAnimation enemyAnimation = new(this);
+            Components.Add(typeof(EnemyAnimation), enemyAnimation);
+            
+            enemyMovement.Condition.Add(() => Model.Follow.PropertyValue);
+        }
+        
+        public void Subscribe()
+        {
+            _milleTrigger.OnTrigger.SubscribeToValue(_onMilleTriggerEnter);
+            _rangeTrigger.OnTrigger.SubscribeToValue(_onRangeTriggerEnter);
+        }
+
+        public void Unsubscribe()
+        {
+            _milleTrigger.OnTrigger.UnsubscibeFromValue(_onMilleTriggerEnter);
+            _rangeTrigger.OnTrigger.UnsubscibeFromValue(_onRangeTriggerEnter);
+        }
+
+        private void _onRangeTriggerEnter(bool value)
+        {
+            if (value)
+            {
+                Model.Follow.PropertyValue = true;
+            }
+        }
+
+        private void _onMilleTriggerEnter(bool value)
+        {
+            if (Model.Follow.PropertyValue && !value)
+            {
+                Model.Follow.PropertyValue = false;
+            }
         }
     }
 }

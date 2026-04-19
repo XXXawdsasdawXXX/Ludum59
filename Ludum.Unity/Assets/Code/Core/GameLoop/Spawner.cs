@@ -44,14 +44,17 @@ namespace Code.Core.GameLoop
                 return instance;
             }
             
-            IGameListener[] listeners = instance.GetComponentsInChildren<IGameListener>(true).ToArray();
+            return instance;
+        }
+
+        public static void ConnectToGameLoop(GameObject gameObject)
+        {
+            IGameListener[] listeners = gameObject.GetComponentsInChildren<IGameListener>(true).ToArray();
 
             foreach (IGameListener listener in listeners)
             {
                 _gameEventDispatcher.AddRuntimeListener(listener);
             }
-
-            return instance;
         }
         
         public static T Instantiate<T>(T prefab, Vector3 position, Quaternion rotation) where T : MonoBehaviour

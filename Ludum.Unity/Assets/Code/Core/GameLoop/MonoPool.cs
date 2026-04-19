@@ -53,7 +53,9 @@ namespace Code.Core.GameLoop
         private T AddNewEntity()
         {
             T entity = Spawner.Instantiate(_prefab, _root);
+         
             _all.Add(entity);
+            
             return entity;
         }
 
