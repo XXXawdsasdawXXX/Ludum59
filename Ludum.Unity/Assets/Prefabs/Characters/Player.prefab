@@ -209,6 +209,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 5248118756415154199}
   _renderer: {fileID: 2694642843422969073}
+  _footstepEvent:
+    Guid:
+      Data1: -442934267
+      Data2: 1320394872
+      Data3: -857925756
+      Data4: -785998398
+    Path: event:/SFX/Player/Player Footsteps
+  _footstepCooldown: 0.1
 --- !u!212 &2694642843422969073
 SpriteRenderer:
   m_ObjectHideFlags: 0
