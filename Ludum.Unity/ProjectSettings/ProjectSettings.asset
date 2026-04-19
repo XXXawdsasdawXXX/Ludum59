@@ -78,7 +78,7 @@ PlayerSettings:
   androidAutoRotationBehavior: 1
   defaultIsNativeResolution: 1
   macRetinaSupport: 1
-  runInBackground: 0
+  runInBackground: 1
   captureSingleScreen: 0
   muteOtherAudioSources: 0
   Prepare IOS For Recording: 0
@@ -138,7 +138,8 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 1.0
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 11400000, guid: 996829f12972f66488c74982a34030ad, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -673,22 +674,22 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: DOTWEEN;DOTWEEN_NOAUDIO;DOTWEEN_NOPHYSICS
-    EmbeddedLinux: DOTWEEN;DOTWEEN_NOAUDIO;DOTWEEN_NOPHYSICS
-    GameCoreScarlett: DOTWEEN;DOTWEEN_NOAUDIO;DOTWEEN_NOPHYSICS
-    GameCoreXboxOne: DOTWEEN;DOTWEEN_NOAUDIO;DOTWEEN_NOPHYSICS
-    LinuxHeadlessSimulation: DOTWEEN;DOTWEEN_NOAUDIO;DOTWEEN_NOPHYSICS
-    Lumin: DOTWEEN;DOTWEEN_NOAUDIO;DOTWEEN_NOPHYSICS
-    Nintendo Switch: DOTWEEN;DOTWEEN_NOAUDIO;DOTWEEN_NOPHYSICS
-    PS4: DOTWEEN;DOTWEEN_NOAUDIO;DOTWEEN_NOPHYSICS
-    PS5: DOTWEEN;DOTWEEN_NOAUDIO;DOTWEEN_NOPHYSICS
-    Stadia: DOTWEEN;DOTWEEN_NOAUDIO;DOTWEEN_NOPHYSICS
-    Standalone: DOTWEEN;DOTWEEN_NOAUDIO;DOTWEEN_NOPHYSICS
-    WebGL: DOTWEEN;DOTWEEN_NOAUDIO;DOTWEEN_NOPHYSICS
-    Windows Store Apps: DOTWEEN;DOTWEEN_NOAUDIO;DOTWEEN_NOPHYSICS
-    XboxOne: DOTWEEN;DOTWEEN_NOAUDIO;DOTWEEN_NOPHYSICS
-    iPhone: DOTWEEN;DOTWEEN_NOAUDIO;DOTWEEN_NOPHYSICS
-    tvOS: DOTWEEN;DOTWEEN_NOAUDIO;DOTWEEN_NOPHYSICS
+    Android: DOTWEEN;DOTWEEN_NOAUDIO
+    EmbeddedLinux: DOTWEEN;DOTWEEN_NOAUDIO
+    GameCoreScarlett: DOTWEEN;DOTWEEN_NOAUDIO
+    GameCoreXboxOne: DOTWEEN;DOTWEEN_NOAUDIO
+    LinuxHeadlessSimulation: DOTWEEN;DOTWEEN_NOAUDIO
+    Lumin: DOTWEEN;DOTWEEN_NOAUDIO
+    Nintendo Switch: DOTWEEN;DOTWEEN_NOAUDIO
+    PS4: DOTWEEN;DOTWEEN_NOAUDIO
+    PS5: DOTWEEN;DOTWEEN_NOAUDIO
+    Stadia: DOTWEEN;DOTWEEN_NOAUDIO
+    Standalone: DOTWEEN;DOTWEEN_NOAUDIO
+    WebGL: DOTWEEN;DOTWEEN_NOAUDIO
+    Windows Store Apps: DOTWEEN;DOTWEEN_NOAUDIO
+    XboxOne: DOTWEEN;DOTWEEN_NOAUDIO
+    iPhone: DOTWEEN;DOTWEEN_NOAUDIO
+    tvOS: DOTWEEN;DOTWEEN_NOAUDIO
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
