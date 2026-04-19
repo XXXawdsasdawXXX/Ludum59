@@ -103,6 +103,7 @@
 			<destination>{40a5c195-98e9-4ed5-b784-1436e5e4a2df}</destination>
 			<destination>{4c9b407d-c499-4a3c-8a9e-f61bc22d7af2}</destination>
 			<destination>{89bd2862-cc30-4a8d-8149-c697670f8e66}</destination>
+			<destination>{781a0652-889d-47bf-a431-f9c10b2231e9}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{2597188c-72ec-4a92-adf2-5320b800357e}">
@@ -168,10 +169,21 @@
 	</object>
 	<object class="SingleSound" id="{89bd2862-cc30-4a8d-8149-c697670f8e66}">
 		<property name="startOffset">
-			<value>6</value>
+			<value>10</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{b6853818-531c-43ba-b203-168efe2c94b5}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{781a0652-889d-47bf-a431-f9c10b2231e9}">
+		<property name="startOffset">
+			<value>5.5</value>
+		</property>
+		<property name="pitch">
+			<value>-0.600000024</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{3f1b4066-b8f9-4ea9-87d5-74c880082eaf}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{3ba5d42e-a56f-4cf3-b71e-09379bd398e2}">
@@ -247,10 +259,10 @@
 			<value>72</value>
 		</property>
 		<property name="wetLevel">
-			<value>-10</value>
+			<value>-9</value>
 		</property>
 		<property name="dryLevel">
-			<value>-3</value>
+			<value>-4</value>
 		</property>
 	</object>
 	<object class="MultibandEqEffect" id="{67de913c-babe-4c94-a8b2-723112e3081e}">
@@ -281,7 +293,7 @@
 	</object>
 	<object class="GainEffect" id="{09ad71c0-dfd2-4c32-83b2-70193c094946}">
 		<property name="gain">
-			<value>2</value>
+			<value>3</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{f9b57b94-928a-4c3e-add6-10015ab5fd1f}" />
