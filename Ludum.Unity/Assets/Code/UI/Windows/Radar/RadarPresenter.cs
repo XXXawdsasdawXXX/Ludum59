@@ -28,11 +28,18 @@ namespace Code.UI.Windows.Radar
 
         public void Subscribe()
         {
-            _playerSpawner.Player.GetCharacterComponent<PlayerRadar>().Used += OnUsed;
+            _playerSpawner.PlayerSpawned += PlayerSpawnerOnPlayerSpawned;
+    
+        }
+
+        private void PlayerSpawnerOnPlayerSpawned(PlayerView obj)
+        {
+            obj.GetCharacterComponent<PlayerRadar>().Used += OnUsed;
         }
 
         public void Unsubscribe()
         {
+            _playerSpawner.PlayerSpawned -= PlayerSpawnerOnPlayerSpawned;
             _playerSpawner.Player.GetCharacterComponent<PlayerRadar>().Used -= OnUsed;
         }
 

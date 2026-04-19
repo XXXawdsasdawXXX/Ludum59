@@ -3,19 +3,19 @@ namespace Code.Tools
 {
     public class Timer
     {
-        private float _max;
-        private float _current;
+        public float Max { get; private set; }
+        public float Current { get; private set; }
 
         public Timer(float max)
         {
-            _max = max;
+            Max = max;
         }
 
         public bool Update(float value)
         {
-            _current += value;
+            Current += value;
 
-            if (_current < _max)
+            if (Current < Max)
             {
                 return false;
             }
@@ -25,17 +25,22 @@ namespace Code.Tools
 
         public void Finish()
         {
-            _current = _max;
+            Current = Max;
         }
         
         public void Reset()
         {
-            _current = 0;
+            Current = 0;
         }
 
         public bool AreMet()
         {
-            return _current >= _max;
+            return Current >= Max;
+        }
+
+        public void SetMaxTime(float max)
+        {
+            Max = max;
         }
     }
 }

@@ -13,3 +13,21 @@ MonoBehaviour:
   m_Name: PlayerConfiguration
   m_EditorClassIdentifier: 
   <Speed>k__BackingField: 2
+  <MaxHealth>k__BackingField: 100
+  <MaxEnergy>k__BackingField: 100
+  <Radar>k__BackingField:
+    EnergyPrice: 10
+    Duration: 7
+    PerkDuration:
+      _propertyValue: 4
+    Cooldown: 20
+    PerkCooldown:
+      _propertyValue: -7
+    Radius: 5
+    PerkRadius:
+      _propertyValue: 3
+    ShownCoolStuff:
+      _propertyValue: 1
+    ShowEnemyForwardDuration:
+      _propertyValue: 1
+  <StanEnergyPrice>k__BackingField: 1

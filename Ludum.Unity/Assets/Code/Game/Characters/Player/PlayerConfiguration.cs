@@ -10,9 +10,7 @@ namespace Code.Game.Characters.Player
         [field: SerializeField] public int MaxEnergy { get; private set; } = 100;
 
         [field: Header("Radar")]
-        [field: SerializeField] public int RadarEnergyPrice { get; private set; } = 1;
-        [field: SerializeField] public int RadarCooldown { get; private set; } = 8;
-        [field: SerializeField] public int RadarPerkCooldown { get; private set; } = -3;
+        [field: SerializeField] public RadarModel Radar { get; private set; }
         
         [field: Header("Stan")]
         [field: SerializeField] public int StanEnergyPrice { get; private set; } = 1;

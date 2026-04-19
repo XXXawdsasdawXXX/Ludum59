@@ -207,10 +207,10 @@ namespace Code.Core.GameLoop
                 await listener.GameStart();
             }
         }
-
+        
         private void _notifyGameUpdate()
         {
-            List<IUpdateListener> list = new List<IUpdateListener>(_updateListeners);
+            List<IUpdateListener> list = new(_updateListeners);
 
             foreach (IUpdateListener listener in list)
             {

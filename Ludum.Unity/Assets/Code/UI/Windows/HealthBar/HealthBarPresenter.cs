@@ -26,11 +26,18 @@ namespace Code.UI.Windows.HealthBar
 
         public void Subscribe()
         {
-            _playerSpawner.Player.Model.Health.SubscribeToValue(UpdateView);
+            _playerSpawner.PlayerSpawned += PlayerSpawnerOnPlayerSpawned;
+        }
+
+        private void PlayerSpawnerOnPlayerSpawned(PlayerView obj)
+        {
+            obj.Model.Health.SubscribeToValue(UpdateView);
+
         }
 
         public void Unsubscribe()
         {
+            _playerSpawner.PlayerSpawned -= PlayerSpawnerOnPlayerSpawned;
             _playerSpawner.Player.Model.Health.UnsubscibeFromValue(UpdateView);
         }
 

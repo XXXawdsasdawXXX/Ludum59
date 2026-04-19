@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Code.Game.Characters.Enemy
 {
-    public class EnemyMovement : ICharacterComponent, IUpdateListener
+    public class EnemyMovement : ICharacterComponent, ISubscriber, IUpdateListener
     {
         public Condition Condition { get; private set; } = new();
         
@@ -20,15 +20,31 @@ namespace Code.Game.Characters.Enemy
         public EnemyMovement(EnemyView view)
         {
             _agent = view.Agent;
+            
             _playerSpawner = Container.Instance.GetService<PlayerSpawner>();
         }
-        
+
+        public void Subscribe()
+        {
+            _playerSpawner.Player.GetCharacterComponent<PlayerRadar>().Used += OnRadarUsed;
+        }
+
         public void GameUpdate()
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 _agent.SetDestination(_playerSpawner.Pool.GetAll()[0].transform.position);
             }
+        }
+
+        public void Unsubscribe()
+        {
+            _playerSpawner.Player.GetCharacterComponent<PlayerRadar>().Used -= OnRadarUsed;
+        }
+
+        private void OnRadarUsed()
+        {
+            
         }
     }
 }

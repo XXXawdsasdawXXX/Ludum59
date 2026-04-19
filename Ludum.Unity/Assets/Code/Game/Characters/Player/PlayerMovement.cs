@@ -14,6 +14,7 @@ namespace Code.Game.Characters.Player
         private readonly PlayerModel _playerModel;
         private readonly PlayerConfiguration _playerConfiguration;
         
+        
         public PlayerMovement(PlayerView player)
         {
             _rigidbody2D = player.Rigidbody2D;
@@ -27,7 +28,7 @@ namespace Code.Game.Characters.Player
         {
             if (Condition.AreMet())
             {
-                Vector2 forward = _input.Forward.PropertyValue;
+                Vector2 forward = _input.Forward;
                 float speed = _playerConfiguration.Speed * _playerModel.SpeedMultiplayer;
                 _rigidbody2D.velocity = forward * speed;
             }

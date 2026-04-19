@@ -9,43 +9,37 @@ using Vector2 = UnityEngine.Vector2;
 
 namespace Code.Game
 {
-    public class PlayerInput : IService, IStartListener, IUpdateListener
+    public class PlayerInput : IService, IUpdateListener
     {
         private const string HORIZONTAL_AXIS_NAME = "Horizontal";
         private const string VERTICAL_AXIS_NAME = "Vertical";
         
-        private const KeyCode ULT_KEY = KeyCode.Space;
-        private const KeyCode RADAR_KEY = KeyCode.LeftShift;
+        private const KeyCode RADAR_KEY = KeyCode.Alpha1;
 
-        public Action UltPressed;
         public Action RadarPressed;
-        
-        public ReactiveProperty<Vector2> Forward { get; private set; }
-        
-        public UniTask GameStart()
-        {
-            Forward = new ReactiveProperty<Vector2>(Vector2.zero);
-            
-            return UniTask.CompletedTask;
-        }
+        public Vector2 Forward { get; private set; }
 
+        
+        private float cooldown;
+        private const float cooldownMax = 0.3f;
+        
         public void GameUpdate()
         {
-            Vector2 input = new Vector2(
+            Vector2 input = new(
                 Input.GetAxisRaw(HORIZONTAL_AXIS_NAME), 
                 Input.GetAxisRaw(VERTICAL_AXIS_NAME));
 
-            Forward.PropertyValue = input;
-
-            if (Input.GetKeyDown(ULT_KEY))
+            if (Forward != input)
             {
-                UltPressed?.Invoke();
+                Forward = input;
             }
-            
-            if (Input.GetKeyDown(RADAR_KEY))
+
+            cooldown -= Time.deltaTime;
+            if (Input.GetKeyDown(RADAR_KEY) && cooldown < 0) 
             {
                 Debug.Log("press radar");
                 RadarPressed?.Invoke();
+                cooldown = cooldownMax;
             }
         }
     }

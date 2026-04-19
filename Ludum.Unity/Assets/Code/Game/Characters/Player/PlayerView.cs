@@ -1,4 +1,5 @@
-﻿using Code.Core.ServiceLocator;
+﻿using System;
+using Code.Core.ServiceLocator;
 using Code.Game.FogOfWar;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ namespace Code.Game.Characters.Player
     {
         [field: SerializeField] public PlayerRender Renderer { get; private set; }
         [field: SerializeField] public Rigidbody2D Rigidbody2D { get; set; }
-        [field: SerializeField] public PlayerModel Model { get; set; }
+        [field: SerializeField] public PlayerModel Model { get; private set; }
         [field: SerializeField] public FogOfWarUnit FogOfWarUnit { get; private set; } 
         
         
@@ -34,8 +35,22 @@ namespace Code.Game.Characters.Player
             PlayerAnimation playerAnimation = new(this);
             Components.Add(typeof(PlayerAnimation), playerAnimation);
             
-            radar.Condition.Add(() => Model.Energy.PropertyValue >= playerConfiguration.RadarEnergyPrice);
+            radar.Condition.Add(() => Model.Energy.PropertyValue >= Model.Radar.EnergyPrice);
             movement.Condition.Add(() => Model.Health.PropertyValue > 0);
+        }
+
+        private void OnDrawGizmos()
+        {
+            if (Model != null)
+            {
+                Color color = Color.white;
+                color.a = 0.5f;
+                Gizmos.color = color;
+                
+                Gizmos.DrawSphere(transform.position, Model.Radar.Radius);
+                
+                Gizmos.DrawSphere(transform.position, Model.Radar.Radius + Model.Radar.PerkRadius.PropertyValue);
+            }
         }
     }
 }
