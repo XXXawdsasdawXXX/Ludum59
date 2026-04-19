@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{228cd309-60f7-4bb6-9098-fa266f9542dc}">
+		<property name="assetPath">
+			<value>sfx_mister_x_agro_loop.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>23</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c62893bc-ff35-4987-972f-338739a0a3a6}</destination>
+		</relationship>
+	</object>
+</objects>
