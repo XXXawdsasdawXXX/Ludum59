@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace MPUIKIT.Editor
+namespace Code.UI.MPUIKit.Editor.Scripts
 {
     public class MPImageShaderGUI : ShaderGUI
     {

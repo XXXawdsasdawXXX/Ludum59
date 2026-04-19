@@ -2,6 +2,7 @@
 using Code.Core.GameLoop;
 using Code.Core.ServiceLocator;
 using Code.Tools;
+using UnityEngine;
 
 namespace Code.Game.Characters.Player
 {
@@ -9,7 +10,7 @@ namespace Code.Game.Characters.Player
     {
         public Action Used;
         
-        public Condition Condition { get; private set; } = new Condition();
+        public Condition Condition { get; } = new();
         
         private readonly PlayerStats _stats;
         private readonly PlayerInput _input;

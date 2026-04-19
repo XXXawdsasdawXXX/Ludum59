@@ -1,11 +1,13 @@
 using System;
 using Code.Core.GameLoop;
+using Code.UI.Base;
+using Code.UI.Elements.ButtonImpacts;
 using Code.UI.Models;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Code.UI
+namespace Code.UI.Elements
 {
     public class UIButton : UIComponent, IInitializeListener,
     IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler

@@ -1,9 +1,9 @@
 using Code.Tools;
-using Code.UI.RadioButtonImpact;
+using Code.UI.Elements.RadioButtonImpact;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace Code.UI
+namespace Code.UI.Elements
 {
     public class UIRadioButton : UIButton
     {

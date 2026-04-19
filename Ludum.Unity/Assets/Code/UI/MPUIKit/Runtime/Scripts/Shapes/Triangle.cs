@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace MPUIKIT {
+namespace Code.UI.MPUIKit.Runtime.Scripts.Shapes {
     /// <summary>
     /// Isosceles triangle where two sides of the triangle are equal. Width and height of the shape is
     /// the same as the rect-transform

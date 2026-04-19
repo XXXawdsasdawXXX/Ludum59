@@ -1,7 +1,7 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace Code.UI
+namespace Code.UI.Base
 {
     public class UIView : UIComponent
     {

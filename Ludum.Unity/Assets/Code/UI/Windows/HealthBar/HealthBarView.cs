@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using Code.UI.Base;
+using UnityEngine;
 using UnityEngine.UI;
 
-namespace Code.UI.Windows
+namespace Code.UI.Windows.HealthBar
 {
     public class HealthBarView : UIView
     {

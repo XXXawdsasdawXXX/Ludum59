@@ -1,8 +1,9 @@
+using Code.UI.MPUIKit.Runtime.Scripts;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MPUIKIT.Editor {
+namespace Code.UI.MPUIKit.Editor.Scripts {
     public static class MPEditorUtility {
         public static void CornerRadiusModeGUI(Rect rect, ref SerializedProperty property, string[] toolBarHeading,
             string label = "Corner Radius") {

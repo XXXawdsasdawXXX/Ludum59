@@ -1,7 +1,8 @@
+using Code.UI.MPUIKit.Runtime.Scripts.Shapes;
 using UnityEditor;
 using UnityEngine;
 
-namespace MPUIKIT.Editor {
+namespace Code.UI.MPUIKit.Editor.Scripts.ShapeDrawers {
     [CustomPropertyDrawer(typeof(NStarPolygon))]
     public class NStarPolygonPropertyDrawer : PropertyDrawer {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {

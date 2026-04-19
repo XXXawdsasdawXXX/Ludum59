@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace MPUIKIT {
+namespace Code.UI.MPUIKit.Runtime.Scripts.Shapes {
     /// <summary>
     /// Hexagon shape with two opposite parallel equal sides. It is basically a rectangle where two
     /// of it's sides are broken into halves and pulled out of the shape that creates two triangle tips

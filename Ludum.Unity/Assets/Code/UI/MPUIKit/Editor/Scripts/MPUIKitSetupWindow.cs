@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Code.UI.MPUIKit.Runtime.Scripts;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace MPUIKIT.Editor {
+namespace Code.UI.MPUIKit.Editor.Scripts {
     [InitializeOnLoad]
     public class MPUIKitSetupWindow : EditorWindow {
 

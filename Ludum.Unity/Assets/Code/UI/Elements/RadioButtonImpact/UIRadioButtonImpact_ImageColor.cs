@@ -4,7 +4,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Code.UI.RadioButtonImpact
+namespace Code.UI.Elements.RadioButtonImpact
 {
     [Serializable]
     public class UIRadioButtonImpact_ImageColor: UIRadioButtonImpact

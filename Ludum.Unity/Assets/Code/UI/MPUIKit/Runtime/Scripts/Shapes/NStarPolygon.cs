@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace MPUIKIT {
+namespace Code.UI.MPUIKit.Runtime.Scripts.Shapes {
     /// <summary>
     /// N-star polygon shape is equal sided uniform polygon shape with the ability to morph
     /// to a star corresponding to the original shape. ie: an equilateral pentagon will morph

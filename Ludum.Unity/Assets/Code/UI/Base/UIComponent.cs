@@ -1,11 +1,12 @@
 using Code.Core.Pools;
 using UnityEngine;
 
-namespace Code.UI
+namespace Code.UI.Base
 {
     public class UIComponent : MonoBehaviour, IPoolEntity
     {
         [field: SerializeField] public RectTransform Rect { get; private set; }
+
 
         public virtual void Enable()
         {

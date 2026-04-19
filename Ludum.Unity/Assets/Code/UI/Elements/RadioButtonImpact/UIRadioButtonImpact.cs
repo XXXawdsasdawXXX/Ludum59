@@ -1,6 +1,6 @@
 using System;
 
-namespace Code.UI.RadioButtonImpact
+namespace Code.UI.Elements.RadioButtonImpact
 {
     [Serializable]
     public abstract class UIRadioButtonImpact
