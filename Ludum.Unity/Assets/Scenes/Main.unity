@@ -167,6 +167,7 @@ MonoBehaviour:
   _configs:
   - {fileID: 11400000, guid: 83edc43477936cc4dab3e9f20b658ee9, type: 2}
   - {fileID: 11400000, guid: 8f2c19fbee0c7594cad148dcb3c24a9c, type: 2}
+  - {fileID: 11400000, guid: feb59774e9b95c542a94fdb4b17ed9af, type: 2}
 --- !u!4 &17229122
 Transform:
   m_ObjectHideFlags: 0
