@@ -111,9 +111,6 @@
 		<property name="length">
 			<value>8</value>
 		</property>
-		<property name="volume">
-			<value>5</value>
-		</property>
 		<property name="soundStealing">
 			<value>3</value>
 		</property>
@@ -151,23 +148,26 @@
 		<property name="length">
 			<value>8</value>
 		</property>
+		<property name="volume">
+			<value>-3.5</value>
+		</property>
 		<property name="soundStealing">
 			<value>3</value>
 		</property>
 		<property name="minimumTimeBetweenSounds">
-			<value>4500</value>
+			<value>4000</value>
 		</property>
 		<property name="maximumTimeBetweenSounds">
-			<value>17000</value>
+			<value>14500</value>
 		</property>
 		<property name="minimumScatterDistance">
-			<value>0</value>
+			<value>0.800000012</value>
 		</property>
 		<property name="maximumScatterDistance">
-			<value>7</value>
+			<value>6</value>
 		</property>
 		<property name="volumeRandomization">
-			<value>-3.5</value>
+			<value>-2</value>
 		</property>
 		<property name="pitchRandomization">
 			<value>1</value>
@@ -268,7 +268,6 @@
 	<object class="MixerBusEffectChain" id="{06d049ef-0461-4c2f-8372-7bb578470295}">
 		<relationship name="effects">
 			<destination>{ae4bf819-7d04-4bbb-b8b7-83e9e0aec6f4}</destination>
-			<destination>{608edf70-84a4-4ffe-8b34-66c03c490cf3}</destination>
 			<destination>{d1007fc6-0cfc-4850-aa39-a2d2c80f6d9b}</destination>
 		</relationship>
 	</object>
@@ -420,11 +419,6 @@
 		</property>
 		<property name="dryLevel">
 			<value>-6</value>
-		</property>
-	</object>
-	<object class="DistortionEffect" id="{608edf70-84a4-4ffe-8b34-66c03c490cf3}">
-		<property name="level">
-			<value>0.0299999993</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{d1007fc6-0cfc-4850-aa39-a2d2c80f6d9b}" />

@@ -17,6 +17,7 @@
 	<object class="MixerBusEffectChain" id="{69743cc2-7028-439d-ba0a-f4c7bb4c452f}">
 		<relationship name="effects">
 			<destination>{c0ac50b5-0976-45bf-b945-ba89844007e1}</destination>
+			<destination>{6156df9c-2a89-4fe0-8e95-3c8b51fb5ca5}</destination>
 			<destination>{f19d69b7-33c1-4376-a89a-3c98b49a9001}</destination>
 			<destination>{6b5585c5-e648-4a2a-a944-296067dc93b7}</destination>
 			<destination>{68d32b08-8cea-4bb0-bd05-2f16510f5f34}</destination>
@@ -28,9 +29,35 @@
 			<value>10</value>
 		</property>
 	</object>
+	<object class="MultibandEqEffect" id="{6156df9c-2a89-4fe0-8e95-3c8b51fb5ca5}">
+		<property name="filterTypeA">
+			<value>9</value>
+		</property>
+		<property name="filterTypeB">
+			<value>9</value>
+		</property>
+		<property name="frequencyA">
+			<value>95</value>
+		</property>
+		<property name="frequencyB">
+			<value>150</value>
+		</property>
+		<property name="qualityA">
+			<value>2.20000005</value>
+		</property>
+		<property name="qualityB">
+			<value>1.70000005</value>
+		</property>
+		<property name="gainA">
+			<value>-4</value>
+		</property>
+		<property name="gainB">
+			<value>-4</value>
+		</property>
+	</object>
 	<object class="CompressorEffect" id="{f19d69b7-33c1-4376-a89a-3c98b49a9001}">
 		<property name="threshold">
-			<value>-21</value>
+			<value>-24</value>
 		</property>
 		<property name="ratio">
 			<value>1.95000005</value>

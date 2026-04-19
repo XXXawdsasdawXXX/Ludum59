@@ -138,9 +138,6 @@
 		<property name="length">
 			<value>20</value>
 		</property>
-		<property name="volume">
-			<value>-2</value>
-		</property>
 		<property name="soundStealing">
 			<value>3</value>
 		</property>
@@ -148,16 +145,13 @@
 			<value>1000</value>
 		</property>
 		<property name="maximumTimeBetweenSounds">
-			<value>10000</value>
-		</property>
-		<property name="minimumScatterDistance">
-			<value>0</value>
+			<value>9000</value>
 		</property>
 		<property name="maximumScatterDistance">
-			<value>7</value>
+			<value>10</value>
 		</property>
 		<property name="volumeRandomization">
-			<value>-3</value>
+			<value>-2</value>
 		</property>
 		<property name="pitchRandomization">
 			<value>2</value>
@@ -198,7 +192,7 @@
 			<value>25</value>
 		</property>
 		<property name="volume">
-			<value>-9.5</value>
+			<value>-10</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{4d018154-2a06-46ce-b6e9-be2d111e2a20}</destination>
@@ -239,7 +233,7 @@
 			<value>25</value>
 		</property>
 		<property name="volume">
-			<value>-22</value>
+			<value>-21</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{77d54e9c-b53a-457e-a2b9-6ab4f0f9ce04}</destination>
@@ -344,6 +338,8 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{be35ef57-e2fa-45e7-9ac5-ba71317dd979}">
 		<relationship name="effects">
+			<destination>{8b997d78-9784-45d8-9138-9aee8515c944}</destination>
+			<destination>{c940828c-77d3-4788-897d-fc7912e50185}</destination>
 			<destination>{c228d638-7658-4c2e-93e4-d72e1cd68fe2}</destination>
 		</relationship>
 	</object>
@@ -372,6 +368,7 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{d63610c8-e09e-44b2-9977-c7cfc78e9891}">
 		<relationship name="effects">
+			<destination>{e09d12ab-7a48-42d2-a664-21fdcf49987a}</destination>
 			<destination>{2d63e67c-9dcf-4cb8-9a60-6a0fb1d86b83}</destination>
 		</relationship>
 	</object>
@@ -489,6 +486,31 @@
 			<value>1</value>
 		</property>
 	</object>
+	<object class="HighpassSimpleEffect" id="{8b997d78-9784-45d8-9138-9aee8515c944}">
+		<property name="cutoff">
+			<value>160</value>
+		</property>
+	</object>
+	<object class="MultibandEqEffect" id="{c940828c-77d3-4788-897d-fc7912e50185}">
+		<property name="filterTypeA">
+			<value>9</value>
+		</property>
+		<property name="filterTypeB">
+			<value>9</value>
+		</property>
+		<property name="frequencyA">
+			<value>120</value>
+		</property>
+		<property name="frequencyB">
+			<value>782.910095</value>
+		</property>
+		<property name="qualityA">
+			<value>0.5</value>
+		</property>
+		<property name="gainA">
+			<value>-11</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{c228d638-7658-4c2e-93e4-d72e1cd68fe2}" />
 	<object class="AutomationPoint" id="{8781733b-7632-4bd6-8168-2754c19623d7}">
 		<property name="position">
@@ -526,6 +548,26 @@
 		</property>
 		<property name="value">
 			<value>1</value>
+		</property>
+	</object>
+	<object class="MultibandEqEffect" id="{e09d12ab-7a48-42d2-a664-21fdcf49987a}">
+		<property name="filterTypeB">
+			<value>9</value>
+		</property>
+		<property name="frequencyA">
+			<value>3400</value>
+		</property>
+		<property name="frequencyB">
+			<value>58.7403564</value>
+		</property>
+		<property name="qualityA">
+			<value>0.5</value>
+		</property>
+		<property name="qualityB">
+			<value>0.599999964</value>
+		</property>
+		<property name="gainB">
+			<value>-4.13793182</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{2d63e67c-9dcf-4cb8-9a60-6a0fb1d86b83}" />
