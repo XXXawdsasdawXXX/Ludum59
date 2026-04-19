@@ -168,7 +168,7 @@
 	</object>
 	<object class="SingleSound" id="{89bd2862-cc30-4a8d-8149-c697670f8e66}">
 		<property name="startOffset">
-			<value>6</value>
+			<value>10</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{b6853818-531c-43ba-b203-168efe2c94b5}</destination>
@@ -250,7 +250,7 @@
 			<value>-10</value>
 		</property>
 		<property name="dryLevel">
-			<value>-3</value>
+			<value>-5</value>
 		</property>
 	</object>
 	<object class="MultibandEqEffect" id="{67de913c-babe-4c94-a8b2-723112e3081e}">
