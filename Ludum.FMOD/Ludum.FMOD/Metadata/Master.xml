@@ -28,13 +28,13 @@
 	</object>
 	<object class="LimiterEffect" id="{db882157-d64c-4295-83dc-7334544e284d}">
 		<property name="ceiling">
-			<value>-1</value>
+			<value>-2</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{d4f96c96-80b0-41ee-bd3e-6e20b706e123}" />
 	<object class="LoudnessMeter" id="{e7547e44-1705-4a1c-b184-c6e0a5104286}">
 		<property name="loudnessTarget">
-			<value>-19</value>
+			<value>-20</value>
 		</property>
 	</object>
 </objects>

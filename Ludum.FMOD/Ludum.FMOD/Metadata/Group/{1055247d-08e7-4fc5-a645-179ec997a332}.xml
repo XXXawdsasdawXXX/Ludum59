@@ -19,7 +19,9 @@
 			<destination>{c0ac50b5-0976-45bf-b945-ba89844007e1}</destination>
 			<destination>{6156df9c-2a89-4fe0-8e95-3c8b51fb5ca5}</destination>
 			<destination>{f19d69b7-33c1-4376-a89a-3c98b49a9001}</destination>
+			<destination>{b29dc0d6-a47a-4f4c-a45a-02cb8d139f21}</destination>
 			<destination>{6b5585c5-e648-4a2a-a944-296067dc93b7}</destination>
+			<destination>{523f2769-d230-49b9-bb19-6bccbf206e72}</destination>
 			<destination>{68d32b08-8cea-4bb0-bd05-2f16510f5f34}</destination>
 		</relationship>
 	</object>
@@ -69,10 +71,41 @@
 			<value>50</value>
 		</property>
 	</object>
+	<object class="CompressorEffect" id="{b29dc0d6-a47a-4f4c-a45a-02cb8d139f21}">
+		<property name="threshold">
+			<value>-60</value>
+		</property>
+		<property name="ratio">
+			<value>1.45000005</value>
+		</property>
+		<property name="attackTime">
+			<value>60</value>
+		</property>
+		<property name="releaseTime">
+			<value>10</value>
+		</property>
+		<relationship name="sidechains">
+			<destination>{0760ed8f-e246-470a-955c-cf9482bda983}</destination>
+		</relationship>
+	</object>
 	<object class="LimiterEffect" id="{6b5585c5-e648-4a2a-a944-296067dc93b7}">
 		<property name="ceiling">
 			<value>-10</value>
 		</property>
+	</object>
+	<object class="CompressorEffect" id="{523f2769-d230-49b9-bb19-6bccbf206e72}">
+		<property name="threshold">
+			<value>-30</value>
+		</property>
+		<property name="attackTime">
+			<value>70</value>
+		</property>
+		<property name="releaseTime">
+			<value>10</value>
+		</property>
+		<relationship name="sidechains">
+			<destination>{400afd77-1d28-48d1-b85a-b97f94629bfb}</destination>
+		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{68d32b08-8cea-4bb0-bd05-2f16510f5f34}" />
 </objects>
