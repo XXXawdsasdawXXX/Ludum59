@@ -53,7 +53,7 @@ MonoBehaviour:
       Data2: 1157422004
       Data3: -1793762903
       Data4: 1254839784
-    Path: event:/Ambience
+    Path: event:/Ambience/Ambience
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 2
@@ -84,7 +84,7 @@ MonoBehaviour:
       Data2: 1115171866
       Data3: -812492128
       Data4: -1501447624
-    Path: event:/Ambience_Stuff
+    Path: event:/Ambience/Ambience_Stuff
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 2
@@ -115,7 +115,7 @@ MonoBehaviour:
       Data2: 1250833238
       Data3: 1596120752
       Data4: -651634106
-    Path: event:/Music
+    Path: event:/Music/Music
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 2
