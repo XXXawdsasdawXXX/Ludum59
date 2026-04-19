@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using UnityEditor;
 using UnityEngine;
 
@@ -24,3 +26,5 @@ namespace Code.UI.MPUIKit.Editor.Scripts
         }
     }
 }
+
+#endif

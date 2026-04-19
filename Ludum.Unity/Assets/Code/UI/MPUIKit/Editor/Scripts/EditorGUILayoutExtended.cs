@@ -5,6 +5,8 @@ using UnityEngine;
 
 namespace Code.UI.MPUIKit.Editor.Scripts
 {
+#if UNITY_EDITOR
+
 	public class EditorGUILayoutExtended : UnityEditor.Editor
 	{
 		private static readonly Type editorGUIType = typeof(EditorGUI);
@@ -67,4 +69,6 @@ namespace Code.UI.MPUIKit.Editor.Scripts
 		}
 
 	}
+		
+#endif
 }

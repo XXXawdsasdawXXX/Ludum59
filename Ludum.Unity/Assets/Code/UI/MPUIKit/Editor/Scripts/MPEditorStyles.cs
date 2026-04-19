@@ -1,10 +1,14 @@
+#if UNITY_EDITOR
+
 using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace Code.UI.MPUIKit.Editor.Scripts {
+namespace Code.UI.MPUIKit.Editor.Scripts
+{
     [InitializeOnLoad]
-    internal static class MPEditorStyles {
+    internal static class MPEditorStyles
+    {
         private static string _mpuiKitIconsDirectory = string.Empty;
 
         private static GUIContent _flipHorizontalNormal, _flipHorizontalActive;
@@ -13,85 +17,105 @@ namespace Code.UI.MPUIKit.Editor.Scripts {
         private static GUIContent _rotateLeftNormal, _rotateLeftActive;
         private static GUIContent _rotateRightNormal, _rotateRightActive;
 
-        public static GUIContent FlipHorizontalNormal {
-            get {
+        public static GUIContent FlipHorizontalNormal
+        {
+            get
+            {
                 if (_flipHorizontalNormal != null) return _flipHorizontalNormal;
                 _flipHorizontalNormal = new GUIContent(LoadImage("flip_h", false));
                 return _flipHorizontalNormal;
             }
         }
 
-        public static GUIContent FlipHorizontalActive {
-            get {
+        public static GUIContent FlipHorizontalActive
+        {
+            get
+            {
                 if (_flipHorizontalActive != null) return _flipHorizontalActive;
                 _flipHorizontalActive = new GUIContent(LoadImage("flip_h", true));
                 return _flipHorizontalActive;
             }
         }
 
-        public static GUIContent FlipVerticalNormal {
-            get {
+        public static GUIContent FlipVerticalNormal
+        {
+            get
+            {
                 if (_flipVerticalNormal != null) return _flipVerticalNormal;
                 _flipVerticalNormal = new GUIContent(LoadImage("flip_v", false));
                 return _flipVerticalNormal;
             }
         }
 
-        public static GUIContent FlipVerticalActive {
-            get {
+        public static GUIContent FlipVerticalActive
+        {
+            get
+            {
                 if (_flipVerticalActive != null) return _flipVerticalActive;
                 _flipVerticalActive = new GUIContent(LoadImage("flip_v", true));
                 return _flipVerticalActive;
             }
         }
 
-        public static GUIContent RotateLeftNormal {
-            get {
+        public static GUIContent RotateLeftNormal
+        {
+            get
+            {
                 if (_rotateLeftNormal != null) return _rotateLeftNormal;
                 _rotateLeftNormal = new GUIContent(LoadImage("rotate_left", false));
                 return _rotateLeftNormal;
             }
         }
 
-        public static GUIContent RotateLeftActive {
-            get {
+        public static GUIContent RotateLeftActive
+        {
+            get
+            {
                 if (_rotateLeftActive != null) return _rotateLeftActive;
                 _rotateLeftActive = new GUIContent(LoadImage("rotate_left", true));
                 return _rotateLeftActive;
             }
         }
 
-        public static GUIContent RotateRightNormal {
-            get {
+        public static GUIContent RotateRightNormal
+        {
+            get
+            {
                 if (_rotateRightNormal != null) return _rotateRightNormal;
                 _rotateRightNormal = new GUIContent(LoadImage("rotate_right", false));
                 return _rotateRightNormal;
             }
         }
 
-        public static GUIContent RotateRightActive {
-            get {
+        public static GUIContent RotateRightActive
+        {
+            get
+            {
                 if (_rotateRightActive != null) return _rotateRightActive;
                 _rotateRightActive = new GUIContent(LoadImage("rotate_right", true));
                 return _rotateRightActive;
             }
         }
 
-        static MPEditorStyles() {
+        static MPEditorStyles()
+        {
             FindMpuiKitIconsDirectory();
         }
 
-        private static void FindMpuiKitIconsDirectory() {
+        private static void FindMpuiKitIconsDirectory()
+        {
             string[] ids = AssetDatabase.FindAssets("MPImageEditor t:Script");
             string mpImageEditorScriptPath = string.Empty;
-            foreach (string id in ids) {
+            foreach (string id in ids)
+            {
                 string assetPath = AssetDatabase.GUIDToAssetPath(id);
                 if (!assetPath.Contains($"MPUIKit/Editor/Scripts/MPImageEditor.cs") &&
                     !assetPath.Contains($"MPUIKit\\Editor\\Scripts\\MPImageEditor.cs")) continue;
                 mpImageEditorScriptPath = assetPath;
             }
 
-            if (string.IsNullOrEmpty(mpImageEditorScriptPath)) {
+            if (string.IsNullOrEmpty(mpImageEditorScriptPath))
+            {
                 return;
             }
 
@@ -103,7 +127,8 @@ namespace Code.UI.MPUIKit.Editor.Scripts {
                 .Replace(unityRoot.ToString() + Path.DirectorySeparatorChar, string.Empty);
         }
 
-        private static Texture2D LoadImage(string name, bool activeState) {
+        private static Texture2D LoadImage(string name, bool activeState)
+        {
             int colorLevel = 0;
 #if UNITY_2019_3_OR_NEWER
             if (activeState) colorLevel = 3;
@@ -113,7 +138,8 @@ namespace Code.UI.MPUIKit.Editor.Scripts {
             if(activeState) colorLevel = 3;
             else colorLevel = EditorGUIUtility.isProSkin ? 2 : 1;
 #endif
-            if (_mpuiKitIconsDirectory == string.Empty) {
+            if (_mpuiKitIconsDirectory == string.Empty)
+            {
                 FindMpuiKitIconsDirectory();
             }
 
@@ -122,3 +148,5 @@ namespace Code.UI.MPUIKit.Editor.Scripts {
         }
     }
 }
+
+#endif

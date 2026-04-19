@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using Code.UI.MPUIKit.Runtime.Scripts.Shapes;
 using UnityEditor;
 using UnityEngine;
@@ -59,3 +61,4 @@ namespace Code.UI.MPUIKit.Editor.Scripts.ShapeDrawers {
         }
     }
 }
+#endif

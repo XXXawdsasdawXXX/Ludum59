@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+using System;
 using Code.UI.MPUIKit.Runtime.Scripts;
 using UnityEditor;
 using UnityEditor.UI;
@@ -6,7 +7,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
-namespace Code.UI.MPUIKit.Editor.Scripts {
+namespace Code.UI.MPUIKit.Editor.Scripts 
+{
+
     [CustomEditor(typeof(MPImage), true)]
     [CanEditMultipleObjects]
     public class MPImageEditor : ImageEditor {
@@ -521,4 +524,6 @@ namespace Code.UI.MPUIKit.Editor.Scripts {
             EditorGUI.EndDisabledGroup();
         }
     }
+        
 }
+#endif

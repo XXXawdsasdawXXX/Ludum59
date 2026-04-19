@@ -3,7 +3,10 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Code.UI.MPUIKit.Editor.Scripts {
+namespace Code.UI.MPUIKit.Editor.Scripts 
+{
+#if UNITY_EDITOR
+    
     public static class MPEditorUtility {
         public static void CornerRadiusModeGUI(Rect rect, ref SerializedProperty property, string[] toolBarHeading,
             string label = "Corner Radius") {
@@ -72,4 +75,6 @@ namespace Code.UI.MPUIKit.Editor.Scripts {
         }
         
     }
+#endif
+
 }
