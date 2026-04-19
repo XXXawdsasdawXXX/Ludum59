@@ -18,6 +18,7 @@ namespace Code.UI.Windows.Radar
         
         private EnemySpawner _enemySpawner;
         private PlayerSpawner _playerSpawner;
+        private RadarModel _radarModel;
         
         public UniTask GameInitialize()
         {
@@ -29,18 +30,19 @@ namespace Code.UI.Windows.Radar
 
         public void Subscribe()
         {
-            _playerSpawner.PlayerSpawned += PlayerSpawnerOnPlayerSpawned;
-        }
-
-        private void PlayerSpawnerOnPlayerSpawned(PlayerView obj)
-        {
-            obj.GetCharacterComponent<PlayerRadar>().Used += _onUsed;
+            _playerSpawner.PlayerSpawned += _onPlayerSpawned;
         }
 
         public void Unsubscribe()
         {
-            _playerSpawner.PlayerSpawned -= PlayerSpawnerOnPlayerSpawned;
+            _playerSpawner.PlayerSpawned -= _onPlayerSpawned;
             _playerSpawner.Player.GetCharacterComponent<PlayerRadar>().Used -= _onUsed;
+        }
+
+        private void _onPlayerSpawned(PlayerView player)
+        {
+            player.GetCharacterComponent<PlayerRadar>().Used += _onUsed;
+            _radarModel = player.Model.Radar;
         }
 
         private void _onUsed()
@@ -58,23 +60,19 @@ namespace Code.UI.Windows.Radar
         private async UniTaskVoid _show()
         {
             _isActive = true;
-
-            float duration = _playerSpawner.Player.Model.Radar.Duration +
-                             _playerSpawner.Player.Model.Radar.PerkDuration.PropertyValue;
             
             view.Rect.gameObject.SetActive(true);
+            
+            float duration = _radarModel.Duration + _radarModel.PerkDuration.PropertyValue;
+        
             view.MainCircle.AnimateSize(duration * 0.7f);
             view.MainCircle.AnimateAlpha(duration * 0.7f);
 
-            IReadOnlyList<EnemyView> enemies = _enemySpawner.Pool.GetAllEnabled();
+            float radius = _radarModel.Radius + _radarModel.PerkRadius.PropertyValue;
+           
+            IReadOnlyList<EnemyView> enemies = _enemySpawner.GetNearEnemies(_playerSpawner.Player.transform, radius);
             
-            Vector3 playerPos = _playerSpawner.Player.transform.position;
-
-            List<EnemyView> sorted = enemies
-                .OrderBy(e => Vector3.Distance(e.transform.position, playerPos))
-                .ToList();
-
-            foreach (EnemyView enemyView in sorted)
+            foreach (EnemyView enemyView in enemies)
             {
                 UIRadarMarker marker = view.MarkerPool.GetNext();
                 

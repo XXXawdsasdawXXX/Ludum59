@@ -1,4 +1,5 @@
-﻿using Code.Core.GameLoop;
+﻿using System.Collections.Generic;
+using Code.Core.GameLoop;
 using Cysharp.Threading.Tasks;
 using TriInspector;
 using UnityEngine;
@@ -16,6 +17,29 @@ namespace Code.Game.Characters.Enemy
             }
             
             return UniTask.CompletedTask;
+        }
+
+        public List<EnemyView> GetNearEnemies(Transform target, float distance)
+        {
+            IReadOnlyList<EnemyView> allEnabled = Pool.GetAllEnabled();
+    
+            float sqrDistance = distance * distance;
+            Vector3 targetPos = target.position;
+    
+            List<EnemyView> result = new(allEnabled.Count);
+    
+            foreach (EnemyView t in allEnabled)
+            {
+                Vector3 diff = t.transform.position - targetPos;
+                float sqrMag = diff.x * diff.x + diff.y * diff.y;
+
+                if (sqrMag <= sqrDistance)
+                {
+                    result.Add(t);
+                }
+            }
+    
+            return result;
         }
 
         [Button]
