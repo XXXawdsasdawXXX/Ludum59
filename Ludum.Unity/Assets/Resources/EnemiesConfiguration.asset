@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Models>k__BackingField:
   - <Type>k__BackingField: 0
-    <Sprite>k__BackingField: {fileID: -934356509, guid: d72f21d110382a44bb1ea1ae5a405109, type: 3}
-    <Size>k__BackingField: 0
-    <Speed>k__BackingField: 2
-  - <Type>k__BackingField: 1
-    <Sprite>k__BackingField: {fileID: -745640491, guid: d72f21d110382a44bb1ea1ae5a405109, type: 3}
+    <Sprite>k__BackingField: {fileID: 639670681, guid: d72f21d110382a44bb1ea1ae5a405109, type: 3}
+    <Animator>k__BackingField: {fileID: 22100000, guid: f3bd1f1f9803e7c4ea1a1f7b6e80fd6d, type: 2}
     <Size>k__BackingField: 1
-    <Speed>k__BackingField: 1
+    <Speed>k__BackingField: 0.4
+  - <Type>k__BackingField: 1
+    <Sprite>k__BackingField: {fileID: 1200001518, guid: d72f21d110382a44bb1ea1ae5a405109, type: 3}
+    <Animator>k__BackingField: {fileID: 22100000, guid: c53e08b29411fa94ebe389375fad9a59, type: 2}
+    <Size>k__BackingField: 1
+    <Speed>k__BackingField: 0.7

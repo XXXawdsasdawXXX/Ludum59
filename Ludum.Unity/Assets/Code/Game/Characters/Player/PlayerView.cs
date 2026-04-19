@@ -6,7 +6,7 @@ namespace Code.Game.Characters.Player
 {
     public class PlayerView : Character
     {
-        [field: SerializeField] public SpriteRenderer Renderer { get; private set; }
+        [field: SerializeField] public PlayerRender Renderer { get; private set; }
         [field: SerializeField] public Rigidbody2D Rigidbody2D { get; set; }
         [field: SerializeField] public PlayerStats Stats { get; set; }
         [field: SerializeField] public FogOfWarUnit FogOfWarUnit { get; private set; } 
@@ -39,6 +39,9 @@ namespace Code.Game.Characters.Player
 
             PlayerRadar radar = new(this);
             Components.Add(typeof(PlayerRadar), radar);
+
+            PlayerAnimation playerAnimation = new PlayerAnimation(this);
+            Components.Add(typeof(PlayerAnimation), playerAnimation);
             
             radar.Condition.Add(() => Stats.Energy.PropertyValue >= playerConfiguration.RadarEnergyPrice);
             movement.Condition.Add(() => Stats.Health.PropertyValue > 0);

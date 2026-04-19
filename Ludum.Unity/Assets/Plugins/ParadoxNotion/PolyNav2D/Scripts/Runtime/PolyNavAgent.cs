@@ -69,7 +69,7 @@ namespace PolyNav
 
         ///----------------------------------------------------------------------------------------------
 
-        private Vector2 currentVelocity = Vector2.zero;
+        public Vector2 CurrentVelocity { get; private set; } = Vector2.zero;
         private int requests = 0;
         private List<Vector2> _activePath = new List<Vector2>();
         private Vector2 _primeGoal = Vector2.zero;
@@ -142,12 +142,12 @@ namespace PolyNav
 
         ///<summary>The moving direction of the agent</summary>
         public Vector2 movingDirection {
-            get { return hasPath ? currentVelocity.normalized : Vector2.zero; }
+            get { return hasPath ? CurrentVelocity.normalized : Vector2.zero; }
         }
 
         ///<summary>The current speed of the agent</summary>
         public float currentSpeed {
-            get { return currentVelocity.magnitude; }
+            get { return CurrentVelocity.magnitude; }
         }
 
         ///<summary>Is the agent currently actively avoiding another agent?</summary>
@@ -219,7 +219,7 @@ namespace PolyNav
         ///<summary>Clears the path and as a result the agent is stop moving</summary>
         public void Stop() {
             activePath.Clear();
-            currentVelocity = Vector2.zero;
+            CurrentVelocity = Vector2.zero;
             requests = 0;
             primeGoal = position;
             avoidingElapsedTime = 0;
@@ -265,20 +265,20 @@ namespace PolyNav
                 return;
             }
 
-            var targetVelocity = currentVelocity;
+            var targetVelocity = CurrentVelocity;
             // calculate velocities
             if ( remainingDistance < slowingDistance ) {
                 targetVelocity += Arrive(nextPoint);
             } else { targetVelocity += Seek(nextPoint); }
 
             //move the agent
-            currentVelocity = Vector2.MoveTowards(currentVelocity, targetVelocity, maxForce * Time.deltaTime);
-            currentVelocity = Vector2.ClampMagnitude(currentVelocity, maxSpeed);
+            CurrentVelocity = Vector2.MoveTowards(CurrentVelocity, targetVelocity, maxForce * Time.deltaTime);
+            CurrentVelocity = Vector2.ClampMagnitude(CurrentVelocity, maxSpeed);
 
             //slow down if wall ahead and avoid other agents
             LookAhead();
 
-            position += currentVelocity * Time.deltaTime;
+            position += CurrentVelocity * Time.deltaTime;
 
 
             ///----------------------------------------------------------------------------------------------
@@ -361,7 +361,7 @@ namespace PolyNav
         Vector2 Seek(Vector2 target) {
 
             var desiredVelocity = ( target - position ).normalized * maxSpeed;
-            var steer = desiredVelocity - currentVelocity;
+            var steer = desiredVelocity - CurrentVelocity;
             return steer;
         }
 
@@ -370,7 +370,7 @@ namespace PolyNav
 
             var desiredVelocity = ( target - position ).normalized * maxSpeed;
             desiredVelocity *= remainingDistance / slowingDistance;
-            var steer = desiredVelocity - currentVelocity;
+            var steer = desiredVelocity - CurrentVelocity;
             return steer;
         }
 
@@ -382,13 +382,13 @@ namespace PolyNav
                 return;
             }
 
-            var currentLookAheadDistance = Mathf.Lerp(0, lookAheadDistance, currentVelocity.magnitude / maxSpeed);
-            var lookAheadPos = position + ( currentVelocity.normalized * currentLookAheadDistance );
+            var currentLookAheadDistance = Mathf.Lerp(0, lookAheadDistance, CurrentVelocity.magnitude / maxSpeed);
+            var lookAheadPos = position + ( CurrentVelocity.normalized * currentLookAheadDistance );
 
             Debug.DrawLine(position, lookAheadPos, Color.blue);
 
             if ( !map.PointIsValid(lookAheadPos) ) {
-                currentVelocity -= ( lookAheadPos - position );
+                CurrentVelocity -= ( lookAheadPos - position );
             }
 
             //avoidance
@@ -406,7 +406,7 @@ namespace PolyNav
                     var str = ( lookAheadPos - otherAgent.position ).normalized * mlt;
                     var steer = Vector3.Lerp((Vector3)str, Vector3.zero, dist / mlt);
                     if ( !isAvoiding ) { isAvoiding = steer.magnitude > 0; }
-                    currentVelocity += ( (Vector2)steer ) * currentVelocity.magnitude;
+                    CurrentVelocity += ( (Vector2)steer ) * CurrentVelocity.magnitude;
 
                     Debug.DrawLine(otherAgent.position, otherAgent.position + str, new Color(1, 0, 0, 0.1f));
                 }

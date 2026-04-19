@@ -3,6 +3,6 @@
     public enum EEnemyType
     {
         Default,
-        Big
+        TV
     }
 }

@@ -12,7 +12,6 @@ namespace Code.Game.Characters.Enemy
 {
     public class EnemyView : Character, IInitializeListener
     {
-
         [field: SerializeField] public EnemyRender Render { get; private set; }
         [field: SerializeField] public PolyNavAgent Agent { get; private set; }
         [ShowInInspector, ReadOnly] public EEnemyType Type { get; private set; }
@@ -30,6 +29,9 @@ namespace Code.Game.Characters.Enemy
         {
             EnemyMovement enemyMovement = new(this);
             Components.Add(typeof(EnemyMovement), enemyMovement);
+
+            EnemyAnimation enemyAnimation = new EnemyAnimation(this);
+            Components.Add(typeof(EnemyAnimation), enemyAnimation);
             
             enemyMovement.Condition.Add(() => true);
         }
@@ -49,6 +51,7 @@ namespace Code.Game.Characters.Enemy
             }
             
             Agent.maxSpeed = Model.Speed;
+            Agent.maxForce = Model.Speed;
             Agent.map = _mapView.Maps[Math.Min(_mapView.Maps.Length - 1, Model.Size)];
             
             Render.SetModel(Model);

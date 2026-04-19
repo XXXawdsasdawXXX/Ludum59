@@ -3,7 +3,6 @@ using Code.Core.ServiceLocator;
 using Code.Game.Characters.Player;
 using Code.Game.World;
 using Code.Tools;
-using Cysharp.Threading.Tasks;
 using PolyNav;
 using UnityEngine;
 
@@ -23,7 +22,6 @@ namespace Code.Game.Characters.Enemy
             _agent = view.Agent;
             _playerSpawner = Container.Instance.GetService<PlayerSpawner>();
         }
-
         
         public void GameUpdate()
         {
