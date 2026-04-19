@@ -11,7 +11,8 @@ namespace Code.Game.Characters.Enemy
         {
             for (int i = 0; i < Random.Range(2, 5); i++)
             {
-                Vector2 position = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5));
+                //Vector2 position = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5));
+                Vector2 position = Vector2.zero;
                 Spawn((EEnemyType)Random.Range(0,2), position);
             }
             

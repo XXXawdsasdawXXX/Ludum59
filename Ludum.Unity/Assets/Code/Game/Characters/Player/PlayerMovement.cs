@@ -11,13 +11,13 @@ namespace Code.Game.Characters.Player
 
         private readonly Rigidbody2D _rigidbody2D;
         private readonly PlayerInput _input;
-        private readonly PlayerStats _playerStats;
+        private readonly PlayerModel _playerModel;
         private readonly PlayerConfiguration _playerConfiguration;
         
         public PlayerMovement(PlayerView player)
         {
             _rigidbody2D = player.Rigidbody2D;
-            _playerStats = player.Stats;
+            _playerModel = player.Model;
 
             _playerConfiguration = Container.Instance.GetConfiguration<PlayerConfiguration>();
             _input = Container.Instance.GetService<PlayerInput>();
@@ -28,7 +28,7 @@ namespace Code.Game.Characters.Player
             if (Condition.AreMet())
             {
                 Vector2 forward = _input.Forward.PropertyValue;
-                float speed = _playerConfiguration.Speed * _playerStats.SpeedMultiplayer;
+                float speed = _playerConfiguration.Speed * _playerModel.SpeedMultiplayer;
                 _rigidbody2D.velocity = forward * speed;
             }
         }

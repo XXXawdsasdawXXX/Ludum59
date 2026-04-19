@@ -1,6 +1,5 @@
 ﻿using System;
 using TriInspector;
-using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Code.Game.Characters.Enemy

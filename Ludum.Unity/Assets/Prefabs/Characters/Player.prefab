@@ -120,9 +120,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Renderer>k__BackingField: {fileID: 5632928034731370462}
   <Rigidbody2D>k__BackingField: {fileID: 1615675235}
-  <Stats>k__BackingField:
-    <SpeedMultiplayer>k__BackingField: 1
-    <MaxHealth>k__BackingField: 100
+  <Model>k__BackingField:
+    <SpeedMultiplayer>k__BackingField: 0
+    <MaxHealth>k__BackingField: 0
   <FogOfWarUnit>k__BackingField: {fileID: 7002137434329873431}
 --- !u!70 &5313406691046678596
 CapsuleCollider2D:
@@ -138,7 +138,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.02}
-  m_Size: {x: 0.1, y: 0.06}
+  m_Size: {x: 0.1, y: 0.16}
   m_Direction: 1
 --- !u!50 &1615675235
 Rigidbody2D:

@@ -19,25 +19,25 @@ namespace Code.UI.Windows.HealthBar
 
         public UniTask GameStart()
         {
-            UpdateView(_playerSpawner.Player.Stats.Health.PropertyValue);
+            UpdateView(_playerSpawner.Player.Model.Health.PropertyValue);
             
             return UniTask.CompletedTask;
         }
 
         public void Subscribe()
         {
-            _playerSpawner.Player.Stats.Health.SubscribeToValue(UpdateView);
+            _playerSpawner.Player.Model.Health.SubscribeToValue(UpdateView);
         }
 
         public void Unsubscribe()
         {
-            _playerSpawner.Player.Stats.Health.UnsubscibeFromValue(UpdateView);
+            _playerSpawner.Player.Model.Health.UnsubscibeFromValue(UpdateView);
         }
 
         private void UpdateView(int value)
         {
-            PlayerStats stats = _playerSpawner.Player.Stats;
-            view.Health.fillAmount = (float)value / stats.MaxHealth;
+            PlayerModel model = _playerSpawner.Player.Model;
+            view.Health.fillAmount = (float)value / model.MaxHealth;
         }
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5899132126634959798}
   - component: {fileID: 5899132126634959796}
   - component: {fileID: 4834718633937147371}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,16 +65,16 @@ MonoBehaviour:
   maxSpeed: 3.5
   maxForce: 10
   stoppingDistance: 0.2
-  slowingDistance: 0
-  lookAheadDistance: 1
-  avoidRadius: 0.19
-  avoidanceConsiderStuckedTime: 1
-  avoidanceConsiderReachedDistance: 0.2
+  slowingDistance: 0.5
+  lookAheadDistance: 0.2
+  avoidRadius: 0.25
+  avoidanceConsiderStuckedTime: 20
+  avoidanceConsiderReachedDistance: 0.5
   rotateTransform: 0
   rotateSpeed: 350
   centerOffset: {x: 0, y: 0}
   repath: 1
-  restrict: 0
+  restrict: 1
   closerPointOnInvalid: 1
   debugPath: 1
 --- !u!70 &4834718633937147371
@@ -91,7 +91,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.19, y: 0.11}
+  m_Size: {x: 0.07, y: 0.11}
   m_Direction: 1
 --- !u!1 &5899132127281371319
 GameObject:
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 5899132127281371317}
   - component: {fileID: 8496016998428710387}
   - component: {fileID: 5641383922921445727}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}

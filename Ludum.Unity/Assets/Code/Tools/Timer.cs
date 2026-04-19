@@ -20,7 +20,6 @@ namespace Code.Tools
                 return false;
             }
             
-            _current = 0;
             return true;
         }
 
@@ -32,6 +31,11 @@ namespace Code.Tools
         public void Reset()
         {
             _current = 0;
+        }
+
+        public bool AreMet()
+        {
+            return _current >= _max;
         }
     }
 }

@@ -12,18 +12,23 @@ namespace Code.Game.Characters.Player
         public Action Used;
         public Condition Condition { get; } = new();
         
-        private readonly PlayerStats _stats;
+        private readonly PlayerModel _model;
         private readonly PlayerInput _input;
         private readonly PlayerConfiguration _configuration;
         private readonly AudioConfiguration _audioConfiguration;
 
+        public Timer Cooldown { get; private set; }
 
         public PlayerRadar(PlayerView view)
         {
-            _stats = view.Stats;
+            _model = view.Model;
             _input = Container.Instance.GetService<PlayerInput>();
+            
             _configuration = Container.Instance.GetConfiguration<PlayerConfiguration>();
             _audioConfiguration = Container.Instance.GetConfiguration<AudioConfiguration>();
+
+            Cooldown = new Timer(_configuration.RadarCooldown);
+            Cooldown.Finish();
         }
         
         public void Subscribe()
@@ -38,11 +43,15 @@ namespace Code.Game.Characters.Player
 
         private void RadarPressed()
         {
-            if (Condition.AreMet())
+            if (Condition.AreMet() && Cooldown.AreMet())
             {
                 Used?.Invoke();
-                _stats.Energy.PropertyValue -= _configuration.RadarEnergyPrice;
+                
+                _model.Energy.PropertyValue -= _configuration.RadarEnergyPrice;
+                
                 RuntimeManager.PlayOneShot(_audioConfiguration.Radar);
+                
+                Cooldown.Reset();
             }
         }
     }
