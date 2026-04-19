@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 namespace Code.UI.Windows.HealthBar
 {
-    public class HealthBarView : UIView
+    public class EnergyBarView : UIView
     {
-        [field: SerializeField] public Image Health { get; private set; }
+        [field: SerializeField] public Image Energy { get; private set; }
     }
 }

@@ -6,7 +6,7 @@ using FMODUnity;
 using UnityEngine;
 using AudioConfiguration = Code.Game.Audio.AudioConfiguration;
 
-namespace Code.Game.Characters.Player
+namespace Code.Game.Characters.Player.Abilities
 {
     public class PlayerRadar : ICharacterComponent, ISubscriber, IUpdateListener
     {
@@ -34,7 +34,6 @@ namespace Code.Game.Characters.Player
         
         public void Subscribe()
         {
-            Debug.Log("radar subscribe");
             _input.RadarPressed += _onRadarPressed;
             
             _model.Radar.PerkDuration.SubscribeToValue(_updateCooldownValue);

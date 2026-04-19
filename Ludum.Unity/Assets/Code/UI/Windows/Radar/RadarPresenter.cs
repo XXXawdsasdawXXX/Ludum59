@@ -4,6 +4,7 @@ using Code.Core.GameLoop;
 using Code.Core.ServiceLocator;
 using Code.Game.Characters.Enemy;
 using Code.Game.Characters.Player;
+using Code.Game.Characters.Player.Abilities;
 using Code.UI.Base;
 using Cysharp.Threading.Tasks;
 using TriInspector;
@@ -17,6 +18,7 @@ namespace Code.UI.Windows.Radar
         
         private EnemySpawner _enemySpawner;
         private PlayerSpawner _playerSpawner;
+        private RadarModel _radarModel;
         
         public UniTask GameInitialize()
         {
@@ -28,48 +30,49 @@ namespace Code.UI.Windows.Radar
 
         public void Subscribe()
         {
-            _playerSpawner.PlayerSpawned += PlayerSpawnerOnPlayerSpawned;
-    
-        }
-
-        private void PlayerSpawnerOnPlayerSpawned(PlayerView obj)
-        {
-            obj.GetCharacterComponent<PlayerRadar>().Used += OnUsed;
+            _playerSpawner.PlayerSpawned += _onPlayerSpawned;
         }
 
         public void Unsubscribe()
         {
-            _playerSpawner.PlayerSpawned -= PlayerSpawnerOnPlayerSpawned;
-            _playerSpawner.Player.GetCharacterComponent<PlayerRadar>().Used -= OnUsed;
+            _playerSpawner.PlayerSpawned -= _onPlayerSpawned;
+            _playerSpawner.Player.GetCharacterComponent<PlayerRadar>().Used -= _onUsed;
         }
 
-        private void OnUsed()
+        private void _onPlayerSpawned(PlayerView player)
+        {
+            player.GetCharacterComponent<PlayerRadar>().Used += _onUsed;
+            _radarModel = player.Model.Radar;
+        }
+
+        private void _onUsed()
         {
             if (_isActive)
             {
                 Debug.LogWarning("Radar is active right now");
+                
                 return;
             }
             
-            Show().Forget();
+            _show().Forget();
         }
 
-        private async UniTaskVoid Show()
+        private async UniTaskVoid _show()
         {
             _isActive = true;
-
-            view.MainCircle.AnimateSize(4);
-            view.MainCircle.AnimateAlpha(5);
-
-            IReadOnlyList<EnemyView> enemies = _enemySpawner.Pool.GetAllEnabled();
             
-            Vector3 playerPos = _playerSpawner.Player.transform.position;
+            view.Rect.gameObject.SetActive(true);
+            
+            float duration = _radarModel.Duration + _radarModel.PerkDuration.PropertyValue;
+        
+            view.MainCircle.AnimateSize(duration * 0.7f);
+            view.MainCircle.AnimateAlpha(duration * 0.5f);
 
-            List<EnemyView> sorted = enemies
-                .OrderBy(e => Vector3.Distance(e.transform.position, playerPos))
-                .ToList();
-
-            foreach (EnemyView enemyView in sorted)
+            float radius = _radarModel.Radius + _radarModel.PerkRadius.PropertyValue;
+           
+            IReadOnlyList<EnemyView> enemies = _enemySpawner.GetNearEnemies(_playerSpawner.Player.transform, radius);
+            
+            foreach (EnemyView enemyView in enemies)
             {
                 UIRadarMarker marker = view.MarkerPool.GetNext();
                 
@@ -83,8 +86,8 @@ namespace Code.UI.Windows.Radar
                 });
                 
                 marker.Follow(enemyView.transform);
-                marker.AnimateAlpha(8);
-                marker.AnimateSize(7);
+                marker.AnimateAlpha(duration);
+                marker.AnimateSize(duration);
 
                 await UniTask.WaitForSeconds(Random.Range(0, 1));
             }
@@ -92,6 +95,8 @@ namespace Code.UI.Windows.Radar
             await UniTask.WaitUntil(() => view.MainCircle.AnimationsCount.PropertyValue == 0);
 
             _isActive = false;
+            
+            view.Rect.gameObject.SetActive(false);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Code.Core.GameLoop;
 using Code.Core.ServiceLocator;
 using Code.Game.Characters.Player;
+using Code.Game.Characters.Player.Abilities;
 using Code.Game.World;
 using Code.Tools;
 using PolyNav;

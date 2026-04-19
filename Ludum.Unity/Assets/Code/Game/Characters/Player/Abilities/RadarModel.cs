@@ -2,7 +2,7 @@
 using Code.Tools;
 using UnityEngine;
 
-namespace Code.Game.Characters.Player
+namespace Code.Game.Characters.Player.Abilities
 {
     [Serializable]
     public class RadarModel
@@ -16,7 +16,7 @@ namespace Code.Game.Characters.Player
         public ReactiveProperty<float> PerkCooldown;
         
         [Space] public float Radius;
-        public ReactiveProperty<int> PerkRadius;
+        public ReactiveProperty<float> PerkRadius;
         
         [Space] public ReactiveProperty<bool> ShownCoolStuff;
         
@@ -35,7 +35,7 @@ namespace Code.Game.Characters.Player
                 PerkCooldown = new ReactiveProperty<float>(PerkCooldown.PropertyValue),
 
                 Radius = Radius,
-                PerkRadius = new ReactiveProperty<int>(PerkRadius.PropertyValue),
+                PerkRadius = new ReactiveProperty<float>(PerkRadius.PropertyValue),
 
                 ShownCoolStuff = new ReactiveProperty<bool>(ShownCoolStuff.PropertyValue),
                 ShowEnemyForwardDuration = new ReactiveProperty<bool>(ShowEnemyForwardDuration.PropertyValue),

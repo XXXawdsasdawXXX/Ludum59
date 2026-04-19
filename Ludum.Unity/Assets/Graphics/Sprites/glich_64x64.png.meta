@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 31f9cf60be9ed76499218d0bfa666a31
+guid: 9a424810d6aa32e41b0a1c3543d5d937
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hand_0
+      name: glich_64x64_0
       rect:
         serializedVersion: 2
-        x: 80
-        y: 271
-        width: 72
-        height: 184
+        x: 64
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9788b344b428be842b8b6f5c748fa55e
-      internalID: -1182526445
+      spriteID: 8a4c8965137a5cc4fb5b11897c135816
+      internalID: 1921601109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hand_1
+      name: glich_64x64_1
       rect:
         serializedVersion: 2
-        x: 163
-        y: 275
-        width: 78
-        height: 169
+        x: 128
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6967941fbc40b640a9cb75f1ad964cd
-      internalID: 59540026
+      spriteID: 7ed526b865ee810499cd185092378d0d
+      internalID: -569531783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hand_2
+      name: glich_64x64_2
       rect:
         serializedVersion: 2
-        x: 3
-        y: 255
-        width: 34
-        height: 10
+        x: 192
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70c56e9a001914c4eab6e07ff581eb24
-      internalID: -209308510
+      spriteID: 08abe36f300100847bc3c407c943fb83
+      internalID: 1337702092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hand_3
+      name: glich_64x64_3
       rect:
         serializedVersion: 2
-        x: 73
-        y: 106
-        width: 75
-        height: 155
+        x: 0
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da99a8d5698fe1549a9225a0e7b9be65
-      internalID: -166050996
+      spriteID: caa92dd8d76b5e34799f221372354382
+      internalID: -1730648779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hand_4
+      name: glich_64x64_4
       rect:
         serializedVersion: 2
-        x: 3
-        y: 239
-        width: 34
-        height: 10
+        x: 64
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72670b233a1bce844bb39443b58a8751
-      internalID: 1988332423
+      spriteID: 8597735db07077b4a86c6a82571d95d9
+      internalID: 156340684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hand_5
+      name: glich_64x64_5
       rect:
         serializedVersion: 2
-        x: 169
-        y: 106
-        width: 69
-        height: 145
+        x: 128
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e98158c4a129544ea20a994121a3ac2
-      internalID: 714997387
+      spriteID: 7792ce673d34c7b499a83b9c2e1b78f3
+      internalID: 817770767
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hand_6
+      name: glich_64x64_6
       rect:
         serializedVersion: 2
-        x: 4
-        y: 221
-        width: 34
-        height: 10
+        x: 192
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,20 +245,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2240f6542d051334d80a7fe12b43d515
-      internalID: 1295286835
+      spriteID: 36ea00bcd5dfe394f8c40a7d0aa46346
+      internalID: -243635751
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hand_7
+      name: glich_64x64_7
       rect:
         serializedVersion: 2
-        x: 4
-        y: 203
-        width: 41
-        height: 7
+        x: 0
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,8 +266,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f712b2c6917a3424d98c6c82f20a9083
-      internalID: -1443339044
+      spriteID: 14e7ab4e16d2be0419a9adaaf7ee0f4b
+      internalID: -1391069514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glich_64x64_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe5a3babab6f9cf4681692468a1fcb3a
+      internalID: 1400792143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glich_64x64_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d2e07c81994b8e42a173d8b78ef7911
+      internalID: 920635681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glich_64x64_10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a41da499c9a445e43b1a25eb8503d976
+      internalID: 542211113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glich_64x64_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bba26260051188f489a1588210e42d74
+      internalID: 1889698366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glich_64x64_12
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8d582948ac40e142b9a794e77aabd5c
+      internalID: -43929918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glich_64x64_13
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0587f7cf7e39794cbc9af2dc95c7713
+      internalID: 362469219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glich_64x64_14
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01db4bcd88a64e04fab8324235caee33
+      internalID: -1546115784
       vertices: []
       indices: 
       edges: []
@@ -283,14 +430,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hand_0: -1182526445
-      hand_1: 59540026
-      hand_2: -209308510
-      hand_3: -166050996
-      hand_4: 1988332423
-      hand_5: 714997387
-      hand_6: 1295286835
-      hand_7: -1443339044
+      glich_64x64_0: 1921601109
+      glich_64x64_1: -569531783
+      glich_64x64_10: 542211113
+      glich_64x64_11: 1889698366
+      glich_64x64_12: -43929918
+      glich_64x64_13: 362469219
+      glich_64x64_14: -1546115784
+      glich_64x64_2: 1337702092
+      glich_64x64_3: -1730648779
+      glich_64x64_4: 156340684
+      glich_64x64_5: 817770767
+      glich_64x64_6: -243635751
+      glich_64x64_7: -1391069514
+      glich_64x64_8: 1400792143
+      glich_64x64_9: 920635681
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

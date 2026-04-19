@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Code.Game.Characters.Player.Abilities;
+using UnityEngine;
 
 namespace Code.Game.Characters.Player
 {
