@@ -54,19 +54,19 @@ MonoBehaviour:
   absoluteCenterPoint: 1
   centerPoint: {x: 0, y: 0}
   boxSize: {x: 5, y: 5}
-  circleRadius: 0.8
-  innerRadius: 0.25
+  circleRadius: 2
+  innerRadius: 0.5
   angle: 180
   texture: {fileID: 0}
   mesh: {fileID: 0}
   lineOfSightMask:
     serializedVersion: 2
-    m_Bits: 1
-  lineOfSightRaycastCount: 50
+    m_Bits: 64
+  lineOfSightRaycastCount: 0
   lineOfSightPenetration: 0
-  lineOfSightRaycastAngle: 360
+  lineOfSightRaycastAngle: 0
   lineOfSightRaycastAngleOffset: 0
-  lineOfSightSeeOutsideRange: 0
+  lineOfSightSeeOutsideRange: 1
   multithreading: 0
   cellBased: 1
   cellTestPoint: 0
@@ -103,6 +103,7 @@ Transform:
   m_Children:
   - {fileID: 2694642843422969086}
   - {fileID: 2267283587562965268}
+  - {fileID: 4281584783764376952}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -123,7 +124,29 @@ MonoBehaviour:
   <Model>k__BackingField:
     <SpeedMultiplayer>k__BackingField: 0
     <MaxHealth>k__BackingField: 0
+    <Health>k__BackingField:
+      _propertyValue: 0
+    <Energy>k__BackingField:
+      _propertyValue: 0
+    <MaxEnergy>k__BackingField: 0
+    <Radar>k__BackingField:
+      EnergyPrice: 0
+      Duration: 0
+      PerkDuration:
+        _propertyValue: 0
+      Cooldown: 0
+      PerkCooldown:
+        _propertyValue: 0
+      Radius: 0
+      PerkRadius:
+        _propertyValue: 0
+      ShownCoolStuff:
+        _propertyValue: 0
+      ShowEnemyForwardDuration:
+        _propertyValue: 0
   <FogOfWarUnit>k__BackingField: {fileID: 7002137434329873431}
+  <RadarTrigger>k__BackingField: {fileID: 3858772208303826463}
+  <RadarCircle>k__BackingField: {fileID: 2504783262458263585}
 --- !u!70 &5313406691046678596
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -255,8 +278,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1294515001
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1091649375, guid: d72f21d110382a44bb1ea1ae5a405109, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -290,3 +313,64 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &3243411409437684842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4281584783764376952}
+  - component: {fileID: 3858772208303826463}
+  - component: {fileID: 2504783262458263585}
+  m_Layer: 8
+  m_Name: RadarTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4281584783764376952
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3243411409437684842}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2694642842796539419}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3858772208303826463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3243411409437684842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af67c4565004be3b677af0f053818e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &2504783262458263585
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3243411409437684842}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2

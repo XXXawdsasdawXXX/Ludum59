@@ -69,29 +69,7 @@ namespace Code.UI.Windows.Radar
             view.MainCircle.AnimateAlpha(duration * 0.5f);
 
             float radius = _radarModel.Radius + _radarModel.PerkRadius.PropertyValue;
-           
-            IReadOnlyList<EnemyView> enemies = _enemySpawner.GetNearEnemies(_playerSpawner.Player.transform, radius);
             
-            foreach (EnemyView enemyView in enemies)
-            {
-                UIRadarMarker marker = view.MarkerPool.GetNext();
-                
-                marker.AnimationsCount.SubscribeToValue(value =>
-                {
-                    if (value == 0)
-                    {
-                        marker.AnimationsCount.ClearSubscription();
-                        view.MarkerPool.Disable(marker);
-                    }
-                });
-                
-                marker.Follow(enemyView.transform);
-                marker.AnimateAlpha(duration);
-                marker.AnimateSize(duration);
-
-                await UniTask.WaitForSeconds(Random.Range(0, 1));
-            }
-
             await UniTask.WaitUntil(() => view.MainCircle.AnimationsCount.PropertyValue == 0);
 
             _isActive = false;

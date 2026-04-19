@@ -1,55 +1,32 @@
-
 using System;
+using UnityEngine;
 
 namespace Code.Tools
 {
     public class Timer
     {
-        public event Action Updated;
-        public float Max { get; private set; }
-        public float Current { get; private set; }
+        public event Action Finished;
+        public float Max => _endTime;
+        public float Current => Time.time;
 
-        public Timer(float max)
-        {
-            Max = max;
-        }
-
-        public bool Update(float value)
-        {
-            Current += value;
-
-            Updated?.Invoke();
-            
-            if (Current < Max)
-            {
-                return false;
-            }
-            
-            return true;
-        }
-
-        public void Finish()
-        {
-            Current = Max;
-            
-            Updated?.Invoke();
-        }
+        private float _startTime;
+        private float _endTime;
         
-        public void Reset()
-        {
-            Current = 0;
-            
-            Updated?.Invoke();
-        }
-
-        public bool AreMet()
+        public bool IsFinish()
         {
             return Current >= Max;
         }
 
-        public void SetMaxTime(float max)
+        public void Reset()
         {
-            Max = max;
+            _startTime = 0;
+            _endTime = 0;
+        }
+
+        public void Start(float duration)
+        {
+            _startTime = Time.time;
+            _endTime = _startTime + duration;
         }
     }
 }

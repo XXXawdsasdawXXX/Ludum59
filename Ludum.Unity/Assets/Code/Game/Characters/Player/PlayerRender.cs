@@ -23,6 +23,7 @@ namespace Code.Game.Characters.Player
         {
             _renderer.flipX = flipX;
         }
+        
         public void PlayFootstep()
         {
             if (Time.time - _lastFootstepTime < _footstepCooldown)

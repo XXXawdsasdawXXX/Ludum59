@@ -8,13 +8,12 @@ namespace Code.Game.Characters.Player
     public class PlayerSpawner : CharacterSpawner<PlayerView>, IStartListener
     {
         public event Action<PlayerView> PlayerSpawned;
-        
         public PlayerView Player { get; private set; }
         
         
         public UniTask GameStart()
         {
-            Player = Spawn(Vector2.zero);
+            Player = spawn(Vector2.zero);
 
             PlayerSpawned?.Invoke(Player);
             

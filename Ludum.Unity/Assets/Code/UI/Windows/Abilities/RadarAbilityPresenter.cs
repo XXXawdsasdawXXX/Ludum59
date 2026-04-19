@@ -4,6 +4,7 @@ using Code.Game.Characters.Player;
 using Code.Game.Characters.Player.Abilities;
 using Code.UI.Base;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 
 namespace Code.UI.Windows
 {
@@ -27,23 +28,33 @@ namespace Code.UI.Windows
         public void Unsubscribe()
         {
             _playerSpawner.PlayerSpawned -= _onPlayerSpawned;
-            _playerRadar.Cooldown.Updated -= _updateCooldown;
         }
 
         private void _onPlayerSpawned(PlayerView player)
         {
             if (_playerRadar != null)
             {
-                _playerRadar.Cooldown.Updated -= _updateCooldown;
+                _playerRadar.Used -= Used;
             }
             
             _playerRadar = _playerSpawner.Player.GetCharacterComponent<PlayerRadar>();
-            _playerRadar.Cooldown.Updated += _updateCooldown;
+            _playerRadar.Used += Used;
         }
 
-        private void _updateCooldown()
+        private void Used()
         {
-            view.Fill.fillAmount = _playerRadar.Cooldown.Current / _playerRadar.Cooldown.Max;
+            view.Fill.fillAmount = 0;
+
+            float abilityDuration = _playerSpawner.Player.Model.Radar.Duration 
+                              + _playerSpawner.Player.Model.Radar.PerkDuration.PropertyValue;
+            
+            Tween tween = view.Background
+                .DOFade(0, 0.5f)
+                .SetLoops(-1, LoopType.Yoyo);
+            
+            DOVirtual.DelayedCall(abilityDuration, () => tween.Kill());
+
+            view.Fill.DOFillAmount(1, _playerRadar.Cooldown.Max);
         }
     }
 }
