@@ -63,7 +63,7 @@ namespace Code.Game.Characters.Player.Abilities
 
             float radius = _view.Model.Stan.Radius + _view.Model.Stan.PerkRadius.PropertyValue;
             
-            EnemyView[] nearEnemies = _enemySpawner.GetNearEnemies(_view.transform, radius).ToArray();
+            EnemyView[] nearEnemies = _enemySpawner.GetNearEnemies(_view.transform, radius * 0.5f).ToArray();
             
             Debug.Log($"enemies count = {nearEnemies.Length}. radius = {radius}");
             foreach (EnemyView enemy in nearEnemies)

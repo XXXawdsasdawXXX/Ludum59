@@ -34,6 +34,24 @@ namespace Code.Game.Characters.Enemy
         public IEnumerable<EnemyView> GetNearEnemies(Transform target, float distance)
         {
             IReadOnlyList<EnemyView> allEnabled = Pool.GetAllEnabled();
+    
+            Vector3 center = target.position;
+            float r = distance;
+
+// горизонтальная линия
+            Debug.DrawLine(
+                center + Vector3.left * r,
+                center + Vector3.right * r,
+                Color.yellow,
+                2f
+            );
+
+// вертикальная линия
+            Debug.DrawLine(
+                center + Vector3.up * r,
+                center + Vector3.down * r,
+                Color.yellow,
+                2f);
             
             float sqrDistance = distance * distance;
             Vector3 targetPos = target.position;

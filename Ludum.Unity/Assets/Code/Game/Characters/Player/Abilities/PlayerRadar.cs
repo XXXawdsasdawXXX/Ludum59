@@ -32,6 +32,8 @@ namespace Code.Game.Characters.Player.Abilities
             _input = Container.Instance.GetService<PlayerInput>();
             _audioConfiguration = Container.Instance.GetConfiguration<AudioConfiguration>();
 
+            _view.RadarCircle.radius = _view.Model.Radar.Radius;
+
             Cooldown = new Timer();
         }
 
