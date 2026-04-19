@@ -4,6 +4,7 @@ using Code.Game.World;
 using Cysharp.Threading.Tasks;
 using PolyNav;
 using TriInspector;
+using UnityEditor;
 using UnityEngine;
 
 namespace Code.Game.Characters.Enemy
@@ -33,7 +34,7 @@ namespace Code.Game.Characters.Enemy
         public IEnumerable<EnemyView> GetNearEnemies(Transform target, float distance)
         {
             IReadOnlyList<EnemyView> allEnabled = Pool.GetAllEnabled();
-    
+            
             float sqrDistance = distance * distance;
             Vector3 targetPos = target.position;
     
@@ -49,7 +50,7 @@ namespace Code.Game.Characters.Enemy
                     result.Add(t);
                 }
             }
-    
+            
             return result;
         }
 

@@ -1,5 +1,4 @@
-﻿using System;
-using Code.Core.ServiceLocator;
+﻿using Code.Core.ServiceLocator;
 using Code.Game.Characters.Player.Abilities;
 using Code.Game.FogOfWar;
 using UnityEngine;
@@ -13,9 +12,9 @@ namespace Code.Game.Characters.Player
         [field: SerializeField] public PlayerModel Model { get; private set; }
         [field: SerializeField] public FogOfWarUnit FogOfWarUnit { get; private set; } 
         [field: SerializeField] public Trigger RadarTrigger { get; private set; } 
-        [field: SerializeField] public CircleCollider2D RadarCircle { get; private set; } 
+        [field: SerializeField] public CircleCollider2D RadarCircle { get; private set; }
         
-        
+
         public override void InitializeComponents()
         {
             PlayerConfiguration playerConfiguration = Container.Instance.GetConfiguration<PlayerConfiguration>();
@@ -37,23 +36,18 @@ namespace Code.Game.Characters.Player
 
             PlayerAnimation playerAnimation = new(this);
             Components.Add(typeof(PlayerAnimation), playerAnimation);
-            
-            radar.Condition.Add(() => Model.Energy.PropertyValue >= Model.Radar.EnergyPrice);
-            movement.Condition.Add(() => Model.Health.PropertyValue > 0);
-        }
 
-        private void OnDrawGizmos()
-        {
-            if (Model != null)
-            {
-                Color color = Color.white;
-                color.a = 0.5f;
-                Gizmos.color = color;
-                
-                Gizmos.DrawSphere(transform.position, Model.Radar.Radius);
-                
-                Gizmos.DrawSphere(transform.position, Model.Radar.Radius + Model.Radar.PerkRadius.PropertyValue);
-            }
+            PlayerStan stan = new(this);
+            Components.Add(typeof(PlayerStan), stan);
+            
+            stan.Condition.Add(() => stan.Cooldown.IsFinish());
+            stan.Condition.Add(() => Model.Energy.PropertyValue >= 
+                                     Model.Stan.EnergyPrice + Model.Stan.PerkEnergyPrice.PropertyValue);
+            
+            radar.Condition.Add(() => radar.Cooldown.IsFinish());
+            radar.Condition.Add(() => Model.Energy.PropertyValue >= Model.Radar.EnergyPrice);
+
+            movement.Condition.Add(() => Model.Health.PropertyValue > 0);
         }
     }
 }

@@ -133,7 +133,7 @@ MonoBehaviour:
   stoppingDistance: 0.2
   slowingDistance: 0.5
   lookAheadDistance: 0.2
-  avoidRadius: 0.25
+  avoidRadius: 0.1
   avoidanceConsiderStuckedTime: 20
   avoidanceConsiderReachedDistance: 0.5
   rotateTransform: 0

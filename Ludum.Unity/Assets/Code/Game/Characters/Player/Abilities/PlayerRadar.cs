@@ -66,7 +66,7 @@ namespace Code.Game.Characters.Player.Abilities
 
         private void _onRadarPressed()
         {
-            if (Condition.AreMet() && Cooldown.IsFinish())
+            if (Condition.AreMet())
             {
                 _isActive = true;
 

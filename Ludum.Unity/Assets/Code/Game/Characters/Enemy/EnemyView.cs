@@ -49,6 +49,7 @@ namespace Code.Game.Characters.Enemy
             Components.Add(typeof(EnemyAnimation), enemyAnimation);
             
             enemyMovement.Condition.Add(() => Model.Follow.PropertyValue);
+            enemyMovement.Condition.Add(() => !Model.Stan.PropertyValue);
         }
         
         public void Subscribe()
@@ -65,17 +66,17 @@ namespace Code.Game.Characters.Enemy
 
         private void _onRangeTriggerEnter(bool value)
         {
-            if (value)
+            if (Model.Follow.PropertyValue && !value)
             {
-                Model.Follow.PropertyValue = true;
+                Model.Follow.PropertyValue = false;
             }
         }
 
         private void _onMilleTriggerEnter(bool value)
         {
-            if (Model.Follow.PropertyValue && !value)
+            if (value)
             {
-                Model.Follow.PropertyValue = false;
+                Model.Follow.PropertyValue = true;
             }
         }
     }

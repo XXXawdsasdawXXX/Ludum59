@@ -30,4 +30,18 @@ MonoBehaviour:
       _propertyValue: 1
     ShowEnemyForwardDuration:
       _propertyValue: 1
-  <StanEnergyPrice>k__BackingField: 1
+  <Stan>k__BackingField:
+    <Cooldown>k__BackingField: 1
+    <Radius>k__BackingField: 2
+    <PerkRadius>k__BackingField:
+      _propertyValue: 1
+    <Duration>k__BackingField: 5
+    <PerkDuration>k__BackingField:
+      _propertyValue: 0
+    <EnergyPrice>k__BackingField: 20
+    <PerkEnergyPrice>k__BackingField:
+      _propertyValue: -10
+    <PerkEnemySpeedMultiplier>k__BackingField:
+      _propertyValue: 0.2
+    <SlowEffectDuration>k__BackingField:
+      _propertyValue: 5

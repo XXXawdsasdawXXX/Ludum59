@@ -11,11 +11,12 @@ namespace Code.Game.Characters.Player
         private const string HORIZONTAL_AXIS_NAME = "Horizontal";
         private const string VERTICAL_AXIS_NAME = "Vertical";
         
-        private const KeyCode PATH_KEY = KeyCode.Alpha1;
+        private const KeyCode STAN_KEY = KeyCode.Alpha1    ;
         private const KeyCode RADAR_KEY = KeyCode.Alpha2;
-        private const KeyCode STAN_KEY = KeyCode.Alpha3;
+        private const KeyCode PATH_KEY = KeyCode.Alpha3;
 
         public Action RadarPressed;
+        public Action StanPressed;
         public Vector2 Forward { get; private set; }
         
 
@@ -33,6 +34,11 @@ namespace Code.Game.Characters.Player
             if (Input.GetKeyDown(RADAR_KEY)) 
             {
                 RadarPressed?.Invoke();
+            }
+            
+            if (Input.GetKeyDown(STAN_KEY)) 
+            {
+                StanPressed?.Invoke();
             }
         }
     }
