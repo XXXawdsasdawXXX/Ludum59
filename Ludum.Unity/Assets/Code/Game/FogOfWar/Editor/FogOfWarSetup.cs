@@ -1,9 +1,9 @@
-using UnityEngine;
-using UnityEditor;
-using UnityEngine.Rendering;
 using System.Reflection;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.Rendering;
 
-namespace FoW
+namespace Code.Game.FogOfWar.Editor
 {
 
 #if UNITY_EDITOR

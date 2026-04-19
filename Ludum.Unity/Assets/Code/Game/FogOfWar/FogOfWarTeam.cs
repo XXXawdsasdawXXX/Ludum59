@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace FoW
+namespace Code.Game.FogOfWar
 {
     public enum FogOfWarPhysics
     {

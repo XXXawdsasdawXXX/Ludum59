@@ -1,10 +1,10 @@
 ﻿using Code.Core.GameLoop;
 using Code.Core.ServiceLocator;
-using Code.Data;
-using Code.Game.Map;
+using Code.Game.FogOfWar;
+using Code.Game.World;
 using Code.Tools;
+using Code.Tools.RangeFloat;
 using Cysharp.Threading.Tasks;
-using FoW;
 using UnityEngine;
 
 namespace Code.Game.Characters.Player

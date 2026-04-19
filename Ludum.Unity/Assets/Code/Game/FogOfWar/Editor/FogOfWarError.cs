@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
-namespace FoW
+namespace Code.Game.FogOfWar.Editor
 {
 #if UNITY_EDITOR
     

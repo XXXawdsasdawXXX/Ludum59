@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading;
+using UnityEngine;
 
-namespace FoW
+namespace Code.Game.FogOfWar
 {
     enum FogOfWarThreadState
     {

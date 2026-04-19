@@ -1,12 +1,11 @@
-﻿using UnityEngine;
-using UnityEditor;
+﻿using UnityEditor;
 
-namespace FoW
+namespace Code.Game.FogOfWar.Editor
 {
 #if UNITY_EDITOR
     [CustomEditor(typeof(FogOfWarUnit))]
     [CanEditMultipleObjects]
-    public class FogOfWarUnitEditor : Editor
+    public class FogOfWarUnitEditor : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {

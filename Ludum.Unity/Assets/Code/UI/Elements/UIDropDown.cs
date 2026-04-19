@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using Code.Core.GameLoop;
-using Code.Core.Pools;
 using Code.UI.Base;
 using Code.UI.Models;
 using Cysharp.Threading.Tasks;

@@ -1,10 +1,8 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
-#if UNITY_2018_1_OR_NEWER
+﻿using System.Collections.Generic;
 using Unity.Collections;
-#endif
+using UnityEngine;
 
-namespace FoW
+namespace Code.Game.FogOfWar
 {
     public enum FogOfWarShapeType
     {

@@ -2,7 +2,7 @@
 using System.Linq;
 using Code.Core.GameLoop;
 using Code.Core.ServiceLocator;
-using Code.Game.Map;
+using Code.Game.World;
 using Cysharp.Threading.Tasks;
 using PolyNav;
 using TriInspector;

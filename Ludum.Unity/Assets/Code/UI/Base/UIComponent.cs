@@ -1,4 +1,4 @@
-using Code.Core.Pools;
+using Code.Core.GameLoop;
 using UnityEngine;
 
 namespace Code.UI.Base

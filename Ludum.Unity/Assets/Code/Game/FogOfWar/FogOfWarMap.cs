@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FoW
+namespace Code.Game.FogOfWar
 {
     // Describes a snapshot of the fog of war settings for another thread
     public class FogOfWarMap

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FoW
+namespace Code.Game.FogOfWar
 {
     [System.Serializable]
     public abstract class FogOfWarDrawer

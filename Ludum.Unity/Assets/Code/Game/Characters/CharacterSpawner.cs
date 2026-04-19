@@ -1,5 +1,5 @@
 ﻿using System;
-using Code.Core.Pools;
+using Code.Core.GameLoop;
 using Code.Core.ServiceLocator;
 using UnityEngine;
 

@@ -1,11 +1,11 @@
-﻿using UnityEngine;
-using UnityEditor;
+﻿using UnityEditor;
+using UnityEngine;
 
-namespace FoW
+namespace Code.Game.FogOfWar.Editor
 {
 #if UNITY_EDITOR
     [CustomEditor(typeof(FogOfWarChunkManager))]
-    public class FogOfWarChunkManagerEditor : Editor
+    public class FogOfWarChunkManagerEditor : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FoW
+namespace Code.Game.FogOfWar
 {
     [RequireComponent(typeof(Camera))]
     public class FogOfWarTextureSource : MonoBehaviour

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace FoW
+namespace Code.Game.FogOfWar
 {
     [RequireComponent(typeof(RawImage))]
     public class FogOfWarMinimap : MonoBehaviour

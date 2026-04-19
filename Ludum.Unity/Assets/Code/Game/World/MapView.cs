@@ -2,7 +2,7 @@
 using PolyNav;
 using UnityEngine;
 
-namespace Code.Game.Map
+namespace Code.Game.World
 {
     public class MapView : MonoBehaviour, IView
     {

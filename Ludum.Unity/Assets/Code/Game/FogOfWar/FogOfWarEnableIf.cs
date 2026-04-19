@@ -1,7 +1,7 @@
-using UnityEngine;
 using System.Diagnostics;
+using UnityEngine;
 
-namespace FoW
+namespace Code.Game.FogOfWar
 {
     public enum EnableIfComparison
     {

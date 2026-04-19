@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Code.Core.GameLoop;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
-namespace Code.Core.Pools
+namespace Code.Core.GameLoop
 {
     public interface IPoolEntity
     {

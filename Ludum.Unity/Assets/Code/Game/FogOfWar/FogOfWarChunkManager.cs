@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
-namespace FoW
+namespace Code.Game.FogOfWar
 {
     class FogOfWarChunk
     {

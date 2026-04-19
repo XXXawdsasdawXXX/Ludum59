@@ -1,8 +1,8 @@
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace FoW
+namespace Code.Game.FogOfWar.Editor
 {
 #if UNITY_EDITOR
     

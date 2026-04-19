@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FoW
+namespace Code.Game.FogOfWar
 {
     // These are the different coordinate systems used:
     //  - World Space: Vector3 in Unity's world space coordinates

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Experimental.Rendering;
 
-namespace FoW
+namespace Code.Game.FogOfWar
 {
     public class FogOfWarDrawerHardware : FogOfWarDrawer
     {

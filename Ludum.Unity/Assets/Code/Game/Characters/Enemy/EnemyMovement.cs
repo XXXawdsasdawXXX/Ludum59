@@ -1,7 +1,7 @@
 ﻿using Code.Core.GameLoop;
 using Code.Core.ServiceLocator;
 using Code.Game.Characters.Player;
-using Code.Game.Map;
+using Code.Game.World;
 using Code.Tools;
 using Cysharp.Threading.Tasks;
 using PolyNav;

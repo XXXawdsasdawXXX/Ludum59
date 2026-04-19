@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
-namespace FoW
+namespace Code.Game.FogOfWar
 {
     // ColliderFogRect represents the bounds of a collider within the fog texture space (in pixels).
     // This is used to optimise line of sight.

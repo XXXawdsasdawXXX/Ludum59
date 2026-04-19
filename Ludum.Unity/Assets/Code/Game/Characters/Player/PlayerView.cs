@@ -1,5 +1,5 @@
 ﻿using Code.Core.ServiceLocator;
-using FoW;
+using Code.Game.FogOfWar;
 using UnityEngine;
 
 namespace Code.Game.Characters.Player

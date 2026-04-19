@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace FoW
+namespace Code.Game.FogOfWar
 {
     [AddComponentMenu("FogOfWar/FogOfWarEvents")]
     public class FogOfWarEvents : MonoBehaviour

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FoW
+namespace Code.Game.FogOfWar
 {
     public abstract class FogOfWarShape
     {

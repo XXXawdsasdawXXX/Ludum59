@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
-namespace FoW
+namespace Code.Game.FogOfWar
 {
     [AddComponentMenu("FogOfWar/FogOfWarHideInFog")]
     public class FogOfWarHideInFog : MonoBehaviour

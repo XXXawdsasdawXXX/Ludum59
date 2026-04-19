@@ -1,8 +1,8 @@
 ﻿using Code.Core.ServiceLocator;
-using FoW;
+using Code.Game.FogOfWar;
 using UnityEngine;
 
-namespace Code.Game.Map
+namespace Code.Game.World
 {
     public class FogView : MonoBehaviour, IView
     {
