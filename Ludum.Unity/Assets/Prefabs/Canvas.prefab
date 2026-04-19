@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 4007538280222781231}
   - component: {fileID: 4007538280222781228}
   m_Layer: 5
-  m_Name: Image - healthBackground
+  m_Name: Image - energyBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -539,7 +539,7 @@ GameObject:
   - component: {fileID: 4007538280838700860}
   - component: {fileID: 4007538280838700861}
   m_Layer: 5
-  m_Name: Image - healthBar
+  m_Name: Image - energyBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -586,7 +586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.764151, g: 1, b: 0.9379688, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
@@ -598,7 +598,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.622
+  m_FillAmount: 0.557
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -670,4 +670,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Rect>k__BackingField: {fileID: 4007538280919110109}
   root: {fileID: 4007538280919110109}
-  <Health>k__BackingField: {fileID: 4007538280838700861}
+  <Energy>k__BackingField: {fileID: 4007538280838700861}

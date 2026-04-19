@@ -369,7 +369,6 @@ MonoBehaviour:
     _all: []
     _enabled: []
   maxCharactersCount: 1
-  Player: {fileID: 0}
 --- !u!1 &908518189
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,5 +790,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9088131654344631969, guid: 223c123fef868a04ab6e8ce2b4f3c691, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -85326599, guid: 84dbb43803c7b6a44b58d67fe2575b1e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 223c123fef868a04ab6e8ce2b4f3c691, type: 3}

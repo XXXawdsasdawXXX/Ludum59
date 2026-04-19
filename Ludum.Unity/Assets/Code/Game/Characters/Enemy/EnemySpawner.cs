@@ -11,16 +11,15 @@ namespace Code.Game.Characters.Enemy
         {
             for (int i = 0; i < Random.Range(2, 5); i++)
             {
-                //Vector2 position = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5));
-                Vector2 position = Vector2.zero;
-                Spawn((EEnemyType)Random.Range(0,2), position);
+                Vector2 position = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5));
+                _spawn((EEnemyType)Random.Range(0,2), position);
             }
             
             return UniTask.CompletedTask;
         }
 
         [Button]
-        public void Spawn(EEnemyType enemyType, Vector2 position)
+        private void _spawn(EEnemyType enemyType, Vector2 position)
         {
             EnemyView character = Pool.GetNext();
 

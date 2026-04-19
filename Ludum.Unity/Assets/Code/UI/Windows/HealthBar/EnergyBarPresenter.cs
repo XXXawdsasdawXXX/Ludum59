@@ -6,7 +6,7 @@ using Cysharp.Threading.Tasks;
 
 namespace Code.UI.Windows.HealthBar
 {
-    public class HealthBarPresenter : UIPresenter<HealthBarView>, IInitializeListener,IStartListener ,ISubscriber
+    public class EnergyBarPresenter : UIPresenter<EnergyBarView>, IInitializeListener,IStartListener ,ISubscriber
     {
         private PlayerSpawner _playerSpawner;
 
@@ -19,32 +19,31 @@ namespace Code.UI.Windows.HealthBar
 
         public UniTask GameStart()
         {
-            UpdateView(_playerSpawner.Player.Model.Health.PropertyValue);
+            _updateView(_playerSpawner.Player.Model.Health.PropertyValue);
             
             return UniTask.CompletedTask;
         }
 
         public void Subscribe()
         {
-            _playerSpawner.PlayerSpawned += PlayerSpawnerOnPlayerSpawned;
-        }
-
-        private void PlayerSpawnerOnPlayerSpawned(PlayerView obj)
-        {
-            obj.Model.Health.SubscribeToValue(UpdateView);
-
+            _playerSpawner.PlayerSpawned += _onPlayerSpawned;
         }
 
         public void Unsubscribe()
         {
-            _playerSpawner.PlayerSpawned -= PlayerSpawnerOnPlayerSpawned;
-            _playerSpawner.Player.Model.Health.UnsubscibeFromValue(UpdateView);
+            _playerSpawner.PlayerSpawned -= _onPlayerSpawned;
+            _playerSpawner.Player.Model.Energy.UnsubscibeFromValue(_updateView);
         }
 
-        private void UpdateView(int value)
+        private void _onPlayerSpawned(PlayerView player)
+        {
+            player.Model.Energy.SubscribeToValue(_updateView);
+        }
+
+        private void _updateView(int value)
         {
             PlayerModel model = _playerSpawner.Player.Model;
-            view.Health.fillAmount = (float)value / model.MaxHealth;
+            view.Energy.fillAmount = (float)value / model.MaxEnergy;
         }
     }
 }
