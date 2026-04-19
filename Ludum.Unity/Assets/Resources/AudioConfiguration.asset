@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Radar>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1216725140
+      Data2: 1220852178
+      Data3: 1847420831
+      Data4: -1052981056
+    Path: event:/SFX/Player/Ping

@@ -8,7 +8,7 @@
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{97e4eeab-4ba2-4f08-a7d5-b135fa4c16ff}</destination>
+			<destination>{4a1f652a-df57-4503-b151-4c29d825ff9d}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{051f6ac6-1638-4d83-bcb8-e277963475d9}</destination>
@@ -117,6 +117,9 @@
 		<property name="volume">
 			<value>-7</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{5d285d2e-16bd-40ad-b4be-2982cd9e42d4}</destination>
+		</relationship>
 		<relationship name="audioFile">
 			<destination>{ecba3369-de17-4141-9eaf-6546468d00b5}</destination>
 		</relationship>
@@ -135,6 +138,9 @@
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{965de0b8-1f3f-4243-ad59-3e01746506c5}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{58beaef5-9600-4cb4-a3ea-324dabb39095}</destination>
 		</relationship>
@@ -169,6 +175,31 @@
 	</object>
 	<object class="MixerBusPanner" id="{7a1d89df-0609-4177-986c-5d28ee860e63}" />
 	<object class="MixerBusFader" id="{709a96fd-d1b6-4f85-907d-82a879ffe46a}" />
+	<object class="RandomizerModulator" id="{5d285d2e-16bd-40ad-b4be-2982cd9e42d4}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>startOffset</value>
+		</property>
+		<property name="amount">
+			<value>59.5</value>
+		</property>
+	</object>
+	<object class="ADSRModulator" id="{965de0b8-1f3f-4243-ad59-3e01746506c5}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="attackTime">
+			<value>2000</value>
+		</property>
+		<property name="releaseTime">
+			<value>2000</value>
+		</property>
+		<property name="finalValue">
+			<value>-80</value>
+		</property>
+	</object>
 	<object class="MixerBusEffectChain" id="{58beaef5-9600-4cb4-a3ea-324dabb39095}">
 		<relationship name="effects">
 			<destination>{0bf6dea7-52ec-4771-befa-7e84a56b1b28}</destination>

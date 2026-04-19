@@ -8,7 +8,7 @@
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{97e4eeab-4ba2-4f08-a7d5-b135fa4c16ff}</destination>
+			<destination>{354acee4-3805-4946-9c80-e07ca231c3a4}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{828e53e9-942f-457a-9ca1-ae7bdc6fcad3}</destination>
@@ -148,9 +148,6 @@
 		<property name="length">
 			<value>8</value>
 		</property>
-		<property name="volume">
-			<value>-3.5</value>
-		</property>
 		<property name="soundStealing">
 			<value>3</value>
 		</property>
@@ -161,10 +158,10 @@
 			<value>14500</value>
 		</property>
 		<property name="minimumScatterDistance">
-			<value>0.800000012</value>
+			<value>2</value>
 		</property>
 		<property name="maximumScatterDistance">
-			<value>6</value>
+			<value>8</value>
 		</property>
 		<property name="volumeRandomization">
 			<value>-2</value>
