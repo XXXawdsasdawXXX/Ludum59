@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MPUIKIT {
+namespace Code.UI.MPUIKit.Runtime.Scripts.Effects {
     /// <summary>
     /// Gradient overlay of the image. 
     /// </summary>

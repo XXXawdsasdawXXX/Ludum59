@@ -9,6 +9,7 @@ namespace Code.Game.Characters
 {
     public abstract class Character : MonoBehaviour, IPoolEntity
     {
+        public event Action<IPoolEntity> NeedToBeDisabled;
         public Dictionary<Type, ICharacterComponent> Components { get; } = new();
 
         public abstract void InitializeComponents();
@@ -26,7 +27,7 @@ namespace Code.Game.Characters
 
             return null;
         }
-
+        
         public void Enable()
         {
             foreach (KeyValuePair<Type,ICharacterComponent> component in Components)
@@ -47,6 +48,11 @@ namespace Code.Game.Characters
                     Container.Instance.GetService<GameEventDispatcher>().RemoveRuntimeListener(listener);
                 }
             }
+        }
+
+        protected void invokeNeedToBeDisabled()
+        {
+            NeedToBeDisabled?.Invoke(this);
         }
     }
 }

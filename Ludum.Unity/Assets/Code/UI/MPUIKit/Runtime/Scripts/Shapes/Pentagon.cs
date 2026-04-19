@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace MPUIKIT {
+namespace Code.UI.MPUIKit.Runtime.Scripts.Shapes {
     /// <summary>
     /// Pentagon shape with two parallel opposite equal sides. It is basically a rectangle but one of the sides
     /// of the rectangle is broken into halves and pulled out.  

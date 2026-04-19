@@ -1,4 +1,4 @@
-﻿namespace MPUIKIT
+﻿namespace Code.UI.MPUIKit.Runtime.Scripts
 {
     public enum ShadingType
     {

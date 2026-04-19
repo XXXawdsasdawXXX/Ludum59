@@ -1,9 +1,10 @@
 ﻿using Code.Core.GameLoop;
 using Code.Core.ServiceLocator;
 using Code.Game.Characters.Player;
+using Code.UI.Base;
 using Cysharp.Threading.Tasks;
 
-namespace Code.UI.Windows
+namespace Code.UI.Windows.HealthBar
 {
     public class HealthBarPresenter : UIPresenter<HealthBarView>, IInitializeListener,IStartListener ,ISubscriber
     {

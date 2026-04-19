@@ -1,11 +1,12 @@
 ﻿using System;
+using Code.UI.MPUIKit.Runtime.Scripts;
 using UnityEditor;
 using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
-namespace MPUIKIT.Editor {
+namespace Code.UI.MPUIKit.Editor.Scripts {
     [CustomEditor(typeof(MPImage), true)]
     [CanEditMultipleObjects]
     public class MPImageEditor : ImageEditor {

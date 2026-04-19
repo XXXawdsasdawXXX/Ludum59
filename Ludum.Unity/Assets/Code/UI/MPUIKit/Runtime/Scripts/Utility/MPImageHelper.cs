@@ -1,6 +1,8 @@
 using System.Text;
+using UnityEngine;
+using UnityEngine.UI;
 
-namespace UnityEngine.UI.MPUIKIT {
+namespace Code.UI.MPUIKit.Runtime.Scripts.Utility {
     public static class MPImageHelper {
         private static readonly Vector3[] SXy = new Vector3[4];
         private static readonly Vector3[] SUv = new Vector3[4];
@@ -11,7 +13,7 @@ namespace UnityEngine.UI.MPUIKIT {
 
             Vector4 v = GetDrawingDimensions(preserveAspect, activeSprite, canvas, rectTransform);
             Vector4 uv = (activeSprite != null)
-                ? Sprites.DataUtility.GetOuterUV(activeSprite)
+                ? UnityEngine.Sprites.DataUtility.GetOuterUV(activeSprite)
                 : new Vector4(0, 0, 1, 1);
 
             Color32 color32 = color;
@@ -54,7 +56,7 @@ namespace UnityEngine.UI.MPUIKIT {
             Vector2 size = new Vector2(v.z - v.x, v.w - v.y);
             
             Vector4 outer = activeSprite != null
-                ? Sprites.DataUtility.GetOuterUV(activeSprite)
+                ? UnityEngine.Sprites.DataUtility.GetOuterUV(activeSprite)
                 : new Vector4(0, 0, 1, 1);
             UIVertex uiv = UIVertex.simpleVert;
             uiv.color = color;
@@ -243,7 +245,7 @@ namespace UnityEngine.UI.MPUIKIT {
 
         private static Vector4 GetDrawingDimensions(bool shouldPreserveAspect, Sprite activeSprite, Canvas canvas,
             RectTransform rectTransform) {
-            var padding = activeSprite == null ? Vector4.zero : Sprites.DataUtility.GetPadding(activeSprite);
+            var padding = activeSprite == null ? Vector4.zero : UnityEngine.Sprites.DataUtility.GetPadding(activeSprite);
             var size = activeSprite == null
                 ? new Vector2(rectTransform.rect.width, rectTransform.rect.height)
                 : new Vector2(activeSprite.rect.width, activeSprite.rect.height);

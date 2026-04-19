@@ -1,10 +1,11 @@
 using System.Threading;
+using Code.UI.Base;
 using Code.UI.Models;
 using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 
-namespace Code.UI
+namespace Code.UI.Elements
 {
     public class UIText : UIComponent
     {

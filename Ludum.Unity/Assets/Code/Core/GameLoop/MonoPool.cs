@@ -7,7 +7,7 @@ using Object = UnityEngine.Object;
 
 namespace Code.Core.Pools
 {
-    public interface  IPoolEntity
+    public interface IPoolEntity
     {
         void Enable();
         void Disable();

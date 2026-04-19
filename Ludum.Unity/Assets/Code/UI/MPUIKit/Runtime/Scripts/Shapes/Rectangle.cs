@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace MPUIKIT {
+namespace Code.UI.MPUIKit.Runtime.Scripts.Shapes {
     /// <summary>
     /// Basic Rectangle shape with the same width and height of the rect-transform
     /// </summary>

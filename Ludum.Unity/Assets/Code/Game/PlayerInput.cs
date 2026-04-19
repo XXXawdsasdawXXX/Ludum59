@@ -44,6 +44,7 @@ namespace Code.Game
             
             if (Input.GetKeyDown(RADAR_KEY))
             {
+                Debug.Log("press radar");
                 RadarPressed?.Invoke();
             }
         }

@@ -22,40 +22,21 @@ namespace Code.Core.GameLoop
             Exit
         }
 
-        // private UniWindowController _controller;
-
-        private readonly List<IInitializeListener> _initListeners = new List<IInitializeListener>();
-        private readonly List<ILoadListener> _loadListeners = new List<ILoadListener>();
-        private readonly List<IStartListener> _startListeners = new List<IStartListener>();
-        private readonly List<IUpdateListener> _updateListeners = new List<IUpdateListener>();
-        private readonly List<IFixedUpdateListener> _fixedUpdateListeners = new List<IFixedUpdateListener>();
-        private readonly List<IExitListener> _exitListeners = new List<IExitListener>();
-        private readonly List<ISubscriber> _subscribers = new List<ISubscriber>();
-
-        private readonly Dictionary<IUpdateListener, string> _updateListenerName =
-            new Dictionary<IUpdateListener, string>();
-
-        private ProfilerMarker _updateMarker = new ProfilerMarker("update");
+        private readonly HashSet<IInitializeListener> _initListeners = new HashSet<IInitializeListener>();
+        private readonly HashSet<ILoadListener> _loadListeners = new HashSet<ILoadListener>();
+        private readonly HashSet<IStartListener> _startListeners = new HashSet<IStartListener>();
+        private readonly HashSet<IUpdateListener> _updateListeners = new HashSet<IUpdateListener>();
+        private readonly HashSet<IFixedUpdateListener> _fixedUpdateListeners = new HashSet<IFixedUpdateListener>();
+        private readonly HashSet<IExitListener> _exitListeners = new HashSet<IExitListener>();
+        private readonly HashSet<ISubscriber> _subscribers = new HashSet<ISubscriber>();
 
         private State _currentState;
+
 
         private void Awake()
         {
             _initializeListeners();
-
-            //_controller = Container.Instance.GetUniWindowController();
-            _bootGame(); // когда вернем кирубо - удаляем строку и возвращаем закомментированный код
-
-            if (Application.isEditor)
-            {
-                //    _controller.gameObject.SetActive(false);
-
-                //   _bootGame();
-            }
-            else
-            {
-                //_controller.OnStateChanged += _onWindowInitialized;
-            }
+            _bootGame();
         }
 
         private async void Start()
@@ -83,7 +64,6 @@ namespace Code.Core.GameLoop
             }
         }
 
-
         private void OnApplicationQuit()
         {
             if (_currentState > State.Subscribe)
@@ -94,80 +74,81 @@ namespace Code.Core.GameLoop
 
         public async void AddRuntimeListener(IGameListener listener)
         {
-            if (listener is IInitializeListener initListener) await initListener.GameInitialize();
-
-            if (listener is ISubscriber subscriber)
+            if (listener is IInitializeListener initListener)
             {
-                subscriber.Subscribe();
-                _subscribers.Add(subscriber);
+                await initListener.GameInitialize();
             }
 
-            if (listener is ILoadListener loadListener) await loadListener.GameLoad();
+            if (listener is ISubscriber subscriber && _subscribers.Add(subscriber))
+            {
+                subscriber.Subscribe();
+            }
 
-            if (listener is IStartListener startListener) await startListener.GameStart();
+            if (listener is ILoadListener loadListener && _loadListeners.Add(loadListener))
+            {
+                await loadListener.GameLoad();
+            }
 
-            if (listener is IUpdateListener updateListener) _updateListeners.Add(updateListener);
-            
-            if (listener is IFixedUpdateListener fixedUpdateListener) _fixedUpdateListeners.Add(fixedUpdateListener);
+            if (listener is IStartListener startListener && _startListeners.Add(startListener))
+            {
+                await startListener.GameStart();
+            }
 
-            if (listener is IExitListener exitListener) _exitListeners.Add(exitListener);
+            if (listener is IUpdateListener updateListener)
+            {
+                _updateListeners.Add(updateListener);
+            }
+
+            if (listener is IFixedUpdateListener fixedUpdateListener)
+            {
+                _fixedUpdateListeners.Add(fixedUpdateListener);
+            }
+
+            if (listener is IExitListener exitListener)
+            {
+                _exitListeners.Add(exitListener);
+            }
         }
 
         public void RemoveRuntimeListener(IGameListener listener)
         {
-            if (listener is IUpdateListener updateListener) _updateListeners.Remove(updateListener);
-            
-            if (listener is IFixedUpdateListener fixedUpdateListener) _fixedUpdateListeners.Remove(fixedUpdateListener);
+            if (listener is IUpdateListener updateListener)
+            {
+                _updateListeners.Remove(updateListener);
+            }
 
-            if (listener is IExitListener exitListener) _exitListeners.Remove(exitListener);
+            if (listener is IFixedUpdateListener fixedUpdateListener)
+            {
+                _fixedUpdateListeners.Remove(fixedUpdateListener);
+            }
 
-            if (listener is ISubscriber subscriber) subscriber.Unsubscribe();
+            if (listener is ISubscriber subscriber)
+            {
+                subscriber.Unsubscribe();
+
+                _subscribers.Remove(subscriber);
+            }
+
+            if (listener is IExitListener exitListener)
+            {
+                exitListener.GameExit();
+                
+                _exitListeners.Remove(exitListener);
+            }
         }
-
-        /*private void _onWindowInitialized(UniWindowController.WindowStateEventType type)
-        {
-            _controller.OnStateChanged -= _onWindowInitialized;
-
-            _bootGame();
-        }*/
 
         private async void _bootGame()
         {
-#if UNITY_EDITOR
-            using (new ProfilerMarker("_bootGame").Auto())
-            {
-                _currentState = State.Initialize;
-            }
-
+            _currentState = State.Initialize;
             await _notifyGameInitialize();
 
-            using (new ProfilerMarker("Subscribe").Auto())
-            {
-                _currentState = State.Subscribe;
-            }
-
+            _currentState = State.Subscribe;
             await _notifySubscribe();
 
-            using (new ProfilerMarker("Load").Auto())
-            {
-                _currentState = State.Load;
-            }
-
+            _currentState = State.Load;
             await _notifyGameLoad();
 
             _currentState = State.Start;
-#else
-    _currentState = State.Initialize;
-    await _notifyGameInitialize();
-
-    _currentState = State.Subscribe;
-    await _notifySubscribe();
-
-    _currentState = State.Load;
-    await _notifyGameLoad();
-
-    _currentState = State.Start;
-#endif
         }
 
         private void _initializeListeners()
@@ -185,8 +166,9 @@ namespace Code.Core.GameLoop
                 if (listener is IStartListener startListener) _startListeners.Add(startListener);
 
                 if (listener is IUpdateListener updateListener) _updateListeners.Add(updateListener);
-                
-                if (listener is IFixedUpdateListener fixedUpdateListener) _fixedUpdateListeners.Add(fixedUpdateListener);
+
+                if (listener is IFixedUpdateListener fixedUpdateListener)
+                    _fixedUpdateListeners.Add(fixedUpdateListener);
 
                 if (listener is IExitListener exitListener) _exitListeners.Add(exitListener);
             }
@@ -228,27 +210,12 @@ namespace Code.Core.GameLoop
 
         private void _notifyGameUpdate()
         {
-#if UNITY_EDITOR
-            using (_updateMarker.Auto())
-            {
-                foreach (IUpdateListener listener in _updateListeners)
-                {
-                    if (!_updateListenerName.ContainsKey(listener))
-                    {
-                        _updateListenerName.Add(listener, listener.GetType().Name);
-                    }
+            List<IUpdateListener> list = new List<IUpdateListener>(_updateListeners);
 
-                    Profiler.BeginSample(_updateListenerName[listener]);
-                    listener.GameUpdate();
-                    Profiler.EndSample();
-                }
-            }
-#else
-            foreach (IUpdateListener listener in _updateListeners)
+            foreach (IUpdateListener listener in list)
             {
                 listener.GameUpdate();
             }
-#endif
         }
 
         private void _notifyGameFixedUpdate()

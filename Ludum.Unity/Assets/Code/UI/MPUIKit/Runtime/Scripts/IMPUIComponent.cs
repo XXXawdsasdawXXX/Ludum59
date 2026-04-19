@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace MPUIKIT {
+namespace Code.UI.MPUIKit.Runtime.Scripts {
     public interface IMPUIComponent{
         Material SharedMat { get; set; }
         bool ShouldModifySharedMat { get; set; }

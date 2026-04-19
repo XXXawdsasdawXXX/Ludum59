@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace MPUIKIT {
+namespace Code.UI.MPUIKit.Runtime.Scripts.Shapes {
     /// <summary>
     /// Just a basic circle.
     /// </summary>

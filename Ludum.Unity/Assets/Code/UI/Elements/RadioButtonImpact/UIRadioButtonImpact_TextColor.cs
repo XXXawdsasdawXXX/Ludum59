@@ -4,7 +4,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
-namespace Code.UI.RadioButtonImpact
+namespace Code.UI.Elements.RadioButtonImpact
 {
     [Serializable]
     public class UIRadioButtonImpact_TextColor : UIRadioButtonImpact

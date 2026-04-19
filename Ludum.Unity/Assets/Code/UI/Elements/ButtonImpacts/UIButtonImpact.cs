@@ -2,7 +2,7 @@ using System;
 using Code.Core.ServiceLocator;
 using Code.UI.Models;
 
-namespace Code.UI
+namespace Code.UI.Elements.ButtonImpacts
 {
     [Serializable]
     public abstract class UIButtonImpact

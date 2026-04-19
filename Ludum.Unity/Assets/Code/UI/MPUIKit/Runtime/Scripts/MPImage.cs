@@ -1,14 +1,14 @@
 ﻿using System;
+using Code.UI.MPUIKit.Runtime.Scripts.Effects;
+using Code.UI.MPUIKit.Runtime.Scripts.Shapes;
+using Code.UI.MPUIKit.Runtime.Scripts.Utility;
 using Cysharp.Threading.Tasks;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UI.MPUIKIT;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 
-namespace MPUIKIT {
+namespace Code.UI.MPUIKit.Runtime.Scripts {
     [AddComponentMenu("UI/MPUI/MPImage")]
     public class MPImage : Image {
         #region Constants
@@ -378,22 +378,52 @@ namespace MPUIKIT {
 
 #if UNITY_EDITOR
 
-        public async UniTaskVoid AnimateCircle(float maxSize)
+        public async UniTaskVoid AnimateCircle(float from, float to, float duration)
         {
-            float start = Circle.Radius;
+            SetRadius(from);
+
             float time = 0f;
 
-            while (time < 2)
+            while (time < duration)
             {
                 time += Time.deltaTime;
                 float t = time / 2;
-
-                Circle circle = Circle;
-                circle.Radius = Mathf.Lerp(start, maxSize, t);
-                Circle = circle;
+                
+                SetRadius(Mathf.Lerp(from, to, t));
 
                 await UniTask.Yield();
             }
+        }
+        
+        public void SetRadius(float radius)
+        {
+            Circle circle = Circle;
+            circle.Radius = radius;
+            Circle = circle;
+        }
+        
+        public async UniTaskVoid AnimateAlpha(float from, float to, float duration)
+        {
+            SetAlpha(1);
+            
+            float time = 0f;
+
+            while (time < duration)
+            {
+                time += Time.deltaTime;
+                float t = time / 2;
+                
+                SetAlpha(Mathf.Lerp(1, 0f, t));
+                
+                await UniTask.Yield();
+            }
+        }
+        
+        public void SetAlpha(float a)
+        {
+            Color c = color;
+            c.a = a;
+            color = c;
         }
         
         public void UpdateSerializedValuesFromSharedMaterial() {

@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Code.Core.GameLoop;
+using Code.UI.Base;
 using Cysharp.Threading.Tasks;
 using TriInspector;
 using UnityEditor;
 using UnityEngine;
 
-namespace Code.UI
+namespace Code.UI.Elements
 {
     public class UIRadioGroup : UIComponent, IStartListener, ISubscriber
     {

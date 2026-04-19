@@ -3,7 +3,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-namespace MPUIKIT.Editor
+namespace Code.UI.MPUIKit.Editor.Scripts
 {
 	public class EditorGUILayoutExtended : UnityEditor.Editor
 	{

@@ -1,8 +1,8 @@
-using System;
+using Code.UI.Base;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Code.UI
+namespace Code.UI.Elements
 {
     public class UIRawImage : UIComponent
     {

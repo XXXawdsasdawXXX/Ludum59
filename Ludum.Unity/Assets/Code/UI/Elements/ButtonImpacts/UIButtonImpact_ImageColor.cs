@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Color = UnityEngine.Color;
 
-namespace Code.UI
+namespace Code.UI.Elements.ButtonImpacts
 {
     
     [Serializable]

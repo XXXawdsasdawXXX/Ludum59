@@ -1,7 +1,9 @@
+using Code.UI.MPUIKit.Runtime.Scripts;
+using Code.UI.MPUIKit.Runtime.Scripts.Effects;
 using UnityEditor;
 using UnityEngine;
 
-namespace MPUIKIT.Editor {
+namespace Code.UI.MPUIKit.Editor.Scripts.EffectDrawers {
     [CustomPropertyDrawer(typeof(GradientEffect))]
     public class GradeintEffectPropertyDrawer : PropertyDrawer {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {

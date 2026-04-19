@@ -1,14 +1,13 @@
 ﻿using Code.Core.Pools;
-using Code.UI.World;
-using MPUIKIT;
+using Code.UI.Base;
 using UnityEngine;
 
-namespace Code.UI.Windows
+namespace Code.UI.Windows.Radar
 {
     public class RadarView : UIView
     {
-        [field: SerializeField] public MonoPool<UIEnemyMarker> MarkerPool;
+        [field: SerializeField] public MonoPool<UIRadarMarker> MarkerPool;
 
-        [field: SerializeField] public MPImage MainCircle { get; private set; }
+        [field: SerializeField] public UIRadarMarker MainCircle { get; private set; }
     }
 }

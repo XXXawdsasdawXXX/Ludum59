@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code.UI
+namespace Code.UI.Base
 {
     public class UIPresenter<View> : MonoBehaviour where View : UIView
     {

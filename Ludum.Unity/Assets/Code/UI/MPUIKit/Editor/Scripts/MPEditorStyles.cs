@@ -2,7 +2,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace MPUIKIT.Editor {
+namespace Code.UI.MPUIKit.Editor.Scripts {
     [InitializeOnLoad]
     internal static class MPEditorStyles {
         private static string _mpuiKitIconsDirectory = string.Empty;
