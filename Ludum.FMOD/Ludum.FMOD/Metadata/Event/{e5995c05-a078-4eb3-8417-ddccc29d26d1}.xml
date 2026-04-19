@@ -179,6 +179,9 @@
 		<property name="startOffset">
 			<value>5.5</value>
 		</property>
+		<property name="pitch">
+			<value>-0.600000024</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{3f1b4066-b8f9-4ea9-87d5-74c880082eaf}</destination>
 		</relationship>
@@ -256,10 +259,10 @@
 			<value>72</value>
 		</property>
 		<property name="wetLevel">
-			<value>-10</value>
+			<value>-9</value>
 		</property>
 		<property name="dryLevel">
-			<value>-5</value>
+			<value>-4</value>
 		</property>
 	</object>
 	<object class="MultibandEqEffect" id="{67de913c-babe-4c94-a8b2-723112e3081e}">
@@ -290,7 +293,7 @@
 	</object>
 	<object class="GainEffect" id="{09ad71c0-dfd2-4c32-83b2-70193c094946}">
 		<property name="gain">
-			<value>2</value>
+			<value>3</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{f9b57b94-928a-4c3e-add6-10015ab5fd1f}" />
