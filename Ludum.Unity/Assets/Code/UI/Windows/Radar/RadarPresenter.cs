@@ -66,7 +66,7 @@ namespace Code.UI.Windows.Radar
             float duration = _radarModel.Duration + _radarModel.PerkDuration.PropertyValue;
         
             view.MainCircle.AnimateSize(duration * 0.7f);
-            view.MainCircle.AnimateAlpha(duration * 0.7f);
+            view.MainCircle.AnimateAlpha(duration * 0.5f);
 
             float radius = _radarModel.Radius + _radarModel.PerkRadius.PropertyValue;
            

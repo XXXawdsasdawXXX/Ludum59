@@ -1,8 +1,11 @@
 
+using System;
+
 namespace Code.Tools
 {
     public class Timer
     {
+        public event Action Updated;
         public float Max { get; private set; }
         public float Current { get; private set; }
 
@@ -15,6 +18,8 @@ namespace Code.Tools
         {
             Current += value;
 
+            Updated?.Invoke();
+            
             if (Current < Max)
             {
                 return false;
@@ -26,11 +31,15 @@ namespace Code.Tools
         public void Finish()
         {
             Current = Max;
+            
+            Updated?.Invoke();
         }
         
         public void Reset()
         {
             Current = 0;
+            
+            Updated?.Invoke();
         }
 
         public bool AreMet()

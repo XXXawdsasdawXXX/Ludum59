@@ -11,7 +11,9 @@ namespace Code.Game.Characters.Player
         private const string HORIZONTAL_AXIS_NAME = "Horizontal";
         private const string VERTICAL_AXIS_NAME = "Vertical";
         
-        private const KeyCode RADAR_KEY = KeyCode.Alpha1;
+        private const KeyCode PATH_KEY = KeyCode.Alpha1;
+        private const KeyCode RADAR_KEY = KeyCode.Alpha2;
+        private const KeyCode STAN_KEY = KeyCode.Alpha3;
 
         public Action RadarPressed;
         public Vector2 Forward { get; private set; }
