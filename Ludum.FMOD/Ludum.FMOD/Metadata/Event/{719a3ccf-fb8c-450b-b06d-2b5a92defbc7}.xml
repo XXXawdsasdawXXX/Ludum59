@@ -93,7 +93,7 @@
 			<value>6.5</value>
 		</property>
 		<property name="volume">
-			<value>-4</value>
+			<value>-1</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{82b0e8e3-6bb8-47fc-8bae-1326241d8cb2}</destination>
@@ -144,6 +144,7 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{74c356d7-cd3a-4720-a267-6b04dcd42afb}">
 		<relationship name="effects">
+			<destination>{6c413660-8042-45a5-9e3e-9be1714c95bc}</destination>
 			<destination>{c041d621-b16e-447e-b190-4f956fa74efe}</destination>
 			<destination>{b1df4398-c1e2-43bc-b26c-3699daa71ad8}</destination>
 		</relationship>
@@ -152,7 +153,7 @@
 	<object class="MixerBusFader" id="{b6304059-0aa1-4fd5-a7d3-3e4892d2cf17}" />
 	<object class="AutomationPoint" id="{33d2515d-1a7e-4606-b7cf-aa2725005240}">
 		<property name="position">
-			<value>2.5</value>
+			<value>2.875</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -170,6 +171,11 @@
 		</property>
 		<property name="value">
 			<value>0</value>
+		</property>
+	</object>
+	<object class="HighpassSimpleEffect" id="{6c413660-8042-45a5-9e3e-9be1714c95bc}">
+		<property name="cutoff">
+			<value>40</value>
 		</property>
 	</object>
 	<object class="MultibandEqEffect" id="{c041d621-b16e-447e-b190-4f956fa74efe}">

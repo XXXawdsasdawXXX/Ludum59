@@ -274,6 +274,9 @@
 		<property name="earlyLateMix">
 			<value>75</value>
 		</property>
+		<property name="wetLevel">
+			<value>-10</value>
+		</property>
 		<property name="dryLevel">
 			<value>-4</value>
 		</property>
