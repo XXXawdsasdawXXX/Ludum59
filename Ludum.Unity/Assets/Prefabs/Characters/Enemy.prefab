@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af67c4565004be3b677af0f053818e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collider2D: {fileID: 1026960657550128918}
 --- !u!1 &5894728762363128918
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af67c4565004be3b677af0f053818e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collider2D: {fileID: 1814312731410643134}
 --- !u!1 &5899132126634959753
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,7 +376,7 @@ Animator:
   m_GameObject: {fileID: 5899132127281371319}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: f3bd1f1f9803e7c4ea1a1f7b6e80fd6d, type: 2}
+  m_Controller: {fileID: 22100000, guid: 3c393eec02c1e8f45809e46137b2b3ac, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -584,6 +586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af67c4565004be3b677af0f053818e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collider2D: {fileID: 1905408027778528249}
 --- !u!1 &8351915643515845954
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Linq;
 using Code.Core.GameLoop;
 using Code.Core.ServiceLocator;
 using Code.Game.Audio;
+using Code.Game.Characters.Door;
 using Code.Game.Characters.Enemy;
 using Code.Game.World;
 using Code.Tools;
@@ -24,6 +25,8 @@ namespace Code.Game.Characters.Player.Abilities
         private readonly PixelTrail _pixelTrail;
         private readonly EnemySpawner _enemySpawner;
         private readonly SoundConfiguration _soundConfiguration;
+        private readonly DoorSpawner _doorSpawner;
+        private DoorView _door;
 
         public PlayerPath(PlayerView view)
         {
@@ -33,11 +36,13 @@ namespace Code.Game.Characters.Player.Abilities
             _pixelTrail = Container.Instance.GetService<PixelTrail>();
             _enemySpawner = Container.Instance.GetService<EnemySpawner>();
             _soundConfiguration = Container.Instance.GetConfiguration<SoundConfiguration>();
+            _doorSpawner = Container.Instance.GetService<DoorSpawner>();
         }
         
         public void Subscribe()
         {
             _input.PathPressed += _activate;
+            _doorSpawner.Spawned += _doorSpawned;
         }
 
         public void Unsubscribe()
@@ -64,7 +69,10 @@ namespace Code.Game.Characters.Player.Abilities
             
             float duration = _view.Model.Path.Duration + _view.Model.Path.PerkDuration.PropertyValue;
           
-            _pixelTrail.Activate(duration, _view.transform.position, _machineSpawner.Machine.transform.position);
+            _pixelTrail.Activate(duration, _view.transform.position, 
+                _door == null 
+                ? _machineSpawner.Machine.transform.position
+                : _door.transform.position);
             
             _agro(duration);
         }
@@ -88,5 +96,9 @@ namespace Code.Game.Characters.Player.Abilities
             }
         }
 
+        private void _doorSpawned(DoorView obj)
+        {
+            _door = obj;
+        }
     }
 }

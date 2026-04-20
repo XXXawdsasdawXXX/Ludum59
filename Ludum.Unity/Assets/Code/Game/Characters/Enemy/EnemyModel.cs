@@ -12,6 +12,8 @@ namespace Code.Game.Characters.Enemy
         [field: SerializeField, PreviewObject] public Sprite Sprite { get; private set; }
         [field: SerializeField] public AnimatorOverrideController Animator { get; private set; }
         [field: SerializeField] public int Size { get; private set; }
+        [field: SerializeField] public int Damage { get; private set; }
+        [field: SerializeField] public float TriggerSize { get; private set; }
         [field: SerializeField] public float Speed { get; private set; } = 1;
         [field: SerializeField] public ReactiveProperty<bool> Follow { get; private set; } = new(false);
         [field: SerializeField] public ReactiveProperty<bool> AbilityAgro { get; private set; } = new(false);
@@ -31,6 +33,7 @@ namespace Code.Game.Characters.Enemy
                 Animator = Animator,
                 Size = Size,
                 Speed = Speed, 
+                TriggerSize = TriggerSize,
                 Follow = new ReactiveProperty<bool>(false),
                 SpeedMultiplier = new ReactiveProperty<float>(SpeedMultiplier.PropertyValue),
                 ShowMarker = new ReactiveProperty<bool>(false),

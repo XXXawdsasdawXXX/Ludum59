@@ -466,6 +466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mapSize: {x: 5, y: 5}
+  _maxRegenerateAttempts: 10
   _prefabs:
   - {fileID: 2785977469482566073, guid: e5afaf7e8a950804587e59e902820dbd, type: 3}
   - {fileID: 7282863545694877827, guid: 8c21edb5db9d3804b8da08a0471fcd46, type: 3}
@@ -707,7 +708,7 @@ MonoBehaviour:
     _prefab: {fileID: 5899132126634959798, guid: d42639cae7ad76c42abbb1b13db7af27, type: 3}
     _all: []
     _enabled: []
-  maxCharactersCount: 0
+  maxCharactersCount: 10
 --- !u!1 &1273415093
 GameObject:
   m_ObjectHideFlags: 0
@@ -5720,6 +5721,57 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!1 &1698090246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1698090247}
+  - component: {fileID: 1698090248}
+  m_Layer: 0
+  m_Name: DoorSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1698090247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698090246}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1952214539}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1698090248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698090246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a749d36185fe46089fdcd078a49db7c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Pool>k__BackingField:
+    _root: {fileID: 1698090247}
+    _prefab: {fileID: 349624282191028784, guid: b7ae90a6644b66d4aa7f66b40185a9be, type: 3}
+    _all: []
+    _enabled: []
+  maxCharactersCount: 1
+  Door: {fileID: 0}
 --- !u!1 &1952214538
 GameObject:
   m_ObjectHideFlags: 0
@@ -5753,6 +5805,7 @@ Transform:
   - {fileID: 725694225}
   - {fileID: 908518191}
   - {fileID: 2141640797}
+  - {fileID: 1698090247}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5771,7 +5824,10 @@ MonoBehaviour:
   _chunkMapCreator: {fileID: 668539165}
   _playerSpawner: {fileID: 725694226}
   _enemySpawner: {fileID: 908518192}
+  _doorSpawner: {fileID: 1698090248}
   _machineSpawner: {fileID: 2141640796}
+  _requiredHeroPoints: 6
+  _requiredEnemyPoints: 10
 --- !u!1 &2091046317
 GameObject:
   m_ObjectHideFlags: 0

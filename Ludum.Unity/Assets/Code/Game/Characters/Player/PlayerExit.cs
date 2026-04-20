@@ -2,6 +2,7 @@
 using System.Threading;
 using Code.Core.GameLoop;
 using Code.Core.ServiceLocator;
+using Code.Game.Characters.Door;
 using Code.Game.World;
 using Code.Tools;
 using Cysharp.Threading.Tasks;
@@ -9,22 +10,22 @@ using UnityEngine;
 
 namespace Code.Game.Characters.Player
 {
-    public class PlayerConnection : ICharacterComponent, ISubscriber
+    public class PlayerExit : ICharacterComponent, ISubscriber
     {
         private readonly PlayerView _view;
-        private readonly MachineSpawner _machineSpawner;
+        private readonly DoorSpawner _machineSpawner;
         public Condition Condition { get; } = new Condition();
 
-        public MachineView _currentMachine;
+        public DoorView _currentMachine;
 
         private CancellationTokenSource _waitInput;
         private readonly PlayerInput _input;
 
-        public PlayerConnection(PlayerView view)
+        public PlayerExit(PlayerView view)
         {
             _view = view;
 
-            _machineSpawner = Container.Instance.GetService<MachineSpawner>();
+            _machineSpawner = Container.Instance.GetService<DoorSpawner>();
             _input = Container.Instance.GetService<PlayerInput>();
         }
 
@@ -42,7 +43,7 @@ namespace Code.Game.Characters.Player
             }
         }
 
-        private void _subscribeToMachine(MachineView obj)
+        private void _subscribeToMachine(DoorView obj)
         {
             if (_currentMachine != null)
             {
@@ -81,8 +82,6 @@ namespace Code.Game.Characters.Player
 
                 await _moveToConnectionPoint();
 
-                await _playAnimation();
-
                 _currentMachine.IsConnected.PropertyValue = true;
                 _view.Model.Connecting.PropertyValue = false;
             }
@@ -119,12 +118,6 @@ namespace Code.Game.Characters.Player
             }
         }
 
-        private async UniTask _playAnimation()
-        {
-            _view.Renderer.FlipX(false);
-            _view.Renderer.PlayConnection();
-            await UniTask.Delay(TimeSpan.FromSeconds(0.6f));
-            _currentMachine.Render.PlayConnect();
-        }
+
     }
 }

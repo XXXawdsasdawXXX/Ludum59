@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d1cdd66981a17914baedbeeeb82543f5
+guid: a26ed3bf040e24c44ad98647d910fe6f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,70 +103,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: upgrade_window_0
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 225
-        width: 281
-        height: 268
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae7af4df8a0c3b243a58f9d77b7cfa20
-      internalID: -1000033318
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: upgrade_window_1
-      rect:
-        serializedVersion: 2
-        x: 23
-        y: 160
-        width: 118
-        height: 58
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 672b72d8acd183f4e8dd3ad50a856682
-      internalID: -1003463294
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: upgrade_window_5
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 136
-        width: 19
-        height: 17
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e6ecac995d67d104ab32ffd55a885abc
-      internalID: -1190807908
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -177,16 +114,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      upgrade_window_0: -1000033318
-      upgrade_window_1: -1003463294
-      upgrade_window_2: 1772301979
-      upgrade_window_3: -1267759040
-      upgrade_window_4: 971569529
-      upgrade_window_5: -1190807908
-      upgrade_window_6: -1006792846
-      upgrade_window_7: -1992862780
-      upgrade_window_8: 719624380
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
