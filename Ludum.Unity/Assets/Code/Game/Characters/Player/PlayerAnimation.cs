@@ -24,6 +24,7 @@ namespace Code.Game.Characters.Player
         private static readonly int Died = Animator.StringToHash("Died");
         private static readonly int TakeDamage = Animator.StringToHash("TakeDamage");
         private static readonly int Machine = Animator.StringToHash("Machine");
+        private bool _isDied;
 
         public PlayerAnimation(PlayerView view)
         {
@@ -76,6 +77,15 @@ namespace Code.Game.Characters.Player
 
         private void _takeDamage(int health)
         {
+            if (_isDied)
+            {
+                return;
+            }
+
+            if (health <= 0)
+            {
+                _isDied = true;
+            }
             _render.Animator.SetTrigger(health <= 0 ? Died : TakeDamage);
         }
 

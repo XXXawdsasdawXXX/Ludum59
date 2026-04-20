@@ -46,7 +46,7 @@ namespace Code.Game.Characters.Player
             Health.SetValueWithoutNotify(MaxHealth);
 
             MaxEnergy = _playerConfiguration.MaxEnergy;
-            Energy.SetValueWithoutNotify(MaxEnergy);
+            Energy.PropertyValue = MaxEnergy;
 
             Radar = _playerConfiguration.Radar.Clone();
             Radar.ResetPerks();

@@ -30,8 +30,8 @@ namespace Code.UI.Windows.HealthBar
 
         private void _onPlayerSpawned(PlayerView player)
         {
+            view.Energy.fillAmount = 1;
             player.Model.Energy.SubscribeToValue(_updateView);
-            _updateView(_playerSpawner.Player.Model.Health.PropertyValue);
         }
         
         private void _updateView(int value)

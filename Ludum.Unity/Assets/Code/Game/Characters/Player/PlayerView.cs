@@ -1,11 +1,13 @@
-﻿using Code.Core.ServiceLocator;
+﻿using Code.Core.GameLoop;
+using Code.Core.ServiceLocator;
 using Code.Game.Characters.Player.Abilities;
 using Code.Game.FogOfWar;
+using Code.Tools;
 using UnityEngine;
 
 namespace Code.Game.Characters.Player
 {
-    public class PlayerView : Character
+    public class PlayerView : Character, IUpdateListener
     {
         [field: SerializeField] public PlayerRender Renderer { get; private set; }
         [field: SerializeField] public Rigidbody2D Rigidbody2D { get; set; }
@@ -13,7 +15,17 @@ namespace Code.Game.Characters.Player
         [field: SerializeField] public FogOfWarUnit FogOfWarUnit { get; private set; } 
         [field: SerializeField] public Trigger RadarTrigger { get; private set; } 
         [field: SerializeField] public CircleCollider2D RadarCircle { get; private set; }
-        
+
+        private readonly Timer _energyTimer = new Timer();
+
+        public void GameUpdate()
+        {
+            if (_energyTimer.IsFinish())
+            {
+                Model.Energy.PropertyValue += 10;
+                _energyTimer.Start(5);
+            }
+        }
 
         public override void InitializeComponents()
         {

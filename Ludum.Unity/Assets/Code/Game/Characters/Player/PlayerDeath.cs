@@ -11,6 +11,7 @@ namespace Code.Game.Characters.Player
         public Condition Condition { get; } = new();
         public event Action Died;
 
+        private bool _isDied;
         public PlayerDeath(PlayerView view)
         {
             _view = view;

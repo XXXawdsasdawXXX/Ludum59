@@ -19,3 +19,17 @@ MonoBehaviour:
       Data3: 1847420831
       Data4: -1052981056
     Path: event:/SFX/Player/Ping
+  <Stan>k__BackingField:
+    Guid:
+      Data1: 1328845468
+      Data2: 1203660880
+      Data3: 94585021
+      Data4: -1206309711
+    Path: event:/SFX/Player/Stun
+  <Path>k__BackingField:
+    Guid:
+      Data1: 1905933519
+      Data2: 1158413196
+      Data3: 1512795568
+      Data4: -939794798
+    Path: event:/SFX/Player/Path

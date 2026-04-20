@@ -80,8 +80,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2694642842796539419}
   - component: {fileID: 2694642842796539416}
-  - component: {fileID: 5313406691046678596}
   - component: {fileID: 1615675235}
+  - component: {fileID: 4469871562558406374}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -128,6 +128,8 @@ MonoBehaviour:
       _propertyValue: 0
     <Energy>k__BackingField:
       _propertyValue: 0
+    <Connecting>k__BackingField:
+      _propertyValue: 0
     <MaxEnergy>k__BackingField: 0
     <Radar>k__BackingField:
       EnergyPrice: 0
@@ -173,22 +175,6 @@ MonoBehaviour:
   <FogOfWarUnit>k__BackingField: {fileID: 7002137434329873431}
   <RadarTrigger>k__BackingField: {fileID: 3858772208303826463}
   <RadarCircle>k__BackingField: {fileID: 2504783262458263585}
---- !u!70 &5313406691046678596
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2694642842796539417}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.02}
-  m_Size: {x: 0.1, y: 0.16}
-  m_Direction: 1
 --- !u!50 &1615675235
 Rigidbody2D:
   serializedVersion: 4
@@ -210,6 +196,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &4469871562558406374
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2694642842796539417}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.02
 --- !u!1 &2694642843422969087
 GameObject:
   m_ObjectHideFlags: 0
