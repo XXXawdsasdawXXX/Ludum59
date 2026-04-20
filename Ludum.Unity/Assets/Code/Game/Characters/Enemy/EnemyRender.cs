@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using FMODUnity;
+using UnityEngine;
 
 namespace Code.Game.Characters.Enemy
 {
@@ -9,6 +10,14 @@ namespace Code.Game.Characters.Enemy
     
         [SerializeField] public Animator _animator;
         [SerializeField] private SpriteRenderer _spriteRenderer;
+        
+        
+        [Header("FMOD Footsteps")]
+        [SerializeField] private EventReference _footstepEvent;
+
+        
+        private float _lastFootstepTime;
+        [SerializeField] private float _footstepCooldown = 0.1f;
 
         
         public void SetModel(EnemyModel model)
@@ -35,6 +44,15 @@ namespace Code.Game.Characters.Enemy
         public void SetStan(bool value)
         {
             _animator.SetBool(Stan, value);
+        }
+        public void PlayFootstep()
+        {
+            if (Time.time - _lastFootstepTime < _footstepCooldown)
+                return;
+
+            _lastFootstepTime = Time.time;
+
+            RuntimeManager.PlayOneShot(_footstepEvent, transform.position);
         }
     }
 }

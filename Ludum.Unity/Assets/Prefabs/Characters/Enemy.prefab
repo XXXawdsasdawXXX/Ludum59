@@ -374,7 +374,7 @@ Animator:
   m_GameObject: {fileID: 5899132127281371319}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: c53e08b29411fa94ebe389375fad9a59, type: 2}
+  m_Controller: {fileID: 22100000, guid: f3bd1f1f9803e7c4ea1a1f7b6e80fd6d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -399,6 +399,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 8496016998428710387}
   _spriteRenderer: {fileID: 5899132127281371317}
+  _footstepEvent:
+    Guid:
+      Data1: 338708628
+      Data2: 1288417611
+      Data3: 505233561
+      Data4: 1348926927
+    Path: event:/SFX/Enemy/Enemy Steps
+  _footstepCooldown: 0.1
 --- !u!1 &5938909468002144948
 GameObject:
   m_ObjectHideFlags: 0
