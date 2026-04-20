@@ -7,17 +7,19 @@ using UnityEngine;
 
 namespace Code.Game.World
 {
-    public class WorldConstructor : MonoBehaviour, IInitializeListener
+    public class WorldConstructor : MonoBehaviour, IStartListener
     {
         [SerializeField] private ChunkMapCreator _chunkMapCreator;
         [SerializeField] private PlayerSpawner _playerSpawner;
         [SerializeField] private EnemySpawner _enemySpawner;
         [SerializeField] private MachineSpawner _machineSpawner;
 
-        public UniTask GameInitialize()
+        public UniTask GameStart()
         {
-            _chunkMapCreator.ClearMap();
-            _chunkMapCreator.GenerateMap();
+            if (_chunkMapCreator.MapChunks.Count == 0)
+            {
+                _chunkMapCreator.GenerateMap();
+            }
             
             foreach (Chunk mapChunk in _chunkMapCreator.MapChunks)
             {

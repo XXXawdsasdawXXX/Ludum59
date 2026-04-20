@@ -1,10 +1,7 @@
 ﻿using System.Collections.Generic;
 using Code.Core.GameLoop;
-using Code.Game.World;
-using Cysharp.Threading.Tasks;
 using PolyNav;
 using TriInspector;
-using UnityEditor;
 using UnityEngine;
 
 namespace Code.Game.Characters.Enemy
@@ -20,7 +17,7 @@ namespace Code.Game.Characters.Enemy
             EnemyView character = Pool.GetNext();
 
             character.transform.position = position;
-            
+
             character.SetType(enemyType);
 
             character.InitializeComponents();

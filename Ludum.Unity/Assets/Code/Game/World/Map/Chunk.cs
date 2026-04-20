@@ -1,6 +1,4 @@
-﻿using System;
-using Code.Game.Characters.Player;
-using TriInspector;
+﻿using TriInspector;
 using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -10,7 +8,6 @@ namespace Code.Game.World
     public class Chunk : MonoBehaviour
     {
         public static Vector2 CHUNK_SIZE = new(2.5f, 2.5f);
-
         [field: SerializeField] public Vector3[] EnemiesSpawnPoints { get; private set; }
         [field: SerializeField] public Vector3 PlayerSpawnPoint { get; private set; }
         [field: SerializeField] public Vector3 MachineSpawnPoint { get; private set; }

@@ -345,7 +345,7 @@ MonoBehaviour:
   minFogHeight: -Infinity
   maxFogHeight: Infinity
   style: 0
-  fogColor: {r: 0, g: 0, b: 0, a: 0.9843137}
+  fogColor: {r: 0, g: 0, b: 0, a: 0.9490196}
   partialFogAmount: 0
   fogColorTexture: {fileID: 0}
   fogTextureScreenSpace: 0

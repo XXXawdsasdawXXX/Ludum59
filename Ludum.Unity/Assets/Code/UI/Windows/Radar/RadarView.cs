@@ -1,5 +1,4 @@
-﻿using Code.Core.GameLoop;
-using Code.UI.Base;
+﻿using Code.UI.Base;
 using UnityEngine;
 
 namespace Code.UI.Windows.Radar

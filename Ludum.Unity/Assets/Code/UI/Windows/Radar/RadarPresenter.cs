@@ -68,8 +68,6 @@ namespace Code.UI.Windows.Radar
             view.MainCircle.AnimateSize(duration * 0.7f);
             view.MainCircle.AnimateAlpha(duration * 0.5f);
 
-            float radius = _radarModel.Radius + _radarModel.PerkRadius.PropertyValue;
-            
             await UniTask.WaitUntil(() => view.MainCircle.AnimationsCount.PropertyValue == 0);
 
             _isActive = false;

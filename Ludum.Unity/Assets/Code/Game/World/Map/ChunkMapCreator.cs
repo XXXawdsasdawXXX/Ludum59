@@ -22,8 +22,7 @@ namespace Code.Game.World
                 Debug.LogWarning("[ChunkCreator] has not chunk prefabs");
                 return;
             }
-
-            ClearMap();
+            
 
             for (int y = 0; y < _mapSize.y; y++)
             {
@@ -55,7 +54,8 @@ namespace Code.Game.World
 #endif
         }
 
-        public void ClearMap()
+        [Button]
+        private void ClearMap()
         {
             foreach (Chunk chunk in MapChunks)
             {

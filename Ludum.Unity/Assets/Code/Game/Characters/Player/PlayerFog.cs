@@ -17,7 +17,7 @@ namespace Code.Game.Characters.Player
         private readonly Transform _transform;
         private readonly FogOfWarUnit _fogUnit;
 
-        private readonly RangedFloat _reloadCooldown = new(10f, 30f);
+        private readonly RangedFloat _reloadCooldown = new(5f, 20f);
         private float _currentCooldownTime;
         private float _timer;
         private bool _isReloading;
