@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="MixerGroup" id="{653d8233-269d-44b6-8e00-e418ad11604c}">
+		<property name="name">
+			<value>LP Shot</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{d2b936ef-64ae-4986-b940-1fa62b3b5b9f}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{8faa45c6-31a4-4def-9f34-a3cd0cf8e18c}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{00214343-0d83-4f9d-98b9-a62a1032c271}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{d2b936ef-64ae-4986-b940-1fa62b3b5b9f}">
+		<relationship name="effects">
+			<destination>{1d3d196d-c8ce-4e4f-ab60-51b2c3cc2510}</destination>
+			<destination>{c09202fa-ed1a-4740-af7c-6010d34179f5}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{8faa45c6-31a4-4def-9f34-a3cd0cf8e18c}" />
+	<object class="LowpassSimpleEffect" id="{1d3d196d-c8ce-4e4f-ab60-51b2c3cc2510}">
+		<property name="cutoff">
+			<value>22000</value>
+		</property>
+	</object>
+	<object class="MixerBusFader" id="{c09202fa-ed1a-4740-af7c-6010d34179f5}" />
+</objects>

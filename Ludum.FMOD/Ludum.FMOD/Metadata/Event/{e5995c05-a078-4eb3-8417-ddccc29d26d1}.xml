@@ -72,6 +72,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{03851e27-5ad9-4009-9358-4dbe59abbb91}">
+		<property name="volume">
+			<value>-3</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{6989b15a-96a3-44ae-83d3-455d4811c944}</destination>
 		</relationship>
@@ -275,7 +278,7 @@
 			<value>75</value>
 		</property>
 		<property name="wetLevel">
-			<value>-10</value>
+			<value>-9</value>
 		</property>
 		<property name="dryLevel">
 			<value>-4</value>
@@ -298,7 +301,7 @@
 			<value>2030.62256</value>
 		</property>
 		<property name="frequencyC">
-			<value>16460.6758</value>
+			<value>9500</value>
 		</property>
 		<property name="qualityA">
 			<value>0.659999967</value>
@@ -307,13 +310,16 @@
 			<value>1</value>
 		</property>
 		<property name="qualityC">
-			<value>0.299999982</value>
+			<value>0.280000001</value>
 		</property>
 		<property name="gainA">
 			<value>-6</value>
 		</property>
 		<property name="gainB">
 			<value>-5</value>
+		</property>
+		<property name="gainC">
+			<value>-4</value>
 		</property>
 	</object>
 	<object class="GainEffect" id="{09ad71c0-dfd2-4c32-83b2-70193c094946}">

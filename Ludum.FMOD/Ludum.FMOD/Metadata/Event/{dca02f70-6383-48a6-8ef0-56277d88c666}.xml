@@ -53,7 +53,7 @@
 			<destination>{6fcc5c2e-8c07-4d5f-a27c-bf83c2985f22}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{00214343-0d83-4f9d-98b9-a62a1032c271}</destination>
+			<destination>{9b5d3928-4666-4168-a935-886825ac037a}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{0be1a5c0-2b74-4e56-82f5-60a24cd8702c}" />
@@ -137,7 +137,7 @@
 			<value>pitch</value>
 		</property>
 		<property name="amount">
-			<value>3.5</value>
+			<value>5.5</value>
 		</property>
 	</object>
 	<object class="FadeCurve" id="{0edb1f6c-aa62-46fb-94af-2deb029f4606}">

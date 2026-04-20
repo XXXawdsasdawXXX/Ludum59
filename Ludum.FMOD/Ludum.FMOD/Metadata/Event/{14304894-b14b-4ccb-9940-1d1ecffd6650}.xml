@@ -5,7 +5,7 @@
 			<value>Enemy Steps</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{8a1615af-53c6-46a7-a36f-ebcffb8832ee}</destination>
@@ -53,7 +53,7 @@
 			<destination>{c6d16c8d-ff62-4dd2-9ce8-c390498a1ba9}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{00214343-0d83-4f9d-98b9-a62a1032c271}</destination>
+			<destination>{dfaf636c-3142-4987-ac21-8ca153aa243a}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{657a0361-46f7-4d64-9c5d-1d6d9ac753d7}" />
@@ -109,6 +109,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{f7334ab2-768d-4541-b832-36eaa786518d}">
+		<property name="volume">
+			<value>2</value>
+		</property>
 		<property name="overridingInputFormat">
 			<value>1</value>
 		</property>
@@ -127,6 +130,8 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{f19f0e5a-36fd-4687-984f-9cb7545d6803}">
 		<relationship name="effects">
+			<destination>{c2f43897-add2-4c84-a07c-cdbbe2a5095a}</destination>
+			<destination>{74ee7c09-03a4-4314-b666-8d70b3c0ea19}</destination>
 			<destination>{a2ac3cb7-1803-48f4-9349-a483e9772738}</destination>
 		</relationship>
 	</object>
@@ -187,10 +192,40 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{973a991c-a290-4e7a-89eb-158918dc8f13}" />
+	<object class="MultibandEqEffect" id="{c2f43897-add2-4c84-a07c-cdbbe2a5095a}">
+		<property name="filterTypeB">
+			<value>9</value>
+		</property>
+		<property name="filterTypeC">
+			<value>9</value>
+		</property>
+		<property name="frequencyA">
+			<value>12000</value>
+		</property>
+		<property name="frequencyB">
+			<value>2030.62256</value>
+		</property>
+		<property name="frequencyC">
+			<value>199.44838</value>
+		</property>
+		<property name="qualityA">
+			<value>0.119999997</value>
+		</property>
+		<property name="qualityB">
+			<value>1.05000007</value>
+		</property>
+		<property name="gainB">
+			<value>-4</value>
+		</property>
+		<property name="gainC">
+			<value>-5.6896553</value>
+		</property>
+	</object>
+	<object class="SpatialiserEffect" id="{74ee7c09-03a4-4314-b666-8d70b3c0ea19}" />
 	<object class="MixerBusFader" id="{a2ac3cb7-1803-48f4-9349-a483e9772738}" />
 	<object class="AutomationPoint" id="{e44eeace-1305-4115-a212-bb0e03ee510b}">
 		<property name="position">
-			<value>0.34375</value>
+			<value>0.28125</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -217,7 +252,7 @@
 	</object>
 	<object class="DistortionEffect" id="{b9a23e6a-d048-41c7-80e6-a70f48128a7a}">
 		<property name="level">
-			<value>0.194999993</value>
+			<value>0.25</value>
 		</property>
 	</object>
 	<object class="MultibandEqEffect" id="{717b316c-f8cb-4008-b89b-0137bb76c7c1}">
@@ -273,6 +308,9 @@
 		</property>
 		<property name="wetLevel">
 			<value>-10</value>
+		</property>
+		<property name="dryLevel">
+			<value>-1</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{acb510a0-69dc-4318-ab8e-b7790c6de477}" />
