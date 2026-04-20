@@ -549,8 +549,8 @@ MonoBehaviour:
       Data4: -1736081297
     Path: event:/SFX/Environment/Terminal
   Event: 
-  EventPlayTrigger: 1
-  EventStopTrigger: 2
+  EventPlayTrigger: 3
+  EventStopTrigger: 4
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0

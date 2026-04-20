@@ -183,7 +183,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{efd5c254-e966-4453-b473-dc128c2f0ea8}">
 		<property name="volume">
-			<value>-11</value>
+			<value>-12</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -230,7 +230,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{44c5f320-567f-47f2-8b29-b384576e8f8e}">
 		<property name="volume">
-			<value>-10</value>
+			<value>-9</value>
 		</property>
 		<property name="name">
 			<value>Audio 2</value>
@@ -320,6 +320,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{971a069c-8dd6-4ee0-9afc-1111f3de2013}">
+		<property name="volume">
+			<value>-5.5</value>
+		</property>
 		<property name="name">
 			<value>Audio 4</value>
 		</property>
@@ -370,9 +373,10 @@
 	<object class="MixerBusEffectChain" id="{d1631b4f-03e7-4bca-bb36-e86bd7d4c06e}">
 		<relationship name="effects">
 			<destination>{394c9eb7-2762-45e5-ab4d-7c4c3d3d739b}</destination>
+			<destination>{ad8fda6d-98ff-4c8f-880e-4fafc6deba0b}</destination>
 			<destination>{8cffb0ec-3a14-49da-89de-25f74da93533}</destination>
 			<destination>{fd966305-3007-4f61-8e06-bf0c5567e780}</destination>
-			<destination>{b533f2b5-5760-4d38-87a9-65b0433521c5}</destination>
+			<destination>{b5d38d14-4ca4-43c6-aa11-3d41e68301ee}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{b791d556-9c45-4a66-b932-283a79b4fb37}" />
@@ -546,13 +550,18 @@
 			<value>-7</value>
 		</property>
 	</object>
+	<object class="GainEffect" id="{ad8fda6d-98ff-4c8f-880e-4fafc6deba0b}">
+		<property name="gain">
+			<value>10</value>
+		</property>
+	</object>
 	<object class="GainEffect" id="{8cffb0ec-3a14-49da-89de-25f74da93533}">
 		<property name="gain">
-			<value>6</value>
+			<value>1</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{fd966305-3007-4f61-8e06-bf0c5567e780}" />
-	<object class="SpatialiserEffect" id="{b533f2b5-5760-4d38-87a9-65b0433521c5}" />
+	<object class="SpatialiserEffect" id="{b5d38d14-4ca4-43c6-aa11-3d41e68301ee}" />
 	<object class="HighpassSimpleEffect" id="{297bca83-a691-46b8-b469-0c10f356bf9a}">
 		<property name="cutoff">
 			<value>660</value>
