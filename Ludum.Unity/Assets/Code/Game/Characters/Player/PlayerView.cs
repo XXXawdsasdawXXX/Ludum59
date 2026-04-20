@@ -46,9 +46,15 @@ namespace Code.Game.Characters.Player
             stan.Condition.Add(() => stan.Cooldown.IsFinish());
             stan.Condition.Add(() => Model.Energy.PropertyValue >= 
                                      Model.Stan.EnergyPrice + Model.Stan.PerkEnergyPrice.PropertyValue);
+            stan.Condition.Add(() => Model.Health.PropertyValue > 0);
             
             radar.Condition.Add(() => radar.Cooldown.IsFinish());
             radar.Condition.Add(() => Model.Energy.PropertyValue >= Model.Radar.EnergyPrice);
+            radar.Condition.Add(() => Model.Health.PropertyValue > 0);
+            
+            path.Condition.Add(() => path.Cooldown.IsFinish());
+            path.Condition.Add(() => Model.Energy.PropertyValue >= Model.Path.EnergyPrice);
+            path.Condition.Add(() => Model.Health.PropertyValue > 0);
 
             movement.Condition.Add(() => Model.Health.PropertyValue > 0);
         }

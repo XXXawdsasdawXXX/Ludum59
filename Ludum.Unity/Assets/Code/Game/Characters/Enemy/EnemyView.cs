@@ -1,9 +1,7 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Code.Core.GameLoop;
 using Code.Core.ServiceLocator;
 using Code.Game.World;
-using Cysharp.Threading.Tasks;
 using PolyNav;
 using TriInspector;
 using UnityEngine;
@@ -19,6 +17,7 @@ namespace Code.Game.Characters.Enemy
 
         [SerializeField] private Trigger _rangeTrigger;
         [SerializeField] private Trigger _milleTrigger;
+        [SerializeField] private Trigger _attackTrigger;
         
         private MapView _mapView;
         
@@ -48,20 +47,23 @@ namespace Code.Game.Characters.Enemy
             EnemyAnimation enemyAnimation = new(this);
             Components.Add(typeof(EnemyAnimation), enemyAnimation);
             
-            enemyMovement.Condition.Add(() => Model.Follow.PropertyValue);
+            enemyMovement.Condition.Add(() => Model.Follow.PropertyValue || Model.AbilityAgro.PropertyValue);
             enemyMovement.Condition.Add(() => !Model.Stan.PropertyValue);
+            enemyMovement.Condition.Add(() => !_attackTrigger.OnTrigger.PropertyValue);
         }
         
         public void Subscribe()
         {
             _milleTrigger.OnTrigger.SubscribeToValue(_onMilleTriggerEnter);
             _rangeTrigger.OnTrigger.SubscribeToValue(_onRangeTriggerEnter);
+            _attackTrigger.OnTrigger.SubscribeToValue(_onAttackTriggerEnter);
         }
 
         public void Unsubscribe()
         {
             _milleTrigger.OnTrigger.UnsubscibeFromValue(_onMilleTriggerEnter);
             _rangeTrigger.OnTrigger.UnsubscibeFromValue(_onRangeTriggerEnter);
+            _attackTrigger.OnTrigger.UnsubscibeFromValue(_onAttackTriggerEnter);
         }
 
         private void _onRangeTriggerEnter(bool value)
@@ -78,6 +80,11 @@ namespace Code.Game.Characters.Enemy
             {
                 Model.Follow.PropertyValue = true;
             }
+        }
+
+        private void _onAttackTriggerEnter(bool value)
+        {
+            Model.Attack.PropertyValue = value;
         }
     }
 }

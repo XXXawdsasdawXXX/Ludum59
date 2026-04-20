@@ -45,3 +45,14 @@ MonoBehaviour:
       _propertyValue: 0.2
     <SlowEffectDuration>k__BackingField:
       _propertyValue: 5
+  <Path>k__BackingField:
+    EnergyPrice: 5
+    Duration: 5
+    PerkDuration:
+      _propertyValue: 2
+    Cooldown: 10
+    PerkCooldown:
+      _propertyValue: 0
+    AgroRadius: 3
+    AgroPerkRadius:
+      _propertyValue: 2

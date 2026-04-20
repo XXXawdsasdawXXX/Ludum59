@@ -2,9 +2,11 @@
 using System.Linq;
 using Code.Core.GameLoop;
 using Code.Core.ServiceLocator;
+using Code.Game.Audio;
 using Code.Game.Characters.Enemy;
 using Code.Tools;
 using Cysharp.Threading.Tasks;
+using FMODUnity;
 using UnityEngine;
 
 namespace Code.Game.Characters.Player.Abilities
@@ -18,6 +20,7 @@ namespace Code.Game.Characters.Player.Abilities
         private readonly EnemySpawner _enemySpawner;
         private readonly PlayerInput _input;
         private readonly PlayerView _view;
+        private readonly SoundConfiguration _audioConfiguration;
 
         public Timer Cooldown { get; private set; }
 
@@ -29,6 +32,7 @@ namespace Code.Game.Characters.Player.Abilities
 
             _enemySpawner = Container.Instance.GetService<EnemySpawner>();
             _input = Container.Instance.GetService<PlayerInput>();
+            _audioConfiguration = Container.Instance.GetConfiguration<SoundConfiguration>();
         }
 
         public void Subscribe()
@@ -48,11 +52,15 @@ namespace Code.Game.Characters.Player.Abilities
             {
                 return;
             }
+
             Debug.Log(2);
-            
+
             Used?.Invoke();
-            
-            _view.Model.Energy.PropertyValue -= _view.Model.Stan.EnergyPrice + _view.Model.Stan.PerkEnergyPrice.PropertyValue;
+
+            _view.Model.Energy.PropertyValue -=
+                _view.Model.Stan.EnergyPrice + _view.Model.Stan.PerkEnergyPrice.PropertyValue;
+
+            RuntimeManager.PlayOneShot(_audioConfiguration.Stan);
             
             _updateStan().Forget();
         }
@@ -62,13 +70,13 @@ namespace Code.Game.Characters.Player.Abilities
             Cooldown.Start(_view.Model.Stan.Cooldown);
 
             float radius = _view.Model.Stan.Radius + _view.Model.Stan.PerkRadius.PropertyValue;
-            
+
             EnemyView[] nearEnemies = _enemySpawner.GetNearEnemies(_view.transform, radius * 0.5f).ToArray();
-            
+
             Debug.Log($"enemies count = {nearEnemies.Length}. radius = {radius}");
             foreach (EnemyView enemy in nearEnemies)
             {
-                enemy.Model.SpeedMultiplier.PropertyValue = 0;
+                enemy.Model.Stan.PropertyValue = true;
             }
 
             float stanDuration = _view.Model.Stan.Duration + _view.Model.Stan.PerkDuration.PropertyValue;
@@ -80,6 +88,7 @@ namespace Code.Game.Characters.Player.Abilities
             foreach (EnemyView enemy in nearEnemies)
             {
                 enemy.Model.SpeedMultiplier.PropertyValue = slowEffectDuration == 0 ? 1 : speedMultiplier;
+                enemy.Model.Stan.PropertyValue = false;
             }
 
             if (slowEffectDuration > 0)
@@ -89,6 +98,7 @@ namespace Code.Game.Characters.Player.Abilities
                 foreach (EnemyView enemy in nearEnemies)
                 {
                     enemy.Model.SpeedMultiplier.PropertyValue = 1;
+                    enemy.Model.Stan.PropertyValue = false;
                 }
             }
         }

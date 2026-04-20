@@ -14,10 +14,12 @@ namespace Code.Game.Characters.Enemy
         [field: SerializeField] public int Size { get; private set; }
         [field: SerializeField] public float Speed { get; private set; } = 1;
         [field: SerializeField] public ReactiveProperty<bool> Follow { get; private set; } = new(false);
+        [field: SerializeField] public ReactiveProperty<bool> AbilityAgro { get; private set; } = new(false);
 
         public ReactiveProperty<float> SpeedMultiplier = new(1);
         public ReactiveProperty<bool> ShowMarker = new(false);
         [field: SerializeField] public ReactiveProperty<bool> Stan = new(false);
+        [field: SerializeField] public ReactiveProperty<bool> Attack = new(false);
 
         
         public EnemyModel Clone()
@@ -32,7 +34,9 @@ namespace Code.Game.Characters.Enemy
                 Follow = new ReactiveProperty<bool>(false),
                 SpeedMultiplier = new ReactiveProperty<float>(SpeedMultiplier.PropertyValue),
                 ShowMarker = new ReactiveProperty<bool>(false),
-                Stan = new ReactiveProperty<bool>(false)
+                Stan = new ReactiveProperty<bool>(false),
+                Attack = new ReactiveProperty<bool>(false),
+                AbilityAgro = new ReactiveProperty<bool>(false)
             };
         }
     }
