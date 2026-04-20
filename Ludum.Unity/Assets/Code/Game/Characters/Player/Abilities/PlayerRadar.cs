@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using Code.Core.GameLoop;
 using Code.Core.ServiceLocator;
+using Code.Game.Audio;
 using Code.Game.Characters.Enemy;
 using Code.Tools;
 using FMODUnity;
 using UnityEngine;
-using AudioConfiguration = Code.Game.Audio.AudioConfiguration;
 
 namespace Code.Game.Characters.Player.Abilities
 {
@@ -19,7 +19,7 @@ namespace Code.Game.Characters.Player.Abilities
         private readonly PlayerInput _input;
         private readonly PlayerView _view;
 
-        private readonly AudioConfiguration _audioConfiguration;
+        private readonly SoundConfiguration _soundConfiguration;
         private readonly List<EnemyView> _observedEnemy = new();
 
         private bool _isActive;
@@ -30,7 +30,7 @@ namespace Code.Game.Characters.Player.Abilities
             _view = view;
  
             _input = Container.Instance.GetService<PlayerInput>();
-            _audioConfiguration = Container.Instance.GetConfiguration<AudioConfiguration>();
+            _soundConfiguration = Container.Instance.GetConfiguration<SoundConfiguration>();
 
             _view.RadarCircle.radius = _view.Model.Radar.Radius;
 
@@ -76,7 +76,7 @@ namespace Code.Game.Characters.Player.Abilities
 
                 Cooldown.Start(_view.Model.Radar.Duration + _view.Model.Radar.PerkDuration.PropertyValue);
 
-                RuntimeManager.PlayOneShot(_audioConfiguration.Radar);
+                RuntimeManager.PlayOneShot(_soundConfiguration.Radar);
 
                 foreach (EnemyView enemyView in _observedEnemy)
                 {

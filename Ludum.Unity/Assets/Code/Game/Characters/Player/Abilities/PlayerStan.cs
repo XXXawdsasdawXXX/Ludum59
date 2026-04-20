@@ -2,9 +2,11 @@
 using System.Linq;
 using Code.Core.GameLoop;
 using Code.Core.ServiceLocator;
+using Code.Game.Audio;
 using Code.Game.Characters.Enemy;
 using Code.Tools;
 using Cysharp.Threading.Tasks;
+using FMODUnity;
 using UnityEngine;
 
 namespace Code.Game.Characters.Player.Abilities
@@ -18,6 +20,7 @@ namespace Code.Game.Characters.Player.Abilities
         private readonly EnemySpawner _enemySpawner;
         private readonly PlayerInput _input;
         private readonly PlayerView _view;
+        private readonly SoundConfiguration _audioConfiguration;
 
         public Timer Cooldown { get; private set; }
 
@@ -29,6 +32,7 @@ namespace Code.Game.Characters.Player.Abilities
 
             _enemySpawner = Container.Instance.GetService<EnemySpawner>();
             _input = Container.Instance.GetService<PlayerInput>();
+            _audioConfiguration = Container.Instance.GetConfiguration<SoundConfiguration>();
         }
 
         public void Subscribe()
@@ -56,6 +60,8 @@ namespace Code.Game.Characters.Player.Abilities
             _view.Model.Energy.PropertyValue -=
                 _view.Model.Stan.EnergyPrice + _view.Model.Stan.PerkEnergyPrice.PropertyValue;
 
+            RuntimeManager.PlayOneShot(_audioConfiguration.Stan);
+            
             _updateStan().Forget();
         }
 
