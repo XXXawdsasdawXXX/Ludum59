@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 5471447541919603410}
   - component: {fileID: 5471447541919603420}
   - component: {fileID: 5471447541919603421}
-  - component: {fileID: 5471447541919603423}
+  - component: {fileID: 570332877470990802}
   m_Layer: 6
   m_Name: Obstacle
   m_TagString: Untagged
@@ -160,7 +160,7 @@ MonoBehaviour:
   shapeType: 1
   extraOffset: 0
   invertPolygon: 0
---- !u!114 &5471447541919603423
+--- !u!114 &570332877470990802
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5471447541919603411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c82baabe9bb48b1acd6c51222c7d174, type: 3}
+  m_Script: {fileID: 11500000, guid: 591ba688dff3f254691e0529c513faff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _renderer: {fileID: 5471447540465353488}

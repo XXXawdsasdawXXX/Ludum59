@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerConfiguration
   m_EditorClassIdentifier: 
   <Speed>k__BackingField: 2
-  <MaxHealth>k__BackingField: 100
+  <MaxHealth>k__BackingField: 4
   <MaxEnergy>k__BackingField: 100
   <Radar>k__BackingField:
     EnergyPrice: 10

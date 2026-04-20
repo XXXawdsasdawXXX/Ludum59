@@ -40,6 +40,9 @@ namespace Code.Game.Characters.Player
             PlayerStan stan = new(this);
             Components.Add(typeof(PlayerStan), stan);
             
+            PlayerPath path = new(this);
+            Components.Add(typeof(PlayerPath), path);
+            
             stan.Condition.Add(() => stan.Cooldown.IsFinish());
             stan.Condition.Add(() => Model.Energy.PropertyValue >= 
                                      Model.Stan.EnergyPrice + Model.Stan.PerkEnergyPrice.PropertyValue);
