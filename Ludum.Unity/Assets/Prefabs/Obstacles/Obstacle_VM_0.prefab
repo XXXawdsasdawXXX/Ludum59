@@ -7,10 +7,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 570332877470990802, guid: 6d22ca36a3784674eaee6cabac681c39, type: 3}
+      propertyPath: _spriteVariants.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 570332877470990802, guid: 6d22ca36a3784674eaee6cabac681c39, type: 3}
+      propertyPath: _spriteVariants.Array.data[0]
+      value: 
+      objectReference: {fileID: 1482059221, guid: 84dbb43803c7b6a44b58d67fe2575b1e, type: 3}
+    - target: {fileID: 570332877470990802, guid: 6d22ca36a3784674eaee6cabac681c39, type: 3}
+      propertyPath: _spriteVariants.Array.data[1]
+      value: 
+      objectReference: {fileID: 1163534596, guid: 84dbb43803c7b6a44b58d67fe2575b1e, type: 3}
     - target: {fileID: 5471447540465353488, guid: 6d22ca36a3784674eaee6cabac681c39, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -130772805, guid: 84dbb43803c7b6a44b58d67fe2575b1e, type: 3}
+      objectReference: {fileID: 1482059221, guid: 84dbb43803c7b6a44b58d67fe2575b1e, type: 3}
     - target: {fileID: 5471447541919603410, guid: 6d22ca36a3784674eaee6cabac681c39, type: 3}
       propertyPath: m_RootOrder
       value: 0
