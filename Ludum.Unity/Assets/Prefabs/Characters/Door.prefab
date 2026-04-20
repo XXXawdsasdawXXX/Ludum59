@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &349624281849523418
 RectTransform:
   m_ObjectHideFlags: 0
@@ -302,6 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af67c4565004be3b677af0f053818e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collider2D: {fileID: 0}
 --- !u!1 &349624282775133324
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,13 +613,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0.7294118, b: 0.3529412, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1190807908, guid: d1cdd66981a17914baedbeeeb82543f5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 05ec8d224a031d64f9bd6906ac7fbefc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
