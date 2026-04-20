@@ -203,7 +203,7 @@
 			<value>0.60890931053725339</value>
 		</property>
 		<property name="volume">
-			<value>-3</value>
+			<value>-1</value>
 		</property>
 		<relationship name="fadeInCurve">
 			<destination>{e8503bfe-1b00-4c57-99be-6a79611e6d46}</destination>
@@ -347,7 +347,7 @@
 	</object>
 	<object class="SFXReverbEffect" id="{66304b36-28c6-43ac-8000-793aed1badaa}">
 		<property name="decayTime">
-			<value>4800</value>
+			<value>6000</value>
 		</property>
 		<property name="lateDelay">
 			<value>30</value>
@@ -449,7 +449,7 @@
 	</object>
 	<object class="AutomationPoint" id="{965ee3a0-8f34-462b-b61f-32d7414eca96}">
 		<property name="position">
-			<value>1</value>
+			<value>1.1835480007962147</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -497,7 +497,7 @@
 	</object>
 	<object class="AutomationPoint" id="{6ca5e68c-bedc-466a-8bc2-ec2269c2b047}">
 		<property name="position">
-			<value>0.04335276644601805</value>
+			<value>0.094094367136070806</value>
 		</property>
 		<property name="value">
 			<value>1</value>
