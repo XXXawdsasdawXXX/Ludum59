@@ -191,7 +191,7 @@
 			<value>-7</value>
 		</property>
 		<property name="pitch">
-			<value>-8</value>
+			<value>-9.5</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{e963b490-925d-4b32-85d2-8db288a8a302}</destination>
@@ -208,7 +208,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{97701401-4be8-4347-a754-0d2987614c9d}">
 		<property name="volume">
-			<value>-2</value>
+			<value>-4</value>
 		</property>
 		<property name="name">
 			<value>Audio 3</value>
@@ -258,6 +258,9 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{3ff9e81e-3b07-4cff-ae0b-9a08c84ebfe8}">
+		<property name="volume">
+			<value>-2</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{4811f99e-27f8-4b1b-97d9-d654ed7b4c6f}</destination>
 		</relationship>

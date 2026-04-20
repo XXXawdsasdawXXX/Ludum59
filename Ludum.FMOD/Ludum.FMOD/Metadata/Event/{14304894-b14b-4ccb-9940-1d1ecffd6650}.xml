@@ -142,7 +142,7 @@
 			<value>pitch</value>
 		</property>
 		<property name="amount">
-			<value>4.5</value>
+			<value>5.5</value>
 		</property>
 	</object>
 	<object class="FadeCurve" id="{4de08217-5aff-4cb7-84c8-491d770fb350}">
@@ -225,7 +225,7 @@
 	<object class="SpatialiserEffect" id="{a89b2d38-cd71-49f1-a4b9-12e51cfd3784}" />
 	<object class="AutomationPoint" id="{e44eeace-1305-4115-a212-bb0e03ee510b}">
 		<property name="position">
-			<value>0.28125</value>
+			<value>0.15625</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -310,7 +310,7 @@
 			<value>-10</value>
 		</property>
 		<property name="dryLevel">
-			<value>-1</value>
+			<value>-3</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{acb510a0-69dc-4318-ab8e-b7790c6de477}" />

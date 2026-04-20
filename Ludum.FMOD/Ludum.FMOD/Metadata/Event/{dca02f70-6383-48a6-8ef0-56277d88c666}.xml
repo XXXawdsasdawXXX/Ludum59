@@ -95,9 +95,6 @@
 		<property name="timelockedOffset">
 			<value>0.72660098522167482</value>
 		</property>
-		<property name="volume">
-			<value>1</value>
-		</property>
 		<property name="pitch">
 			<value>-4.5</value>
 		</property>
@@ -137,7 +134,7 @@
 			<value>pitch</value>
 		</property>
 		<property name="amount">
-			<value>5.5</value>
+			<value>6</value>
 		</property>
 	</object>
 	<object class="FadeCurve" id="{0edb1f6c-aa62-46fb-94af-2deb029f4606}">
@@ -157,7 +154,7 @@
 	<object class="MixerBusFader" id="{2117d67d-8102-41e5-bf39-c95f76a190f4}" />
 	<object class="AutomationPoint" id="{10ed4977-bcf5-49cf-b052-fa019d7473cf}">
 		<property name="position">
-			<value>0</value>
+			<value>0.21875</value>
 		</property>
 		<property name="value">
 			<value>1</value>
