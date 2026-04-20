@@ -150,7 +150,7 @@
 			<value>0.47371074507389166</value>
 		</property>
 		<property name="pitch">
-			<value>-1.20000005</value>
+			<value>-1.39999998</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{a1d53640-aabd-4ea3-be38-bbc487fcaea4}</destination>
@@ -188,7 +188,7 @@
 			<value>-7</value>
 		</property>
 		<property name="pitch">
-			<value>-1.60000002</value>
+			<value>-2.20000005</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{0233590d-cb05-4842-8f2a-f9440c49686a}</destination>
