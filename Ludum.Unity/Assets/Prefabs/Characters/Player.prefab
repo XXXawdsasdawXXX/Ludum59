@@ -267,11 +267,11 @@ MonoBehaviour:
     Path: event:/SFX/Player/Player Footsteps
   _takeDamageEvent:
     Guid:
-      Data1: -593481872
-      Data2: 1218864003
-      Data3: 660009102
-      Data4: 1724287101
-    Path: event:/SFX/Player/Player Take Damage
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   _diedEvent:
     Guid:
       Data1: 1233761261
