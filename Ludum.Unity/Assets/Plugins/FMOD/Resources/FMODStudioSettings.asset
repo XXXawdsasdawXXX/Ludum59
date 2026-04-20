@@ -709,6 +709,7 @@ MonoBehaviour:
   - Master
   Banks:
   - Ambience
+  - Cutscene
   - Enemy
   - Music
   - Player

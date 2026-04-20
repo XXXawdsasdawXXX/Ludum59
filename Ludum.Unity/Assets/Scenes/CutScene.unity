@@ -129,6 +129,146 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event1.Path
+      value: event:/Cut Scene 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event2.Path
+      value: event:/Cut Scene 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event3.Path
+      value: event:/Cut Scene 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event4.Path
+      value: event:/Cut Scene 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event5.Path
+      value: event:/Cut Scene 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event6.Path
+      value: event:/Cut Scene 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event7.Path
+      value: event:/Cut Scene 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event1.Guid.Data1
+      value: -1865443311
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event1.Guid.Data2
+      value: 1318416407
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event1.Guid.Data3
+      value: -1072508283
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event1.Guid.Data4
+      value: -1976859809
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event2.Guid.Data1
+      value: 965513048
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event2.Guid.Data2
+      value: 1174949916
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event2.Guid.Data3
+      value: -1117897316
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event2.Guid.Data4
+      value: -1882492932
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event3.Guid.Data1
+      value: 1819683141
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event3.Guid.Data2
+      value: 1207257820
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event3.Guid.Data3
+      value: -2054674252
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event3.Guid.Data4
+      value: 148594671
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event4.Guid.Data1
+      value: -299669309
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event4.Guid.Data2
+      value: 1297961074
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event4.Guid.Data3
+      value: -451084618
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event4.Guid.Data4
+      value: -1937981912
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event5.Guid.Data1
+      value: -842575695
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event5.Guid.Data2
+      value: 1081840012
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event5.Guid.Data3
+      value: -1325072450
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event5.Guid.Data4
+      value: -497843256
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event6.Guid.Data1
+      value: -1657641273
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event6.Guid.Data2
+      value: 1319254133
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event6.Guid.Data3
+      value: 126324644
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event6.Guid.Data4
+      value: 1418464334
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event7.Guid.Data1
+      value: -1534196137
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event7.Guid.Data2
+      value: 1253961574
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event7.Guid.Data3
+      value: -1838440770
+      objectReference: {fileID: 0}
+    - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
+      propertyPath: event7.Guid.Data4
+      value: 1367354045
+      objectReference: {fileID: 0}
     - target: {fileID: 5819285856018686348, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
       propertyPath: m_Name
       value: CutScene
