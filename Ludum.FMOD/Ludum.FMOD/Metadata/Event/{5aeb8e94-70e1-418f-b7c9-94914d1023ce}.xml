@@ -118,7 +118,7 @@
 			<value>23</value>
 		</property>
 		<property name="volume">
-			<value>-2</value>
+			<value>-4</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{228cd309-60f7-4bb6-9098-fa266f9542dc}</destination>
@@ -184,6 +184,7 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{ebf528d5-250b-48d4-82db-15be1e2082f4}">
 		<relationship name="effects">
+			<destination>{5613f1da-b84d-4452-b964-357746beb8e8}</destination>
 			<destination>{ee3de047-4d84-4223-8553-c55bd7980c4d}</destination>
 		</relationship>
 	</object>
@@ -227,6 +228,11 @@
 			<destination>{46ac0ec0-f83d-4dee-887a-b4590567dde6}</destination>
 			<destination>{311683eb-ffe2-4b86-9832-15e810988d51}</destination>
 		</relationship>
+	</object>
+	<object class="HighpassSimpleEffect" id="{5613f1da-b84d-4452-b964-357746beb8e8}">
+		<property name="cutoff">
+			<value>80</value>
+		</property>
 	</object>
 	<object class="MixerBusFader" id="{ee3de047-4d84-4223-8553-c55bd7980c4d}" />
 	<object class="AutomationPoint" id="{1a8fd402-6755-4d76-b784-832043bc138e}">
