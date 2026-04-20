@@ -406,7 +406,14 @@ MonoBehaviour:
       Data3: 505233561
       Data4: 1348926927
     Path: event:/SFX/Enemy/Enemy Steps
-  _attakEvent:
+  _attackTvEvent:
+    Guid:
+      Data1: 365171169
+      Data2: 1272238722
+      Data3: 77898142
+      Data4: -1372066571
+    Path: event:/SFX/Enemy/Monster TV Agro
+  _attackDefaultEvent:
     Guid:
       Data1: -1466840540
       Data2: 1285830781

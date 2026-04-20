@@ -8,19 +8,21 @@ namespace Code.Game.Characters.Enemy
         private static readonly int Attack = Animator.StringToHash("Attack");
         private static readonly int Stan = Animator.StringToHash("Stan");
     
-        [SerializeField] public Animator _animator;
+        [SerializeField] private Animator _animator;
         [SerializeField] private SpriteRenderer _spriteRenderer;
-        
         
         [Header("FMOD Footsteps")]
         [SerializeField] private EventReference _footstepEvent;
-        [Header("FMOD Attack")]
-        [SerializeField] private EventReference _attakEvent;
+        
+        [Header("FMOD Attack TV")]
+        [SerializeField] private EventReference _attackTvEvent;
+        
+        [Header("FMOD Attack Default")]
+        [SerializeField] private EventReference _attackDefaultEvent;
         
         private float _lastFootstepTime;
         [SerializeField] private float _footstepCooldown = 0.1f;
 
-        
         public void SetModel(EnemyModel model)
         {
             _spriteRenderer.sprite = model.Sprite;
@@ -41,14 +43,27 @@ namespace Code.Game.Characters.Enemy
         {
             _animator.SetBool(Attack, value);
         }
-        
-        public void PlayAttak()
-        {
-            RuntimeManager.PlayOneShot(_attakEvent, transform.position);
-        }
+
         public void SetStan(bool value)
         {
             _animator.SetBool(Stan, value);
+        }
+        
+        private void PlayOneShot(EventReference eventRef)
+        {
+            if (eventRef.IsNull) return;
+
+            RuntimeManager.PlayOneShot(eventRef, transform.position);
+        }
+        
+        public void PlayAttackTV()
+        {
+            PlayOneShot(_attackTvEvent);
+        }
+
+        public void PlayAttackDefault()
+        {
+            PlayOneShot(_attackDefaultEvent);
         }
 
         public void PlayFootstep()
@@ -58,7 +73,7 @@ namespace Code.Game.Characters.Enemy
 
             _lastFootstepTime = Time.time;
 
-            RuntimeManager.PlayOneShot(_footstepEvent, transform.position);
+            PlayOneShot(_footstepEvent);
         }
     }
 }
