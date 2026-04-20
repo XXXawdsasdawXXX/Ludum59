@@ -406,6 +406,13 @@ MonoBehaviour:
       Data3: 505233561
       Data4: 1348926927
     Path: event:/SFX/Enemy/Enemy Steps
+  _attakEvent:
+    Guid:
+      Data1: -1466840540
+      Data2: 1285830781
+      Data3: 504838798
+      Data4: 1273627928
+    Path: event:/SFX/Enemy/Monster Monk Agro
   _footstepCooldown: 0.1
 --- !u!1 &5938909468002144948
 GameObject:

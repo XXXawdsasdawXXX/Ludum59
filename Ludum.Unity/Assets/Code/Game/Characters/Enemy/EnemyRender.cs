@@ -14,7 +14,8 @@ namespace Code.Game.Characters.Enemy
         
         [Header("FMOD Footsteps")]
         [SerializeField] private EventReference _footstepEvent;
-
+        [Header("FMOD Attack")]
+        [SerializeField] private EventReference _attakEvent;
         
         private float _lastFootstepTime;
         [SerializeField] private float _footstepCooldown = 0.1f;
@@ -41,10 +42,15 @@ namespace Code.Game.Characters.Enemy
             _animator.SetBool(Attack, value);
         }
         
+        public void PlayAttak()
+        {
+            RuntimeManager.PlayOneShot(_attakEvent, transform.position);
+        }
         public void SetStan(bool value)
         {
             _animator.SetBool(Stan, value);
         }
+
         public void PlayFootstep()
         {
             if (Time.time - _lastFootstepTime < _footstepCooldown)
