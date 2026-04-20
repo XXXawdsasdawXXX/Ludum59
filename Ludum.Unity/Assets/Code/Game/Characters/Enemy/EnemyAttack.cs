@@ -34,7 +34,7 @@ namespace Code.Game.Characters.Enemy
             if (value && !_view.Model.Attack.PropertyValue)
             {
                 _view.Model.Attack.PropertyValue = true;
-                _playerSpawner.Player.Model.Health.PropertyValue--;
+                _playerSpawner.Player.Model.Health.PropertyValue -= _view.Model.Damage;
             }
             
             if(!value && _view.Model.Attack.PropertyValue)
