@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{239ad520-2a89-4119-b945-dda1b9d32e83}">
+		<property name="assetPath">
+			<value>Gore, Stab, Kitchen Knife, Stab Body, Guts, Squelches SND22390 2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.51782291666666669</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c62893bc-ff35-4987-972f-338739a0a3a6}</destination>
+		</relationship>
+	</object>
+</objects>
