@@ -209,6 +209,7 @@
 			<destination>{4dfbcab8-3890-47f3-9ff2-f2bc9aeea510}</destination>
 			<destination>{67de913c-babe-4c94-a8b2-723112e3081e}</destination>
 			<destination>{09ad71c0-dfd2-4c32-83b2-70193c094946}</destination>
+			<destination>{5f5e7b7b-ba50-4d41-a7af-db228f0c87f8}</destination>
 			<destination>{f9b57b94-928a-4c3e-add6-10015ab5fd1f}</destination>
 		</relationship>
 	</object>
@@ -243,7 +244,7 @@
 	</object>
 	<object class="DistortionEffect" id="{46d52afa-38ec-4647-af71-ae236901049c}">
 		<property name="level">
-			<value>0.25</value>
+			<value>0.269999981</value>
 		</property>
 	</object>
 	<object class="CompressorEffect" id="{3993e633-ab53-418b-91cf-241998008e69}">
@@ -315,6 +316,14 @@
 	<object class="GainEffect" id="{09ad71c0-dfd2-4c32-83b2-70193c094946}">
 		<property name="gain">
 			<value>10</value>
+		</property>
+	</object>
+	<object class="LimiterEffect" id="{5f5e7b7b-ba50-4d41-a7af-db228f0c87f8}">
+		<property name="boost">
+			<value>3</value>
+		</property>
+		<property name="ceiling">
+			<value>-12</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{f9b57b94-928a-4c3e-add6-10015ab5fd1f}" />
