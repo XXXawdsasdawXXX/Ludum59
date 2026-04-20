@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{15c411e1-d282-4bd4-9ea1-a404f5ec37ae}">
 		<property name="name">
-			<value>Monster Agro 2</value>
+			<value>Monster TV Agro</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -32,7 +32,7 @@
 			<destination>{40b582db-d8a5-4a64-8dfb-2d831cb46010}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{3d93e63b-f4f2-45ff-8b09-98bb40e3776d}</destination>
+			<destination>{ea388cbd-23d8-4b3e-9b57-de9639d81dd7}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{6ad76fa3-692e-4f4b-bba4-48c2741b7412}">
@@ -197,7 +197,7 @@
 	<object class="MixerBusFader" id="{6e12242d-c613-413a-97db-9182842c5b7f}" />
 	<object class="AutomationPoint" id="{3e8ebb5e-2620-42ea-bca8-9d8d460e7cc5}">
 		<property name="position">
-			<value>1.1875</value>
+			<value>1</value>
 		</property>
 		<property name="value">
 			<value>1</value>
