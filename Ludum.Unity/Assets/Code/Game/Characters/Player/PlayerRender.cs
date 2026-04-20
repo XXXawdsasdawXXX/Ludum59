@@ -10,6 +10,13 @@ namespace Code.Game.Characters.Player
         
         [Header("FMOD Footsteps")]
         [SerializeField] private EventReference _footstepEvent;
+        
+        [Header("FMOD Take Damage")]
+        [SerializeField] private EventReference _takeDamageEvent;
+        
+        [Header("FMOD Died")]
+        [SerializeField] private EventReference _diedEvent;
+
 
         private float _lastFootstepTime;
         [SerializeField] private float _footstepCooldown = 0.1f;
@@ -32,6 +39,14 @@ namespace Code.Game.Characters.Player
             _lastFootstepTime = Time.time;
 
             RuntimeManager.PlayOneShot(_footstepEvent, transform.position);
+        }
+        public void PlayTakeDamage()
+        {
+            RuntimeManager.PlayOneShot(_takeDamageEvent, transform.position);
+        }
+        public void PlayDied()
+        {
+            RuntimeManager.PlayOneShot(_diedEvent, transform.position);
         }
     }
 }
