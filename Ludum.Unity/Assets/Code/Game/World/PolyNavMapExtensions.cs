@@ -29,22 +29,29 @@ namespace Code.Game.World
         
         private static Bounds GetMasterBounds(this PolyNavMap map)
         {
-            var collider = map.GetComponent<PolygonCollider2D>();
-    
-            if (collider == null)
-                return new Bounds(map.transform.position, Vector2.one * 10f);
+            if (map.TryGetComponent(out PolygonCollider2D polygonCollider))
+            {
+                return ComputePolygonBounds(map.transform, polygonCollider);
+            }
 
-            // считаем bounds вручную из точек полигона
+            if (map.TryGetComponent(out BoxCollider2D boxCollider))
+            {
+                return boxCollider.bounds; // bounds уже в мировых координатах
+            }
+
+            return new Bounds(map.transform.position, Vector2.one * 10f);
+        }
+
+        private static Bounds ComputePolygonBounds(Transform root, PolygonCollider2D collider)
+        {
             float minX = float.MaxValue, minY = float.MaxValue;
             float maxX = float.MinValue, maxY = float.MinValue;
 
             for (int i = 0; i < collider.pathCount; i++)
             {
-                Vector2[] points = collider.GetPath(i);
-                foreach (Vector2 p in points)
+                foreach (Vector2 p in collider.GetPath(i))
                 {
-                    // переводим в мировые координаты
-                    Vector2 world = map.transform.TransformPoint(p);
+                    Vector2 world = root.TransformPoint(p);
                     if (world.x < minX) minX = world.x;
                     if (world.y < minY) minY = world.y;
                     if (world.x > maxX) maxX = world.x;
@@ -52,9 +59,10 @@ namespace Code.Game.World
                 }
             }
 
-            Vector2 center = new Vector2((minX + maxX) / 2f, (minY + maxY) / 2f);
-            Vector2 size = new Vector2(maxX - minX, maxY - minY);
+            Vector2 center = new((minX + maxX) / 2f, (minY + maxY) / 2f);
+            Vector2 size   = new(maxX - minX, maxY - minY);
             return new Bounds(center, size);
         }
+
     }
 }

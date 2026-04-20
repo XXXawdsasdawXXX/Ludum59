@@ -42,43 +42,40 @@ namespace Code.Game.World
             
             _renderer.sprite = _spriteVariants[Random.Range(0, _spriteVariants.Length)];
 
-#if UNITY_EDITOR
-            EditorUtility.SetDirty(this);
-            EditorUtility.SetDirty(_renderer);
-#endif
+
         }
         
 
 #if UNITY_EDITOR
 
-        [Button]
+#if UNITY_EDITOR
+        // OnValidate вызывается Unity автоматически — никакого [Button]
         private void OnValidate()
         {
             if (_collider == null)
-            {
                 _collider = GetComponent<BoxCollider2D>();
-            }
 
             Vector2 size = _collider.size;
             Type = size.x < size.y ? EObstacleType.Vertical : EObstacleType.Horizontal;
 
             float scale = Type is EObstacleType.Horizontal ? size.x : size.y;
 
-            if (scale <= 0.4)
-            {
-                Size = EObstacleSize.Small;
-            }
-            else if(scale >= 1)
-            {
-                Size = EObstacleSize.Large;
-            }
-            else
-            {
-                Size = EObstacleSize.Middle;
-            }
+            Size = scale <= 0.4f ? EObstacleSize.Small
+                : scale >= 1f   ? EObstacleSize.Large
+                :                 EObstacleSize.Middle;
 
+            // SetDirty нельзя вызывать внутри OnValidate — это вызов из цикла сериализации
+            // EditorUtility.SetDirty(this); ← убираем отсюда
+        }
+
+        // Отдельная кнопка если нужно принудительно пересчитать вручную
+        [Button("Пересчитать тип и размер")]
+        private void RecalculateType()
+        {
+            OnValidate();
             EditorUtility.SetDirty(this);
         }
+#endif
 #endif
     }
 }
