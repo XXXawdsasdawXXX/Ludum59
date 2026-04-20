@@ -92,6 +92,9 @@
 		<property name="length">
 			<value>3.09375</value>
 		</property>
+		<property name="volume">
+			<value>1</value>
+		</property>
 		<relationship name="fadeOutCurve">
 			<destination>{12d5a88b-8995-44a7-ba19-5409f5f973fc}</destination>
 		</relationship>
@@ -185,6 +188,7 @@
 		<relationship name="effects">
 			<destination>{89bf4126-11cb-41ae-af2e-c9318569f438}</destination>
 			<destination>{f3a9f850-56f3-40e1-8646-302a2b033608}</destination>
+			<destination>{a6a38518-b4f0-42b5-a985-d868e50feba8}</destination>
 			<destination>{1dc34e9f-62da-4952-a1d5-c68b74335b1f}</destination>
 			<destination>{5eebd545-0667-40f1-aee8-3dbbdd2a0fc6}</destination>
 		</relationship>
@@ -193,7 +197,7 @@
 	<object class="MixerBusFader" id="{6e12242d-c613-413a-97db-9182842c5b7f}" />
 	<object class="AutomationPoint" id="{3e8ebb5e-2620-42ea-bca8-9d8d460e7cc5}">
 		<property name="position">
-			<value>0</value>
+			<value>1.1875</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -215,7 +219,7 @@
 	</object>
 	<object class="HighpassSimpleEffect" id="{89bf4126-11cb-41ae-af2e-c9318569f438}">
 		<property name="cutoff">
-			<value>140</value>
+			<value>300</value>
 		</property>
 	</object>
 	<object class="MultibandEqEffect" id="{f3a9f850-56f3-40e1-8646-302a2b033608}">
@@ -244,6 +248,23 @@
 			<value>-8.27586365</value>
 		</property>
 	</object>
+	<object class="CompressorEffect" id="{a6a38518-b4f0-42b5-a985-d868e50feba8}">
+		<property name="threshold">
+			<value>-24</value>
+		</property>
+		<property name="ratio">
+			<value>2.79999995</value>
+		</property>
+		<property name="attackTime">
+			<value>60</value>
+		</property>
+		<property name="releaseTime">
+			<value>60</value>
+		</property>
+		<property name="gain">
+			<value>2</value>
+		</property>
+	</object>
 	<object class="SFXReverbEffect" id="{1dc34e9f-62da-4952-a1d5-c68b74335b1f}">
 		<property name="decayTime">
 			<value>4000</value>
@@ -258,13 +279,13 @@
 			<value>3400</value>
 		</property>
 		<property name="earlyLateMix">
-			<value>80</value>
+			<value>75</value>
 		</property>
 		<property name="wetLevel">
-			<value>-20</value>
+			<value>-22</value>
 		</property>
 		<property name="dryLevel">
-			<value>-6</value>
+			<value>-4</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{5eebd545-0667-40f1-aee8-3dbbdd2a0fc6}" />

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{f35260f9-60d5-494e-9399-57216ca3f4ef}">
+		<property name="assetPath">
+			<value>Swooshes, Whoosh, Fantasy, Intense, Impactful, Slow SND121772 - Pitch 38_7.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>3.2188541666666666</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c62893bc-ff35-4987-972f-338739a0a3a6}</destination>
+		</relationship>
+	</object>
+</objects>

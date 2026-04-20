@@ -93,7 +93,7 @@
 			<value>2</value>
 		</property>
 		<property name="volume">
-			<value>-0.5</value>
+			<value>-1</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{0a6b145a-e05f-44f7-9e36-469b74f317c3}</destination>
@@ -178,7 +178,7 @@
 	<object class="MixerBusFader" id="{2436fba6-f2a9-4a3d-9ab2-028f18f9e315}" />
 	<object class="AutomationPoint" id="{2e4348bc-37af-48bf-8d67-db53236aaa77}">
 		<property name="position">
-			<value>1.125</value>
+			<value>1.1875</value>
 		</property>
 		<property name="value">
 			<value>1</value>

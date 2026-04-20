@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{c09cbed1-de63-4548-b43e-b39b9d019bef}">
+		<property name="assetPath">
+			<value>Bells, Misc, Medium, Large Bells, Misc SND14917 - Pitch 38_7.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>6.930239583333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c62893bc-ff35-4987-972f-338739a0a3a6}</destination>
+		</relationship>
+	</object>
+</objects>
