@@ -115,7 +115,7 @@
 			<value>96</value>
 		</property>
 		<property name="volume">
-			<value>-7</value>
+			<value>-8.5</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{5d285d2e-16bd-40ad-b4be-2982cd9e42d4}</destination>

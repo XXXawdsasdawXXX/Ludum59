@@ -5,7 +5,7 @@
 			<value>Monster TV Agro</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{8a1615af-53c6-46a7-a36f-ebcffb8832ee}</destination>
@@ -244,6 +244,7 @@
 			<destination>{9c5df5e4-1434-4b99-b399-acf752b0ea0e}</destination>
 			<destination>{91eeb38d-3066-4be0-946c-9b65edac7957}</destination>
 			<destination>{6e12242d-c613-413a-97db-9182842c5b7f}</destination>
+			<destination>{d5ee3115-1a6c-45e7-9b12-6498575682a7}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{61db1aa2-7726-4047-ae39-e09c4a4a3b4c}" />
@@ -424,6 +425,7 @@
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{6e12242d-c613-413a-97db-9182842c5b7f}" />
+	<object class="SpatialiserEffect" id="{d5ee3115-1a6c-45e7-9b12-6498575682a7}" />
 	<object class="AutomationPoint" id="{e670fdb5-9d34-457c-9c9e-86082abe571c}">
 		<property name="position">
 			<value>0</value>

@@ -5,7 +5,7 @@
 			<value>Mister X agro</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{8a1615af-53c6-46a7-a36f-ebcffb8832ee}</destination>
@@ -272,6 +272,7 @@
 			<destination>{cef9290b-0fac-4f17-bb5e-357424c6aad6}</destination>
 			<destination>{a606e5a1-7749-4d22-9ffb-36fa37ef7131}</destination>
 			<destination>{ee3de047-4d84-4223-8553-c55bd7980c4d}</destination>
+			<destination>{a1473b26-950e-4e61-bb54-8cf4e7ff753a}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{5c71d5a4-c25b-450a-8f0a-09e3655a99db}" />
@@ -447,6 +448,7 @@
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{ee3de047-4d84-4223-8553-c55bd7980c4d}" />
+	<object class="SpatialiserEffect" id="{a1473b26-950e-4e61-bb54-8cf4e7ff753a}" />
 	<object class="AutomationPoint" id="{c0617e44-267a-4af9-b1d8-234844a6adb1}">
 		<property name="position">
 			<value>0.097721674876847242</value>
