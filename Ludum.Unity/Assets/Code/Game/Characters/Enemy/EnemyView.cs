@@ -14,17 +14,17 @@ namespace Code.Game.Characters.Enemy
         [field: SerializeField] public PolyNavAgent Agent { get; private set; }
         [ShowInInspector, ReadOnly] public EEnemyType Type { get; private set; }
         [ShowInInspector, ReadOnly] public EnemyModel Model { get; private set; }
-
+        [field: SerializeField] public Trigger AttackTrigger { get; private set; }
+        
         [SerializeField] private Trigger _rangeTrigger;
         [SerializeField] private Trigger _milleTrigger;
-        [SerializeField] private Trigger _attackTrigger;
-        
+
         private MapView _mapView;
-        
+
         public void SetType(EEnemyType type)
         {
             Type = type;
-            
+
             Model = Container.Instance.GetConfiguration<EnemiesConfiguration>()
                 .Models
                 .FirstOrDefault(m => m.Type == Type)?
@@ -35,7 +35,7 @@ namespace Code.Game.Characters.Enemy
                 Debug.LogError($"Enemy with type {Type} has not model");
                 return;
             }
-            
+
             Render.SetModel(Model);
         }
 
@@ -47,23 +47,24 @@ namespace Code.Game.Characters.Enemy
             EnemyAnimation enemyAnimation = new(this);
             Components.Add(typeof(EnemyAnimation), enemyAnimation);
             
+            EnemyAttack attack = new(this);
+            Components.Add(typeof(EnemyAttack), attack);
+
             enemyMovement.Condition.Add(() => Model.Follow.PropertyValue || Model.AbilityAgro.PropertyValue);
             enemyMovement.Condition.Add(() => !Model.Stan.PropertyValue);
-            enemyMovement.Condition.Add(() => !_attackTrigger.OnTrigger.PropertyValue);
+            enemyMovement.Condition.Add(() => !AttackTrigger.OnTrigger.PropertyValue);
         }
-        
+
         public void Subscribe()
         {
             _milleTrigger.OnTrigger.SubscribeToValue(_onMilleTriggerEnter);
             _rangeTrigger.OnTrigger.SubscribeToValue(_onRangeTriggerEnter);
-            _attackTrigger.OnTrigger.SubscribeToValue(_onAttackTriggerEnter);
         }
 
         public void Unsubscribe()
         {
             _milleTrigger.OnTrigger.UnsubscibeFromValue(_onMilleTriggerEnter);
             _rangeTrigger.OnTrigger.UnsubscibeFromValue(_onRangeTriggerEnter);
-            _attackTrigger.OnTrigger.UnsubscibeFromValue(_onAttackTriggerEnter);
         }
 
         private void _onRangeTriggerEnter(bool value)
@@ -80,11 +81,6 @@ namespace Code.Game.Characters.Enemy
             {
                 Model.Follow.PropertyValue = true;
             }
-        }
-
-        private void _onAttackTriggerEnter(bool value)
-        {
-            Model.Attack.PropertyValue = value;
         }
     }
 }

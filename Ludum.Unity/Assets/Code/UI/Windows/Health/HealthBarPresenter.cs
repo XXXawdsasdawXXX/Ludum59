@@ -4,6 +4,7 @@ using Code.Core.ServiceLocator;
 using Code.Game.Characters.Player;
 using Code.UI.Base;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace Code.UI.Windows.Health
 {
@@ -11,7 +12,9 @@ namespace Code.UI.Windows.Health
     {
         private PlayerSpawner _playerSpawner;
         private PlayerModel _model;
-        
+        private static readonly int Glitch = Animator.StringToHash("Glitch");
+
+
         public UniTask GameInitialize()
         {
             _playerSpawner = Container.Instance.GetService<PlayerSpawner>();
@@ -44,6 +47,7 @@ namespace Code.UI.Windows.Health
         private void _updateBar(int value)
         {
             view.Hand.sprite = view.HandStates[Math.Min(value, view.HandStates.Length)];
+            view.DisplayAnimator.SetTrigger(Glitch);
         }
     }
 }

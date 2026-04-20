@@ -8,5 +8,6 @@ namespace Code.UI.Windows.Health
     {
         [field: SerializeField] public Image Hand { get; private set; }
         [field: SerializeField] public Sprite[] HandStates { get; private set; }
+        [field: SerializeField] public Animator DisplayAnimator { get; private set; }
     }
 }
