@@ -36,6 +36,7 @@ namespace Code.Game.Characters.Enemy
                 return;
             }
 
+            _milleTrigger.SetSize(Model.TriggerSize);
             Render.SetModel(Model);
         }
 

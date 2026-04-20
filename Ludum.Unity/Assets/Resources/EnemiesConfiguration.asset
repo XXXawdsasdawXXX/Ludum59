@@ -17,6 +17,8 @@ MonoBehaviour:
     <Sprite>k__BackingField: {fileID: 639670681, guid: d72f21d110382a44bb1ea1ae5a405109, type: 3}
     <Animator>k__BackingField: {fileID: 22100000, guid: f3bd1f1f9803e7c4ea1a1f7b6e80fd6d, type: 2}
     <Size>k__BackingField: 1
+    <Damage>k__BackingField: 1
+    <TriggerSize>k__BackingField: 1
     <Speed>k__BackingField: 1
     <Follow>k__BackingField:
       _propertyValue: 0
@@ -34,7 +36,28 @@ MonoBehaviour:
     <Sprite>k__BackingField: {fileID: 1200001518, guid: d72f21d110382a44bb1ea1ae5a405109, type: 3}
     <Animator>k__BackingField: {fileID: 22100000, guid: c53e08b29411fa94ebe389375fad9a59, type: 2}
     <Size>k__BackingField: 1
+    <Damage>k__BackingField: 1
+    <TriggerSize>k__BackingField: 1
     <Speed>k__BackingField: 1
+    <Follow>k__BackingField:
+      _propertyValue: 0
+    <AbilityAgro>k__BackingField:
+      _propertyValue: 0
+    SpeedMultiplier:
+      _propertyValue: 1
+    ShowMarker:
+      _propertyValue: 0
+    Stan:
+      _propertyValue: 0
+    Attack:
+      _propertyValue: 0
+  - <Type>k__BackingField: 2
+    <Sprite>k__BackingField: {fileID: -338470025, guid: ceb2fbf1ecc4f5148851e98a0f31fc32, type: 3}
+    <Animator>k__BackingField: {fileID: 22100000, guid: 3c393eec02c1e8f45809e46137b2b3ac, type: 2}
+    <Size>k__BackingField: 1
+    <Damage>k__BackingField: 2
+    <TriggerSize>k__BackingField: 5
+    <Speed>k__BackingField: 0.4
     <Follow>k__BackingField:
       _propertyValue: 0
     <AbilityAgro>k__BackingField:

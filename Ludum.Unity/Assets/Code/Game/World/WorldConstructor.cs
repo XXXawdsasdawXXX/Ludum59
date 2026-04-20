@@ -142,6 +142,11 @@ namespace Code.Game.World
             }
 
             SpawnMachineAwayFromPlayer(point);
+
+            if (_machineSpawner.Pool.Count() == 3)
+            {
+                SpawnBoss();
+            }
         }
 
         private void SpawnEnemies()
@@ -156,6 +161,22 @@ namespace Code.Game.World
 
                 if (chunk.TryGetEnemySpawnPoint(out Vector3 enemySpawn))
                     _enemySpawner.Spawn((EEnemyType)Random.Range(0, 2), enemySpawn);
+            }
+        }
+
+        private void SpawnBoss()
+        {
+            List<Chunk> shuffled = _chunkMapCreator.MapChunks
+                .OrderBy(_ => Random.value)
+                .ToList();
+
+            foreach (Chunk chunk in shuffled)
+            {
+                if (chunk.TryGetEnemySpawnPoint(out Vector3 enemySpawn))
+                {
+                    _enemySpawner.Spawn(EEnemyType.X, enemySpawn);
+                    break;
+                }
             }
         }
     }

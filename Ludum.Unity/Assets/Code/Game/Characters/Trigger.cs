@@ -7,6 +7,7 @@ namespace Code.Game.Characters
 {
     public class Trigger : MonoBehaviour
     {
+        [SerializeField] private CircleCollider2D _collider2D;
         public event Action<GameObject> Enter;
         public event Action<GameObject> Exit;
         public ReactiveProperty<bool> OnTrigger { get; } = new(false);
@@ -22,6 +23,11 @@ namespace Code.Game.Characters
         {
             OnTrigger.PropertyValue = false;
             Exit?.Invoke(other.gameObject);
+        }
+
+        public void SetSize(float modelTriggerSize)
+        {
+            _collider2D.radius = modelTriggerSize;
         }
     }
 }
