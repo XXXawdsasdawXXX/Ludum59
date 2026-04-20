@@ -41,18 +41,16 @@ namespace Code.Game.World
         
         [SerializeField] private BoxCollider2D _collider;
         private static readonly int Random1 = Animator.StringToHash("Random");
-
-        private void OnEnable()
-        {
-            if (_isAnimated && _animation != null)
-            {
-               _animation.SetFloat(Random1, Random.Range(0, _animationMaxRandom - 0.01f));
-            }
-        }
+        
 
         [Button]
         public void SetRandomSprite()
         {
+            if (_isAnimated && _animation != null)
+            {
+                _animation.SetFloat(Random1, Random.Range(0, _animationMaxRandom - 0.01f));
+            }
+            
             if (_isAnimated || _spriteVariants.Length == 0)
             {
                 return;

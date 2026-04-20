@@ -84,5 +84,12 @@ namespace Code.Game.World
         }
 
 #endif
+        public void RandomizeView()
+        {
+            foreach (Obstacle obstacle in _obstacles)
+            {
+                obstacle.SetRandomSprite();
+            }
+        }
     }
 }

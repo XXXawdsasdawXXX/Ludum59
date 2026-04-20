@@ -62,6 +62,7 @@ namespace Code.Game.World
                         y * CHUNK_SIZE.y,
                         0f);
 
+                    prefab.RandomizeView();
 #if UNITY_EDITOR
                     Chunk chunk = (Chunk)PrefabUtility.InstantiatePrefab(prefab, transform);
 #else
