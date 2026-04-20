@@ -38,7 +38,6 @@ namespace Code.UI.Windows.Restart
         private void _subscribeToPlayer(PlayerView obj)
         {
             obj.GetCharacterComponent<PlayerDeath>().Died += _showWindow;
-            obj.GetCharacterComponent<PlayerExit>().Exited += _showWindow;
         }
 
         private async void _showWindow()

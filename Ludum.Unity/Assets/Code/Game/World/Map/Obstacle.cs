@@ -1,7 +1,7 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 using TriInspector;
 using UnityEditor;
-using UnityEditor.Animations;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -44,11 +44,13 @@ namespace Code.Game.World
         
 
         [Button]
-        public void SetRandomSprite()
+        public async void SetRandomSprite()
         {
             if (_isAnimated && _animation != null)
             {
+                await UniTask.DelayFrame(Random.Range(0, 20));
                 _animation.SetFloat(Random1, Random.Range(0, _animationMaxRandom - 0.01f));
+                _animation.speed = Random.Range(0, 1.5f);
             }
             
             if (_isAnimated || _spriteVariants.Length == 0)
@@ -59,8 +61,7 @@ namespace Code.Game.World
             _renderer.sprite = _spriteVariants[Random.Range(0, _spriteVariants.Length)];
         }
         
-
-#if UNITY_EDITOR
+        
 
 #if UNITY_EDITOR
         // OnValidate вызывается Unity автоматически — никакого [Button]
@@ -90,6 +91,6 @@ namespace Code.Game.World
             EditorUtility.SetDirty(this);
         }
 #endif
-#endif
+
     }
 }
