@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5184867213117093072}
   - component: {fileID: 1389623087026486121}
   - component: {fileID: 3224108248114396013}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1294515001
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &1389623087026486121
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 3793316391784754495}
   - component: {fileID: 2478333448569000632}
   - component: {fileID: 1500093220093831077}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 8412003704594789797}
   - component: {fileID: 8325716484240881043}
   - component: {fileID: 8678017253116074307}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -574,5 +574,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d0508389f57f444ba9ab7e1a5adc05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <IsConnected>k__BackingField:
+    _propertyValue: 0
   <ConnectPoint>k__BackingField: {fileID: 52843403953321509}
   <Render>k__BackingField: {fileID: 3330815780525494056}
+  <InteractionIcon>k__BackingField: {fileID: 2889282303739299957}
+  <InteractionTrigger>k__BackingField: {fileID: 2957190344714517958}

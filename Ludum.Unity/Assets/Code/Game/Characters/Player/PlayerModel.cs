@@ -2,7 +2,6 @@
 using Code.Game.Characters.Player.Abilities;
 using Code.Tools;
 using Cysharp.Threading.Tasks;
-using UnityEditor.MemoryProfiler;
 using UnityEngine;
 
 namespace Code.Game.Characters.Player

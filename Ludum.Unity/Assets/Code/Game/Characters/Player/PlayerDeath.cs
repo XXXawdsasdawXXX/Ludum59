@@ -29,9 +29,10 @@ namespace Code.Game.Characters.Player
 
         private void _check(int health)
         {
-            if (health <= 0)
+            if (health <= 0 && (!_isDied || _view.Rigidbody2D.velocity.magnitude > 0))
             {
                 _view.Rigidbody2D.velocity = Vector2.zero;
+                
                 _view.Model.SpeedMultiplayer = 0;
                 
                 Died?.Invoke();

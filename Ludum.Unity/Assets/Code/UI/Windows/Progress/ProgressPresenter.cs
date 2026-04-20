@@ -31,7 +31,7 @@ namespace Code.UI.Windows.Progress
         {   
             if (_currentMachine != null)
             {
-                _currentMachine.Connected -= _updateProgress;
+                _currentMachine.IsConnected.UnsubscibeFromValue(_updateProgress);
             }
         }
 
@@ -39,20 +39,24 @@ namespace Code.UI.Windows.Progress
         {
             if (_currentMachine != null)
             {
-                _currentMachine.Connected -= _updateProgress;
+                _currentMachine.IsConnected.UnsubscibeFromValue(_updateProgress);
             }
 
             _currentMachine = obj;
-            _currentMachine.Connected += _updateProgress;
+            _currentMachine.IsConnected.SubscribeToValue(_updateProgress);
         }
 
-        private void _updateProgress()
+        private void _updateProgress(bool isConnected)
         {
-            _stage++;
+            if (!isConnected)
+            {
+                return;
+            }
 
             if (_stage < view.Stages.Length)
             {
                 view.Stages[_stage].DOColor(Color.white, 0.6f).SetEase(Ease.OutBack);
+                _stage++;
             }
         }
     }
