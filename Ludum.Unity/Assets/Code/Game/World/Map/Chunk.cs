@@ -1,7 +1,9 @@
 ﻿using System;
+using Code.Game.Characters.Player;
 using TriInspector;
 using UnityEditor;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Code.Game.World
 {
@@ -15,6 +17,33 @@ namespace Code.Game.World
        
         [SerializeField] private Obstacle[] _obstacles;
 
+
+        public bool TryGetHeroSpawnPoint(out Vector3 spawnPoint)
+        {
+            spawnPoint = EnemiesSpawnPoints.Length == 0 ? PlayerSpawnPoint : Vector3.zero;
+
+            spawnPoint += transform.position;
+
+            return EnemiesSpawnPoints.Length == 0;
+        }
+        
+        public bool TryGetMachineSpawnPoint(out Vector3 spawnPoint)
+        {
+            spawnPoint = EnemiesSpawnPoints.Length == 0 ? MachineSpawnPoint : Vector3.zero;
+
+            spawnPoint += transform.position;
+
+            return EnemiesSpawnPoints.Length == 0;
+        }
+
+        public bool TryGetEnemySpawnPoint(out Vector3 spawnPoint)
+        {
+            spawnPoint = EnemiesSpawnPoints.Length == 0
+                ? Vector3.zero
+                : EnemiesSpawnPoints[Random.Range(0, EnemiesSpawnPoints.Length)];
+
+            return EnemiesSpawnPoints.Length > 0;
+        }
 
 #if UNITY_EDITOR
 

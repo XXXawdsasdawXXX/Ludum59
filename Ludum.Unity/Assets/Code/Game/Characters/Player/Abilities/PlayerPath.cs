@@ -33,7 +33,7 @@ namespace Code.Game.Characters.Player.Abilities
 
         private void _showPath()
         {
-            _pixelTrail.Activate(10,_view.transform.position, _machineSpawner.MachineView.transform.position);
+            _pixelTrail.Activate(10,_view.transform.position, _machineSpawner.Machine.transform.position);
         }
     }
 }

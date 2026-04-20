@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Code.Core.GameLoop;
 using TriInspector;
 using UnityEditor;
 using UnityEngine;
@@ -12,7 +11,7 @@ namespace Code.Game.World
 
         [SerializeField] private Vector2Int _mapSize = new(11, 11);
         [SerializeField] private Chunk[] _prefabs;
-        [field: SerializeField] private List<Chunk> MapChunks { get; } = new();
+        [field: SerializeField] public List<Chunk> MapChunks { get; private set; } = new();
 
 
         [Button]
@@ -56,15 +55,16 @@ namespace Code.Game.World
 #endif
         }
 
-        private void ClearMap()
+        public void ClearMap()
         {
             foreach (Chunk chunk in MapChunks)
             {
                 if (chunk == null)
                 {
-                    
                     continue;
                 }
+                
+                DestroyImmediate(chunk.gameObject);
             }
 
             MapChunks.Clear();

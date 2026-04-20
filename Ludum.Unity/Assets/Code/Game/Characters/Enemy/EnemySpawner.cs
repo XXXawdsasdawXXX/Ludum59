@@ -9,28 +9,27 @@ using UnityEngine;
 
 namespace Code.Game.Characters.Enemy
 {
-    public class EnemySpawner : CharacterSpawner<EnemyView>, IStartListener
+    public class EnemySpawner : CharacterSpawner<EnemyView>
     {
         [SerializeField] private PolyNavMap _map;
         
-        public UniTask GameStart()
+        
+        [Button]
+        public void Spawn(EEnemyType enemyType, Vector2 position)
         {
-            for (int i = 0; i < Random.Range(20, 50); i++)
-            {
-                if (_map.GetRandomPoint(out Vector2 randomPoint))
-                {
-                    _spawn((EEnemyType)Random.Range(0,2), randomPoint);
-                }
+            EnemyView character = Pool.GetNext();
 
-                if (!canSpawn())
-                {
-                    break;
-                }
-            }
+            character.transform.position = position;
             
-            return UniTask.CompletedTask;
-        }
+            character.SetType(enemyType);
 
+            character.InitializeComponents();
+            
+            Spawner.ConnectToGameLoop(character.gameObject);
+            
+            character.Enable();
+        }
+        
         public IEnumerable<EnemyView> GetNearEnemies(Transform target, float distance)
         {
             IReadOnlyList<EnemyView> allEnabled = Pool.GetAllEnabled();
@@ -72,20 +71,5 @@ namespace Code.Game.Characters.Enemy
             return result;
         }
 
-        [Button]
-        private void _spawn(EEnemyType enemyType, Vector2 position)
-        {
-            EnemyView character = Pool.GetNext();
-
-            character.transform.position = position;
-            
-            character.SetType(enemyType);
-
-            character.InitializeComponents();
-            
-            Spawner.ConnectToGameLoop(character.gameObject);
-            
-            character.Enable();
-        }
     }
 }

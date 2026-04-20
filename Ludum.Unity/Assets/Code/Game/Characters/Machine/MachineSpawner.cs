@@ -1,34 +1,15 @@
-﻿using System;
-using Code.Core.GameLoop;
-using Code.Game.Characters;
-using Cysharp.Threading.Tasks;
+﻿using Code.Game.Characters;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Code.Game.World
 {
-    public class MachineSpawner : CharacterSpawner<MachineView>, IStartListener
+    public class MachineSpawner : CharacterSpawner<MachineView>
     {
-        public MachineView MachineView;
+        public MachineView Machine;
         
-        [SerializeField] private Vector2[] _spawnPoints;
-        
-        public UniTask GameStart()
+        public void SpawnMachine(Vector3 position)
         {
-          MachineView= spawn(_spawnPoints[Random.Range(0, _spawnPoints.Length)]);
-            
-            return UniTask.CompletedTask;
+            Machine = spawn(position);
         }
-
-#if UNITY_EDITOR
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red;
-            foreach (Vector2 spawnPoint in _spawnPoints)
-            {
-                Gizmos.DrawSphere(spawnPoint, 0.3f );
-            }
-        }
-#endif
     }
 }

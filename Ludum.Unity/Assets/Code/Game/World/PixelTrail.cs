@@ -6,115 +6,206 @@ using UnityEngine;
 
 namespace Code.Game.World
 {
+    /// <summary>
+    /// Рисует призрачный след через Graphics.RenderMesh с GPU Instancing —
+    /// все копии спрайта за один draw call независимо от их количества.
+    /// Материал должен поддерживать GPU Instancing (галка Enable GPU Instancing).
+    /// </summary>
     public class PixelTrail : MonoBehaviour, IService
     {
         [SerializeField] private PolyNavAgent _agent;
-        [SerializeField] private Material _material;
         [SerializeField] private SpriteRenderer _source;
-        [SerializeField] private float _spawnInterval = 0.05f;
-        [SerializeField] private float _fadeDuration = 0.3f;
-        [SerializeField] private int _poolSize = 20;
 
-        private float _timer;
-        private Queue<SpriteRenderer> _pool = new();
-        private List<(SpriteRenderer sr, float timeLeft)> _active = new();
+        [Header("Trail")]
+        [SerializeField] private float _spawnInterval  = 0.05f;
+        [SerializeField] private float _fadeDuration   = 0.5f;
+        [SerializeField] private int   _maxGhosts      = 40;
+        [SerializeField] private Color _ghostTint      = new Color(0.5f, 0.8f, 1f, 1f);
 
-        private Timer _durationTimer = new();
-        private bool _isActive;
+        // Материал с GPU Instancing — Sprites/Default + Enable GPU Instancing
+        [SerializeField] private Material _instancedMaterial;
 
-        public void Activate(float duration,Vector3 startPosition, Vector2 position)
+        private struct Ghost
+        {
+            public Matrix4x4 Matrix;   // позиция + масштаб
+            public Vector4   Color;    // rgba для instancing
+            public float     TimeLeft;
+        }
+
+        private readonly List<Ghost> _ghosts = new();
+        private float  _timer;
+        private Timer  _durationTimer = new();
+        private bool   _isActive;
+
+        // Instancing буферы
+        private Mesh              _spriteMesh;
+        private MaterialPropertyBlock _mpb;
+        private Matrix4x4[]       _matrices;
+        private Vector4[]         _colors;
+
+        // ── IService / Activate ───────────────────────────────────────────────
+
+        public void Activate(float duration, Vector3 startPosition, Vector2 destination)
         {
             _agent.transform.position = startPosition;
             _agent.gameObject.SetActive(true);
             _durationTimer.Start(duration);
             _isActive = true;
-            _agent.SetDestination(position);
-        }
-        
-        void Awake()
-        {
-            for (int i = 0; i < _poolSize; i++)
-            {
-                var go = new GameObject("TrailGhost");
-                go.transform.SetParent(transform);
-                var sr = go.AddComponent<SpriteRenderer>();
-                sr.sortingLayerName = _source.sortingLayerName;
-                sr.sortingOrder = _source.sortingOrder - 1;
-                sr.material = _material;
-                go.SetActive(false);
-                _pool.Enqueue(sr);
-            }
+            _agent.SetDestination(destination);
         }
 
-        void Update()
+        // ── Unity ─────────────────────────────────────────────────────────────
+
+        private void Awake()
         {
-            if (_durationTimer.IsFinish() )
+            _mpb      = new MaterialPropertyBlock();
+            _matrices = new Matrix4x4[_maxGhosts];
+            _colors   = new Vector4[_maxGhosts];
+            
+            _instancedMaterial = new Material(_instancedMaterial);
+            _instancedMaterial.enableInstancing = true;
+
+            _mpb      = new MaterialPropertyBlock();
+            _matrices = new Matrix4x4[_maxGhosts];
+            _colors   = new Vector4[_maxGhosts];
+        }
+
+        private void Update()
+        {
+            // Завершение эффекта
+            if (_durationTimer.IsFinish() && _isActive)
             {
-                if (!_isActive)
-                {
-                    return;
-                }
-
-           
-                // обновляем затухание
-                for (int i = _active.Count - 1; i >= 0; i--)
-                {
-                    var (sr, timeLeft) = _active[i];
-                    float newTime = timeLeft - Time.deltaTime;
-
-                    sr.gameObject.SetActive(false);
-                    _pool.Enqueue(sr);
-                    _active.RemoveAt(i);
-                }
-                
                 _agent.gameObject.SetActive(false);
                 _isActive = false;
             }
-            
-            _timer -= Time.deltaTime;
 
-            if (_timer <= 0f)
+            // Спавн нового ghost-а пока активны
+            if (_isActive)
             {
-                _timer = _spawnInterval;
-                _spawnGhost();
+                _timer -= Time.deltaTime;
+                if (_timer <= 0f)
+                {
+                    _timer = _spawnInterval;
+                    SpawnGhost();
+                }
             }
 
-            // обновляем затухание
-            for (int i = _active.Count - 1; i >= 0; i--)
-            {
-                var (sr, timeLeft) = _active[i];
-                float newTime = timeLeft - Time.deltaTime;
+            // Обновляем затухание и собираем данные для instancing
+            UpdateGhosts();
+        }
 
-                if (newTime <= 0f)
+        private void LateUpdate()
+        {
+            if (_ghosts.Count == 0) return;
+            DrawGhosts();
+        }
+
+        // ── Ghost logic ───────────────────────────────────────────────────────
+
+        private void SpawnGhost()
+        {
+            if (_ghosts.Count >= _maxGhosts) return;
+            if (_source.sprite == null) return;
+
+            // Берём текущую матрицу трансформа источника
+            Matrix4x4 matrix = Matrix4x4.TRS(
+                _source.transform.position,
+                _source.transform.rotation,
+                // Учитываем flipX через отрицательный scale X
+                new Vector3(
+                    _source.transform.lossyScale.x * (_source.flipX ? -1f : 1f),
+                    _source.transform.lossyScale.y,
+                    1f));
+
+            _ghosts.Add(new Ghost
+            {
+                Matrix   = matrix,
+                TimeLeft = _fadeDuration,
+                Color    = new Vector4(_ghostTint.r, _ghostTint.g, _ghostTint.b, _ghostTint.a)
+            });
+        }
+
+        private void UpdateGhosts()
+        {
+            for (int i = _ghosts.Count - 1; i >= 0; i--)
+            {
+                Ghost g = _ghosts[i];
+                g.TimeLeft -= Time.deltaTime;
+
+                if (g.TimeLeft <= 0f)
                 {
-                    sr.gameObject.SetActive(false);
-                    _pool.Enqueue(sr);
-                    _active.RemoveAt(i);
+                    _ghosts.RemoveAt(i);
+                    continue;
                 }
-                else
-                {
-                    Color c = sr.color;
-                    c.a = newTime / _fadeDuration;
-                    sr.color = c;
-                    _active[i] = (sr, newTime);
-                }
+
+                // Плавное затухание alpha
+                float t = g.TimeLeft / _fadeDuration;
+                g.Color.w = t * _ghostTint.a;
+
+                _ghosts[i] = g;
             }
         }
 
-        private void _spawnGhost()
+        private void DrawGhosts()
         {
-            if (_pool.Count == 0) return;
+            // Перестраиваем mesh если спрайт сменился
+            if (_spriteMesh == null || _source.sprite != null)
+                _spriteMesh = BuildMeshFromSprite(_source.sprite);
 
-            var sr = _pool.Dequeue();
-            sr.sprite = _source.sprite;
-            sr.flipX = _source.flipX;
-            sr.color = new Color(1f, 1f, 1f, 1f);
+            if (_spriteMesh == null) return;
 
-            sr.transform.position = _source.transform.position;
-            sr.transform.localScale = _source.transform.localScale;
+            int count = Mathf.Min(_ghosts.Count, _maxGhosts);
 
-            sr.gameObject.SetActive(true);
-            _active.Add((sr, _fadeDuration));
+            for (int i = 0; i < count; i++)
+            {
+                _matrices[i] = _ghosts[i].Matrix;
+                _colors[i]   = _ghosts[i].Color;
+            }
+
+            // Передаём цвета через instanced property
+            _mpb.SetVectorArray("_Color", _colors);
+
+            var renderParams = new RenderParams(_instancedMaterial)
+            {
+                matProps       = _mpb,
+                shadowCastingMode  = UnityEngine.Rendering.ShadowCastingMode.Off,
+                receiveShadows = false,
+                layer          = gameObject.layer
+            };
+
+            Graphics.RenderMeshInstanced(renderParams, _spriteMesh, 0, _matrices, count);
+        }
+
+        // ── Mesh builder ──────────────────────────────────────────────────────
+
+        /// <summary>
+        /// Строит Mesh из Sprite с учётом pivot и PPU —
+        /// геометрически совпадает с тем, что рисует SpriteRenderer.
+        /// </summary>
+        private static Mesh BuildMeshFromSprite(Sprite sprite)
+        {
+            if (sprite == null) return null;
+
+            var mesh = new Mesh { name = "GhostSpriteMesh" };
+
+            // Sprite уже хранит вершины в локальных координатах (units)
+            Vector2[] spriteVerts = sprite.vertices;
+            Vector3[] verts       = new Vector3[spriteVerts.Length];
+            for (int i = 0; i < spriteVerts.Length; i++)
+                verts[i] = spriteVerts[i];
+
+            mesh.vertices  = verts;
+            mesh.uv        = sprite.uv;
+
+            // ushort[] → int[]
+            ushort[] spriteTriangles = sprite.triangles;
+            int[]    tris            = new int[spriteTriangles.Length];
+            for (int i = 0; i < spriteTriangles.Length; i++)
+                tris[i] = spriteTriangles[i];
+
+            mesh.triangles = tris;
+            mesh.RecalculateBounds();
+            return mesh;
         }
     }
 }
