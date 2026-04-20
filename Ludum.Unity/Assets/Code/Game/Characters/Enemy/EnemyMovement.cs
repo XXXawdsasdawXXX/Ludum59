@@ -57,6 +57,7 @@ namespace Code.Game.Characters.Enemy
                 {
                     _isStopped = false;
                 }
+                
                 _agent.SetDestination(_playerTransform.position);
             }
             else

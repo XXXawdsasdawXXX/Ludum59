@@ -7,6 +7,7 @@ using Code.Game.World;
 using Code.Tools;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using Progress = Game.Progress;
 
 namespace Code.Game.Characters.Player
 {
@@ -14,6 +15,8 @@ namespace Code.Game.Characters.Player
     {
         private readonly PlayerView _view;
         private readonly DoorSpawner _machineSpawner;
+
+        public event Action Exited;
         public Condition Condition { get; } = new Condition();
 
         public DoorView _currentMachine;
@@ -84,6 +87,9 @@ namespace Code.Game.Characters.Player
 
                 _currentMachine.IsConnected.PropertyValue = true;
                 _view.Model.Connecting.PropertyValue = false;
+
+                Progress.Attempt++;
+                Exited?.Invoke();
             }
             catch (OperationCanceledException)
             {

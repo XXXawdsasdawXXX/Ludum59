@@ -51,8 +51,11 @@ namespace Code.Game.Characters.Enemy
             EnemyAttack attack = new(this);
             Components.Add(typeof(EnemyAttack), attack);
 
-            enemyMovement.Condition.Add(() => Model.Follow.PropertyValue || Model.AbilityAgro.PropertyValue);
-            enemyMovement.Condition.Add(() => !Model.Stan.PropertyValue);
+            if (Type is not EEnemyType.X)
+            {
+                enemyMovement.Condition.Add(() => Model.Follow.PropertyValue || Model.AbilityAgro.PropertyValue);
+                enemyMovement.Condition.Add(() => !Model.Stan.PropertyValue);
+            }
             enemyMovement.Condition.Add(() => !AttackTrigger.OnTrigger.PropertyValue);
         }
 

@@ -27,11 +27,10 @@ namespace Code.Core.ServiceLocator
         {
             if (Instance != null)
             {
-                Destroy(gameObject);
+                Destroy(Instance);
                 return;
             }
-
-            DontDestroyOnLoad(gameObject);
+            
             Instance = this;
 
             _cachedInstallers = AppDomain.CurrentDomain.GetAssemblies()
@@ -52,7 +51,7 @@ namespace Code.Core.ServiceLocator
                                       && !typeof(MonoBehaviour).IsAssignableFrom(t))
                 .ToHashSet();
             
-            _allObjects = FindObjectsOfType<MonoBehaviour>();
+            _allObjects = FindObjectsOfType<MonoBehaviour>(true);
 
             _createTypes(ref _services);
             _createTypes(ref _viewes);
