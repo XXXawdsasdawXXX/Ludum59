@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AssetsPPU: 320
+  m_AssetsPPU: 450
   m_RefResolutionX: 1920
   m_RefResolutionY: 1080
   m_UpscaleRT: 1
@@ -469,6 +469,15 @@ MonoBehaviour:
   - {fileID: 7282863545694877827, guid: 8c21edb5db9d3804b8da08a0471fcd46, type: 3}
   - {fileID: 354424280076411903, guid: d5cbe9b1f41359548b69f6a2aba1e4dc, type: 3}
   - {fileID: 1359833543579052365, guid: f5d28c9b0c31d7540a33ff5cc29c519e, type: 3}
+  - {fileID: 1359833543579052365, guid: 76c6ddd199bc18a438f684c2643393fc, type: 3}
+  - {fileID: 1359833543579052365, guid: e09419c6112ad0347b51fd5d3ac2e4b1, type: 3}
+  - {fileID: 1359833543579052365, guid: 4ec93f6bd6b337c4eab975a6f5a3d690, type: 3}
+  - {fileID: 1359833543579052365, guid: a31b0d28c1831964f8011909a134b686, type: 3}
+  - {fileID: 1359833543579052365, guid: 49e4ae4d4303a4440b847b447bb63c69, type: 3}
+  - {fileID: 7282863545694877827, guid: e1aeb52bc5f562b49818e1271b78cf10, type: 3}
+  - {fileID: 7282863545694877827, guid: 57a75beba60871d4385a008dc19be43b, type: 3}
+  - {fileID: 7282863545694877827, guid: f9e917183fe72164382da6c54b9cf89f, type: 3}
+  - {fileID: 7282863545694877827, guid: eb28e56068ccbce43adb7005e70397ab, type: 3}
   <MapChunks>k__BackingField: []
 --- !u!114 &668539166
 MonoBehaviour:
@@ -632,10 +641,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _map: {fileID: 0}
-  maxSpeed: 1
+  maxSpeed: 1.5
   maxForce: 1
   stoppingDistance: 0.1
-  slowingDistance: 1
+  slowingDistance: 0
   lookAheadDistance: 1
   avoidRadius: 0
   avoidanceConsiderStuckedTime: 3
@@ -741,7 +750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
-  mapResolution: {x: 64, y: 64}
+  mapResolution: {x: 256, y: 64}
   mapSize: 16
   mapOffset: {x: 0, y: 0}
   plane: 0

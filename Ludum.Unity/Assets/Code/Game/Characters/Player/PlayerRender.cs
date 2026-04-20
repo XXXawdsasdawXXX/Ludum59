@@ -5,7 +5,7 @@ namespace Code.Game.Characters.Player
 {
     public class PlayerRender : MonoBehaviour
     {
-        [SerializeField] private Animator _animator;
+        [field: SerializeField] public Animator Animator { get; private set; }
         [SerializeField] private SpriteRenderer _renderer;
         
         [Header("FMOD Footsteps")]
@@ -16,7 +16,7 @@ namespace Code.Game.Characters.Player
 
         public void SetSpeed(float speed)
         {
-            _animator.SetFloat(AnimationsHash.Speed, speed);
+            Animator.SetFloat(AnimationsHash.Speed, speed);
         }
 
         public void FlipX(bool flipX)

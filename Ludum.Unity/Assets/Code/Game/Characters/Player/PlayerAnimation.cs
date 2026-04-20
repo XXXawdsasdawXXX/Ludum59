@@ -4,6 +4,7 @@ using Code.Core.GameLoop;
 using Code.Core.ServiceLocator;
 using Code.Game.World;
 using Code.Tools;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace Code.Game.Characters.Player
@@ -20,7 +21,10 @@ namespace Code.Game.Characters.Player
         private readonly MachineSpawner _machineSpawner;
 
         private MachineView _currentMachine;
-        
+        private static readonly int Died = Animator.StringToHash("Died");
+        private static readonly int TakeDamage = Animator.StringToHash("TakeDamage");
+        private static readonly int Machine = Animator.StringToHash("Machine");
+
         public PlayerAnimation(PlayerView view)
         {
             _rigidBody = view.Rigidbody2D;
@@ -51,6 +55,7 @@ namespace Code.Game.Characters.Player
         public void Unsubscribe()
         {
             _view.Model.Health.SubscribeToValue(_takeDamage);
+            _machineSpawner.Spawned -= _subscribeToMachine;
             
             if (_currentMachine != null)
             {
@@ -69,14 +74,14 @@ namespace Code.Game.Characters.Player
             _currentMachine.Connected += _machineConnect;
         }
 
-        private void _takeDamage(int obj)
+        private void _takeDamage(int health)
         {
-            
+            _render.Animator.SetTrigger(health <= 0 ? Died : TakeDamage);
         }
 
-        private void _machineConnect()
+        private  void _machineConnect()
         {
-            
+            _render.Animator.SetTrigger(Machine);
         }
     }
 }

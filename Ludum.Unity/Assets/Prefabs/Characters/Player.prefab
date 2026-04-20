@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 0
   visibilityType: 0
-  brightness: 0.3
+  brightness: 0.8
   offset: {x: 0, y: 0.16, z: 0}
   shapeType: 0
   snapToPixelCenter: 0
@@ -54,7 +54,7 @@ MonoBehaviour:
   absoluteCenterPoint: 1
   centerPoint: {x: 0, y: 0}
   boxSize: {x: 5, y: 5}
-  circleRadius: 2
+  circleRadius: 1.5
   innerRadius: 0.5
   angle: 180
   texture: {fileID: 0}
@@ -62,13 +62,13 @@ MonoBehaviour:
   lineOfSightMask:
     serializedVersion: 2
     m_Bits: 64
-  lineOfSightRaycastCount: 0
+  lineOfSightRaycastCount: 50
   lineOfSightPenetration: 0
   lineOfSightRaycastAngle: 0
   lineOfSightRaycastAngleOffset: 0
   lineOfSightSeeOutsideRange: 1
   multithreading: 0
-  cellBased: 1
+  cellBased: 0
   cellTestPoint: 0
 --- !u!1 &2694642842796539417
 GameObject:
@@ -143,6 +143,32 @@ MonoBehaviour:
       ShownCoolStuff:
         _propertyValue: 0
       ShowEnemyForwardDuration:
+        _propertyValue: 0
+    <Stan>k__BackingField:
+      <Cooldown>k__BackingField: 0
+      <Radius>k__BackingField: 0
+      <PerkRadius>k__BackingField:
+        _propertyValue: 0
+      <Duration>k__BackingField: 0
+      <PerkDuration>k__BackingField:
+        _propertyValue: 0
+      <EnergyPrice>k__BackingField: 0
+      <PerkEnergyPrice>k__BackingField:
+        _propertyValue: 0
+      <PerkEnemySpeedMultiplier>k__BackingField:
+        _propertyValue: 0
+      <SlowEffectDuration>k__BackingField:
+        _propertyValue: 0
+    <Path>k__BackingField:
+      EnergyPrice: 0
+      Duration: 0
+      PerkDuration:
+        _propertyValue: 0
+      Cooldown: 0
+      PerkCooldown:
+        _propertyValue: 0
+      AgroRadius: 0
+      AgroPerkRadius:
         _propertyValue: 0
   <FogOfWarUnit>k__BackingField: {fileID: 7002137434329873431}
   <RadarTrigger>k__BackingField: {fileID: 3858772208303826463}
@@ -230,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 211bc40c64da426793e1a1869e5d305a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 5248118756415154199}
+  <Animator>k__BackingField: {fileID: 0}
   _renderer: {fileID: 2694642843422969073}
   _footstepEvent:
     Guid:
