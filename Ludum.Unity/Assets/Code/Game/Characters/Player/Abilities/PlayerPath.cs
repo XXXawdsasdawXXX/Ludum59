@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Code.Core.GameLoop;
 using Code.Core.ServiceLocator;
+using Code.Game.Audio;
 using Code.Game.Characters.Enemy;
 using Code.Game.World;
 using Code.Tools;
 using Cysharp.Threading.Tasks;
+using FMODUnity;
 
 namespace Code.Game.Characters.Player.Abilities
 {
@@ -20,6 +22,7 @@ namespace Code.Game.Characters.Player.Abilities
         private readonly MachineSpawner _machineSpawner;
         private readonly PixelTrail _pixelTrail;
         private readonly EnemySpawner _enemySpawner;
+        private readonly SoundConfiguration _soundConfiguration;
 
         public PlayerPath(PlayerView view)
         {
@@ -28,6 +31,7 @@ namespace Code.Game.Characters.Player.Abilities
             _machineSpawner = Container.Instance.GetService<MachineSpawner>();
             _pixelTrail = Container.Instance.GetService<PixelTrail>();
             _enemySpawner = Container.Instance.GetService<EnemySpawner>();
+            _soundConfiguration = Container.Instance.GetConfiguration<SoundConfiguration>();
         }
         
         public void Subscribe()
@@ -46,6 +50,8 @@ namespace Code.Game.Characters.Player.Abilities
             {
                 return;
             }
+            
+            RuntimeManager.PlayOneShot(_soundConfiguration.Path);
             
             float cooldown = _view.Model.Path.Cooldown + _view.Model.Path.PerkCooldown.PropertyValue;
             
