@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using Code.Core.GameLoop;
 using Code.Core.ServiceLocator;
@@ -17,6 +16,8 @@ namespace Code.Game.Characters.Player.Abilities
         public Condition Condition { get; } = new Condition();
         public Timer Cooldown { get; } = new Timer();
         
+        public event Action Used;
+
         private readonly PlayerView _view;
         private readonly PlayerInput _input;
         private readonly MachineSpawner _machineSpawner;
@@ -54,6 +55,8 @@ namespace Code.Game.Characters.Player.Abilities
             RuntimeManager.PlayOneShot(_soundConfiguration.Path);
             
             _view.UseAbility();
+         
+            Used?.Invoke();
             
             float cooldown = _view.Model.Path.Cooldown + _view.Model.Path.PerkCooldown.PropertyValue;
             
@@ -84,5 +87,6 @@ namespace Code.Game.Characters.Player.Abilities
                 enemyView.Model.AbilityAgro.PropertyValue = false;
             }
         }
+
     }
 }

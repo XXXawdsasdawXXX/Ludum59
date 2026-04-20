@@ -46,6 +46,10 @@ namespace Code.UI.Windows.Health
 
         private void _updateBar(int value)
         {
+            if (value < 0)
+            {
+                return;
+            }
             view.Hand.sprite = view.HandStates[Math.Min(value, view.HandStates.Length)];
             view.DisplayAnimator.SetTrigger(Glitch);
         }

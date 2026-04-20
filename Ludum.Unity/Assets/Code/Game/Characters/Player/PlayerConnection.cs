@@ -15,7 +15,7 @@ namespace Code.Game.Characters.Player
         private readonly MachineSpawner _machineSpawner;
         public Condition Condition { get; } = new Condition();
 
-        public MachineView _currentMachine ;
+        public MachineView _currentMachine;
 
         private CancellationTokenSource _waitInput;
         private readonly PlayerInput _input;
@@ -38,7 +38,7 @@ namespace Code.Game.Characters.Player
             _machineSpawner.Spawned -= _subscribeToMachine;
             if (_currentMachine != null)
             {
-         
+                _currentMachine.InteractionTrigger.OnTrigger.UnsubscibeFromValue(_updateState);
             }
         }
 
@@ -46,11 +46,11 @@ namespace Code.Game.Characters.Player
         {
             if (_currentMachine != null)
             {
-                _currentMachine.InteractionTrigger.OnTrigger.SubscribeToValue(_updateState);
+                _currentMachine.InteractionTrigger.OnTrigger.UnsubscibeFromValue(_updateState);
             }
 
             _currentMachine = obj;
-
+            _currentMachine.InteractionTrigger.OnTrigger.SubscribeToValue(_updateState);
         }
 
         private void _updateState(bool obj)
@@ -71,12 +71,14 @@ namespace Code.Game.Characters.Player
         {
             try
             {
+                _currentMachine.InteractionIcon.gameObject.SetActive(true);
                 await UniTask.WaitUntil(() => _input.InteractionPressed, cancellationToken: ct);
-           
+
+                _currentMachine.InteractionIcon.gameObject.SetActive(false);
                 _view.Model.Connecting.PropertyValue = true;
-                
+
                 await _moveToConnectionPoint();
-                
+
                 await _playAnimation();
 
                 _currentMachine.IsConnected.PropertyValue = true;
@@ -84,6 +86,7 @@ namespace Code.Game.Characters.Player
             }
             catch (OperationCanceledException)
             {
+                _currentMachine.InteractionIcon.gameObject.SetActive(false);
                 // игрок вышел из зоны — нормальная отмена, ничего не делаем
             }
         }
@@ -116,6 +119,7 @@ namespace Code.Game.Characters.Player
 
         private async UniTask _playAnimation()
         {
+            _view.Renderer.FlipX(false);
             _view.Renderer.PlayConnection();
             await UniTask.Delay(TimeSpan.FromSeconds(0.6f));
             _currentMachine.Render.PlayConnect();

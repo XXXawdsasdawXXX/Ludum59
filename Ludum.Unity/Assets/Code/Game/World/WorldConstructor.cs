@@ -15,12 +15,19 @@ namespace Code.Game.World
         [SerializeField] private EnemySpawner _enemySpawner;
         [SerializeField] private MachineSpawner _machineSpawner;
 
+        [SerializeField] private int _requiredHeroPoints  = 6;
+        [SerializeField] private int _requiredEnemyPoints = 10;
+
+        // Чанки которые уже заняты — не будут использованы повторно
+        private readonly HashSet<Chunk> _occupiedChunks = new();
+
         public UniTask GameStart()
         {
-            if (_chunkMapCreator.MapChunks.Count == 0)
-                _chunkMapCreator.GenerateMap();
+            _occupiedChunks.Clear();
 
-            SpawnHeroAndMachine();
+            _chunkMapCreator.GenerateMapWithRequirements(_requiredHeroPoints, _requiredEnemyPoints);
+
+            SpawnHeroAndFirstMachine();
             SpawnEnemies();
 
             return UniTask.CompletedTask;
@@ -31,42 +38,92 @@ namespace Code.Game.World
             if (_playerSpawner.Player == null) return;
 
             Vector3 playerPos = _playerSpawner.Player.transform.position;
-            Vector3 spawnPoint = FindFarthestHeroSpawnPoint(playerPos);
-            
-            _machineSpawner.SpawnMachine(spawnPoint);
+
+            Chunk best = _chunkMapCreator.MapChunks
+                .Where(c => !_occupiedChunks.Contains(c) && c.TryGetHeroSpawnPoint(out _))
+                .OrderByDescending(c => Vector3.Distance(c.transform.position, playerPos))
+                .FirstOrDefault();
+
+            if (best == null)
+            {
+                Debug.LogWarning("[WorldConstructor] Нет свободных точек для машины");
+                return;
+            }
+
+            best.TryGetHeroSpawnPoint(out Vector3 spawnPoint);
+            _occupiedChunks.Add(best);
+            SpawnMachineAndSubscribe(spawnPoint);
+        }
+
+        // Возвращает N рассеянных точек — только из свободных чанков
+        public List<Vector3> GetSpreadSpawnPoints(int count)
+        {
+            List<Chunk> candidates = _chunkMapCreator.MapChunks
+                .Where(c => !_occupiedChunks.Contains(c) && c.TryGetHeroSpawnPoint(out _))
+                .OrderBy(_ => Random.value)
+                .ToList();
+
+            if (candidates.Count == 0) return new List<Vector3>();
+
+            var selected = new List<Chunk> { candidates[Random.Range(0, candidates.Count)] };
+
+            while (selected.Count < count && selected.Count < candidates.Count)
+            {
+                Chunk best = candidates
+                    .Except(selected)
+                    .OrderByDescending(c => selected.Min(s =>
+                        Vector3.Distance(c.transform.position, s.transform.position)))
+                    .First();
+
+                selected.Add(best);
+            }
+
+            var result = new List<Vector3>();
+            foreach (Chunk chunk in selected)
+            {
+                chunk.TryGetHeroSpawnPoint(out Vector3 point);
+                _occupiedChunks.Add(chunk); // помечаем как занятый
+                result.Add(point);
+            }
+
+            return result;
         }
 
         // ── Private ───────────────────────────────────────────────────────────
 
-        private void SpawnHeroAndMachine()
+        private void SpawnHeroAndFirstMachine()
         {
-            List<Chunk> heroChunks = _chunkMapCreator.MapChunks
-                .Where(c => c.TryGetHeroSpawnPoint(out _))
-                .OrderBy(_ => Random.value) // перемешиваем
-                .ToList();
+            List<Vector3> points = GetSpreadSpawnPoints(2);
 
-            if (heroChunks.Count == 0) return;
+            if (points.Count == 0) return;
 
-            if (heroChunks.Count == 1)
-            {
-                heroChunks[0].TryGetHeroSpawnPoint(out Vector3 single);
-                _playerSpawner.SpawnHero(single);
-                return;
-            }
+            _playerSpawner.SpawnHero(points[0]);
 
-            (Chunk playerChunk, Chunk machineChunk) = FindFarthestPair(heroChunks);
+            if (points.Count >= 2)
+                SpawnMachineAndSubscribe(points[1]);
+        }
 
-            playerChunk.TryGetHeroSpawnPoint(out Vector3 playerSpawn);
-            machineChunk.TryGetHeroSpawnPoint(out Vector3 machineSpawn);
+        private void SpawnMachineAndSubscribe(Vector3 position)
+        {
+            _machineSpawner.SpawnMachine(position);
+            _machineSpawner.Machine.IsConnected.SubscribeToValue(_onMachineConnected);
+        }
 
-            _playerSpawner.SpawnHero(playerSpawn);
-            _machineSpawner.SpawnMachine(machineSpawn);
+        private void _onMachineConnected(bool isConnected)
+        {
+            if (!isConnected) return;
+
+            _machineSpawner.Machine.IsConnected.UnsubscibeFromValue(_onMachineConnected);
+
+            if (!_machineSpawner.CanSpawn()) return;
+
+            SpawnMachineAwayFromPlayer();
         }
 
         private void SpawnEnemies()
         {
             List<Chunk> shuffled = _chunkMapCreator.MapChunks
-                .OrderBy(_ => Random.value) // перемешиваем
+                .OrderBy(_ => Random.value)
                 .ToList();
 
             foreach (Chunk chunk in shuffled)
@@ -76,43 +133,6 @@ namespace Code.Game.World
                 if (chunk.TryGetEnemySpawnPoint(out Vector3 enemySpawn))
                     _enemySpawner.Spawn((EEnemyType)Random.Range(0, 2), enemySpawn);
             }
-        }
-        private Vector3 FindFarthestHeroSpawnPoint(Vector3 from)
-        {
-            Chunk best = _chunkMapCreator.MapChunks
-                .Where(c => c.TryGetHeroSpawnPoint(out _))
-                .OrderByDescending(c => Vector3.Distance(c.transform.position, from))
-                .FirstOrDefault();
-
-            if (best == null) return from;
-
-            best.TryGetHeroSpawnPoint(out Vector3 spawnPoint);
-            return spawnPoint;
-        }
-
-        private static (Chunk, Chunk) FindFarthestPair(List<Chunk> chunks)
-        {
-            Chunk a = chunks[0];
-            Chunk b = chunks[1];
-            float maxDist = 0f;
-
-            for (int i = 0; i < chunks.Count; i++)
-            {
-                for (int j = i + 1; j < chunks.Count; j++)
-                {
-                    float dist = Vector3.Distance(
-                        chunks[i].transform.position,
-                        chunks[j].transform.position);
-
-                    if (dist <= maxDist) continue;
-
-                    maxDist = dist;
-                    a = chunks[i];
-                    b = chunks[j];
-                }
-            }
-
-            return (a, b);
         }
     }
 }

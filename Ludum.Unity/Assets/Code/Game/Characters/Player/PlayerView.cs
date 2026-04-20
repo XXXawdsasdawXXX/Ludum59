@@ -58,6 +58,9 @@ namespace Code.Game.Characters.Player
             PlayerConnection connection = new(this);
             Components.Add(typeof(PlayerConnection), connection);
             
+            PlayerDeath death = new(this);
+            Components.Add(typeof(PlayerDeath), death);
+            
             stan.Condition.Add(() => stan.Cooldown.IsFinish());
             stan.Condition.Add(() => Model.Energy.PropertyValue >= 
                                      Model.Stan.EnergyPrice + Model.Stan.PerkEnergyPrice.PropertyValue);

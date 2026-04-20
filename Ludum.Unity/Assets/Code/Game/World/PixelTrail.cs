@@ -37,6 +37,9 @@ namespace Code.Game.World
         private Timer  _durationTimer = new();
         private bool   _isActive;
 
+        private ParticleSystem.EmitParams _emitParams;
+
+        [SerializeField] private ParticleSystem _particles;
         // Instancing буферы
         private Mesh              _spriteMesh;
         private MaterialPropertyBlock _mpb;
@@ -52,11 +55,41 @@ namespace Code.Game.World
             _durationTimer.Start(duration);
             _isActive = true;
             _agent.SetDestination(to);
+            
+        }
+
+        private void Update()
+        {
+            if (_durationTimer.IsFinish() && _isActive)
+            {
+                _agent.gameObject.SetActive(false);
+                _isActive = false;
+            }
+
+            if (!_isActive) return;
+
+            _timer -= Time.deltaTime;
+            if (_timer <= 0f)
+            {
+                _timer = _spawnInterval;
+                EmitParticle();
+            }
+        }
+
+        private void EmitParticle()
+        {
+            if (_source.sprite == null) return;
+
+            _emitParams.position = _source.transform.position;
+            _emitParams.startColor = _ghostTint;
+            _emitParams.startSize =  _particles.main.startSize.constant;
+
+            _particles.Emit(_emitParams, 1);
         }
 
         // ── Unity ─────────────────────────────────────────────────────────────
 
-        private void Awake()
+        /*private void Awake()
         {
             _mpb      = new MaterialPropertyBlock();
             _matrices = new Matrix4x4[_maxGhosts];
@@ -206,6 +239,6 @@ namespace Code.Game.World
             mesh.triangles = tris;
             mesh.RecalculateBounds();
             return mesh;
-        }
+        }*/
     }
 }
