@@ -1,6 +1,7 @@
 ﻿using System;
 using TriInspector;
 using UnityEditor;
+using UnityEditor.Animations;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -22,27 +23,42 @@ namespace Code.Game.World
             Large
         }
         
+        
         [ReadOnly, ShowInInspector] public EObstacleType Type { get; private set; }
         [ReadOnly, ShowInInspector] public EObstacleSize Size { get; private set; }
 
+        [SerializeField] private bool _isAnimated;
         [SerializeField] private SpriteRenderer _renderer;
+        
+        [ShowIf(nameof(_isAnimated))] 
+        [SerializeField] private Animator _animation;
 
+        [ShowIf(nameof(_isAnimated))] 
+        [SerializeField] private float _animationMaxRandom;
+        
+        [HideIf(nameof(_isAnimated))]
         [SerializeField] private Sprite[] _spriteVariants;
         
         [SerializeField] private BoxCollider2D _collider;
+        private static readonly int Random1 = Animator.StringToHash("Random");
 
-        
+        private void OnEnable()
+        {
+            if (_isAnimated && _animation != null)
+            {
+               _animation.SetFloat(Random1, Random.Range(0, _animationMaxRandom - 0.01f));
+            }
+        }
+
         [Button]
         public void SetRandomSprite()
         {
-            if (_spriteVariants.Length == 0)
+            if (_isAnimated || _spriteVariants.Length == 0)
             {
                 return;
             }
             
             _renderer.sprite = _spriteVariants[Random.Range(0, _spriteVariants.Length)];
-
-
         }
         
 

@@ -7,6 +7,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 570332877470990802, guid: 6d22ca36a3784674eaee6cabac681c39, type: 3}
+      propertyPath: _animation
+      value: 
+      objectReference: {fileID: 1435338865518487217}
+    - target: {fileID: 570332877470990802, guid: 6d22ca36a3784674eaee6cabac681c39, type: 3}
+      propertyPath: _isAnimated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 570332877470990802, guid: 6d22ca36a3784674eaee6cabac681c39, type: 3}
+      propertyPath: _animationCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 570332877470990802, guid: 6d22ca36a3784674eaee6cabac681c39, type: 3}
+      propertyPath: _clips.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 570332877470990802, guid: 6d22ca36a3784674eaee6cabac681c39, type: 3}
+      propertyPath: _animationMaxRandom
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 570332877470990802, guid: 6d22ca36a3784674eaee6cabac681c39, type: 3}
+      propertyPath: _clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 7400000, guid: 2a89211a69905fa40891edd0374818c0, type: 2}
+    - target: {fileID: 570332877470990802, guid: 6d22ca36a3784674eaee6cabac681c39, type: 3}
+      propertyPath: _clips.Array.data[1]
+      value: 
+      objectReference: {fileID: 7400000, guid: bb3871492286f42439052f2d54f28055, type: 2}
+    - target: {fileID: 570332877470990802, guid: 6d22ca36a3784674eaee6cabac681c39, type: 3}
+      propertyPath: _clips.Array.data[2]
+      value: 
+      objectReference: {fileID: 7400000, guid: 94d0fee284a819140b7f79ee1870dd93, type: 2}
+    - target: {fileID: 570332877470990802, guid: 6d22ca36a3784674eaee6cabac681c39, type: 3}
+      propertyPath: _clips.Array.data[3]
+      value: 
+      objectReference: {fileID: 7400000, guid: 1b9dc75d36ea70c4fbc2a4a256c2bea0, type: 2}
     - target: {fileID: 5471447540465353488, guid: 6d22ca36a3784674eaee6cabac681c39, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -77,3 +113,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d22ca36a3784674eaee6cabac681c39, type: 3}
+--- !u!1 &2917324583088218703 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5471447540465353494, guid: 6d22ca36a3784674eaee6cabac681c39, type: 3}
+  m_PrefabInstance: {fileID: 7174823325554942297}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1435338865518487217
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2917324583088218703}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a5de66743ff4a9d4c82564d726871d85, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
