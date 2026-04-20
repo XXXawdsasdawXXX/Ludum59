@@ -179,6 +179,7 @@
 			<destination>{f2ffc8fd-287a-4720-98e3-ee268f479cb6}</destination>
 			<destination>{f1ec9584-8804-466f-a97b-5f5da66e68cf}</destination>
 			<destination>{f7ac966c-89b7-422f-ae53-e58ab4bd5baf}</destination>
+			<destination>{636a28d1-17d9-4568-a510-f59016460b45}</destination>
 			<destination>{acb510a0-69dc-4318-ab8e-b7790c6de477}</destination>
 		</relationship>
 	</object>
@@ -249,6 +250,26 @@
 	<object class="GainEffect" id="{f7ac966c-89b7-422f-ae53-e58ab4bd5baf}">
 		<property name="gain">
 			<value>-8</value>
+		</property>
+	</object>
+	<object class="SFXReverbEffect" id="{636a28d1-17d9-4568-a510-f59016460b45}">
+		<property name="decayTime">
+			<value>3500</value>
+		</property>
+		<property name="lateDelay">
+			<value>30</value>
+		</property>
+		<property name="HFDecayRatio">
+			<value>23</value>
+		</property>
+		<property name="highCut">
+			<value>3400</value>
+		</property>
+		<property name="earlyLateMix">
+			<value>75</value>
+		</property>
+		<property name="wetLevel">
+			<value>-10</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{acb510a0-69dc-4318-ab8e-b7790c6de477}" />
