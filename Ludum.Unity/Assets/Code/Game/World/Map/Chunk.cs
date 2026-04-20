@@ -37,7 +37,7 @@ namespace Code.Game.World
         {
             spawnPoint = EnemiesSpawnPoints.Length == 0
                 ? Vector3.zero
-                : EnemiesSpawnPoints[Random.Range(0, EnemiesSpawnPoints.Length)];
+                : EnemiesSpawnPoints[Random.Range(0, EnemiesSpawnPoints.Length)] + transform.position;
 
             return EnemiesSpawnPoints.Length > 0;
         }

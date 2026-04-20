@@ -709,7 +709,9 @@ MonoBehaviour:
   - Master
   Banks:
   - Ambience
+  - Enemy
   - Music
+  - Player
   - SFX
   BanksToLoad: []
   LiveUpdatePort: 9264
