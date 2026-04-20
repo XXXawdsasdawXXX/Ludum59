@@ -126,8 +126,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.43333334
-    functionName: PlayAttackTV
+  - time: 0.28333333
+    functionName: PlayAttackMister
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

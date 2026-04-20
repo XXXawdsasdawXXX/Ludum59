@@ -20,6 +20,9 @@ namespace Code.Game.Characters.Enemy
         [Header("FMOD Attack Default")]
         [SerializeField] private EventReference _attackDefaultEvent;
         
+        [Header("FMOD Attack Mister")]
+        [SerializeField] private EventReference _attackMisterEvent;
+        
         private float _lastFootstepTime;
         [SerializeField] private float _footstepCooldown = 0.1f;
 
@@ -60,10 +63,13 @@ namespace Code.Game.Characters.Enemy
         {
             PlayOneShot(_attackTvEvent);
         }
-
+        public void PlayAttackMister()
+        {
+            PlayOneShot(_attackTvEvent);
+        }
         public void PlayAttackDefault()
         {
-            PlayOneShot(_attackDefaultEvent);
+            PlayOneShot(_attackMisterEvent);
         }
 
         public void PlayFootstep()
