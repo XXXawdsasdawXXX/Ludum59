@@ -47,11 +47,25 @@ namespace Code.Game.Characters.Enemy
             _view.Model.Follow.UnsubscibeFromValue(_moveToStartPoint);
         }
 
+        private bool _isStopped = false;
+
         public void GameUpdate()
         {
             if (Condition.AreMet())
             {
+                if (_isStopped)
+                {
+                    _isStopped = false;
+                }
                 _agent.SetDestination(_playerTransform.position);
+            }
+            else
+            {
+                if (!_isStopped)
+                {
+                    _agent.Stop();
+                    _isStopped = true;
+                }
             }
         }
 

@@ -13,8 +13,8 @@ TagManager:
   - UI
   - Enviroment
   - Enemy
-  - Radar
-  - 
+  - PlayerRadar
+  - EnemyRadar
   - 
   - 
   - 

@@ -45,13 +45,13 @@ namespace Code.Game.World
 
         // ── IService / Activate ───────────────────────────────────────────────
 
-        public void Activate(float duration, Vector3 startPosition, Vector2 destination)
+        public void Activate(float duration, Vector3 from, Vector2 to)
         {
-            _agent.transform.position = startPosition;
+            _agent.transform.position = from;
             _agent.gameObject.SetActive(true);
             _durationTimer.Start(duration);
             _isActive = true;
-            _agent.SetDestination(destination);
+            _agent.SetDestination(to);
         }
 
         // ── Unity ─────────────────────────────────────────────────────────────

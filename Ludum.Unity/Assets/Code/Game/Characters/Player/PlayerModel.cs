@@ -19,6 +19,7 @@ namespace Code.Game.Characters.Player
         [field: SerializeField] public int MaxEnergy { get; private set; }
         [field: SerializeField] public RadarModel Radar { get; private set; } = new();
         [field: SerializeField] public StanModel Stan { get; private set; } = new();
+        [field: SerializeField] public PathModel Path { get; private set; } = new();
 
 
         public PlayerModel(PlayerConfiguration playerConfiguration)
@@ -40,6 +41,9 @@ namespace Code.Game.Characters.Player
 
             Stan = _playerConfiguration.Stan.Clone();
             Stan.ResetPerks();
+            
+            Path = _playerConfiguration.Path.Clone();
+            Path.ResetPerks();
         }
     }
 }

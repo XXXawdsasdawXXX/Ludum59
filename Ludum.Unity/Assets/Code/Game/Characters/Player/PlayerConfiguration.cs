@@ -10,11 +10,9 @@ namespace Code.Game.Characters.Player
         [field: SerializeField] public int MaxHealth { get; private set; } = 100;
         [field: SerializeField] public int MaxEnergy { get; private set; } = 100;
 
-        [field: Header("Radar")]
         [field: SerializeField] public RadarModel Radar { get; private set; }
-        
-        [field: Header("Stan")]
         [field: SerializeField] public StanModel Stan { get; private set; }
+        [field: SerializeField] public PathModel Path { get; private set; }
         
     }
 }
