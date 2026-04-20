@@ -6,7 +6,7 @@ using Cysharp.Threading.Tasks;
 
 namespace Code.UI.Windows.HealthBar
 {
-    public class EnergyBarPresenter : UIPresenter<EnergyBarView>, IInitializeListener,IStartListener ,ISubscriber
+    public class EnergyBarPresenter : UIPresenter<EnergyBarView>, IInitializeListener ,ISubscriber
     {
         private PlayerSpawner _playerSpawner;
 
@@ -16,14 +16,7 @@ namespace Code.UI.Windows.HealthBar
 
             return UniTask.CompletedTask;
         }
-
-        public UniTask GameStart()
-        {
-            _updateView(_playerSpawner.Player.Model.Health.PropertyValue);
-            
-            return UniTask.CompletedTask;
-        }
-
+        
         public void Subscribe()
         {
             _playerSpawner.PlayerSpawned += _onPlayerSpawned;
@@ -38,8 +31,9 @@ namespace Code.UI.Windows.HealthBar
         private void _onPlayerSpawned(PlayerView player)
         {
             player.Model.Energy.SubscribeToValue(_updateView);
+            _updateView(_playerSpawner.Player.Model.Health.PropertyValue);
         }
-
+        
         private void _updateView(int value)
         {
             PlayerModel model = _playerSpawner.Player.Model;

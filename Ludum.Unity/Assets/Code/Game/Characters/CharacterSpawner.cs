@@ -11,7 +11,12 @@ namespace Code.Game.Characters
         [field: SerializeField] public MonoPool<TCharacter> Pool { get; private set; }
      
         [SerializeField] protected int maxCharactersCount = 1;
-        
+
+        public bool CanSpawn()
+        {
+            return Pool.Count() < maxCharactersCount;
+        }
+
         protected TCharacter spawn(Vector2 position)
         {
             TCharacter character = Pool.GetNext();
@@ -25,11 +30,6 @@ namespace Code.Game.Characters
             Spawner.ConnectToGameLoop(character.gameObject);
             
             return character;
-        }
-        
-        protected bool canSpawn()
-        {
-            return Pool.Count() < maxCharactersCount;
         }
     }
 }

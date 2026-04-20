@@ -31,7 +31,7 @@ namespace Code.Game.Characters.Player
 
         public void GameUpdate()
         {
-            _timer += Time.deltaTime;
+            /*_timer += Time.deltaTime;
 
             if (_timer >= _currentCooldownTime && !_isReloading)
             {
@@ -42,7 +42,7 @@ namespace Code.Game.Characters.Player
                 _timer = 0;
                 
                 _currentCooldownTime = _reloadCooldown.GetRandomValue();
-            }
+            }*/
         }
         
         private async UniTaskVoid _runFlashlight()

@@ -32,6 +32,7 @@ namespace Code.Game.World
                     else if (_machineSpawner.Machine == null)
                     {
                         _machineSpawner.SpawnMachine(spawnPoint);
+                        break;  
                     }
                 }
             }
@@ -41,6 +42,11 @@ namespace Code.Game.World
                 if (mapChunk.TryGetEnemySpawnPoint(out Vector3 enemySpawnPoint))
                 {
                     _enemySpawner.Spawn((EEnemyType)Random.Range(0, 2), enemySpawnPoint);
+                }
+
+                if (!_enemySpawner.CanSpawn())
+                {
+                  break;  
                 }
             }
 

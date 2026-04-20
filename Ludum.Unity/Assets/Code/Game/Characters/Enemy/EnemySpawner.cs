@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Code.Core.GameLoop;
-using PolyNav;
 using TriInspector;
 using UnityEngine;
 
@@ -8,9 +7,6 @@ namespace Code.Game.Characters.Enemy
 {
     public class EnemySpawner : CharacterSpawner<EnemyView>
     {
-        [SerializeField] private PolyNavMap _map;
-        
-        
         [Button]
         public void Spawn(EEnemyType enemyType, Vector2 position)
         {
