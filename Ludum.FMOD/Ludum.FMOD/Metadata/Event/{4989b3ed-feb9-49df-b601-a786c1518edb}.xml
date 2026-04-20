@@ -32,7 +32,7 @@
 			<destination>{6579eb37-f700-4236-90f8-1b5c5fcdafa7}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{3d93e63b-f4f2-45ff-8b09-98bb40e3776d}</destination>
+			<destination>{14f9a6db-77f6-482f-9450-39e05806cfe5}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{bc4b316a-1c29-430b-894b-e9d455f5886f}">
@@ -94,6 +94,9 @@
 		</property>
 		<property name="timelockedOffset">
 			<value>1.1257684426229508</value>
+		</property>
+		<property name="volume">
+			<value>5</value>
 		</property>
 		<relationship name="fadeInCurve">
 			<destination>{19977266-8b74-4437-8865-b29a3b11d7e6}</destination>

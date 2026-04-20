@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{a891ca24-387d-4ca4-8e3a-171e1805ea4b}">
 		<property name="name">
-			<value>Monster Agro</value>
+			<value>Monster Monk Agro</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -32,7 +32,7 @@
 			<destination>{52405efe-8cdf-481c-9e33-48f48ce89dce}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{3d93e63b-f4f2-45ff-8b09-98bb40e3776d}</destination>
+			<destination>{ea388cbd-23d8-4b3e-9b57-de9639d81dd7}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{16878f47-b94d-4b75-a02f-e60817622fc2}">
@@ -218,7 +218,7 @@
 			<value>80</value>
 		</property>
 		<property name="wetLevel">
-			<value>-20</value>
+			<value>-25.5</value>
 		</property>
 		<property name="dryLevel">
 			<value>-3</value>
