@@ -10,7 +10,7 @@ namespace Code.Game.Characters.Player
     {
         private readonly PlayerConfiguration _playerConfiguration;
         
-        [field: SerializeField] public float SpeedMultiplayer { get; private set; }
+        [field: SerializeField] public float SpeedMultiplayer { get; set; }
       
         [field: SerializeField] public int MaxHealth { get; private set; }
         [field: SerializeField] public ReactiveProperty<int> Health { get; private set; } = new(0);
