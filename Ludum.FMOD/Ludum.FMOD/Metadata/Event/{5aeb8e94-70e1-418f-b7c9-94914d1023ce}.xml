@@ -126,7 +126,7 @@
 			<value>3.1075123152709359</value>
 		</property>
 		<property name="volume">
-			<value>-6</value>
+			<value>-7</value>
 		</property>
 		<relationship name="fadeInCurve">
 			<destination>{4cce5c40-3568-46b7-9c2f-e77f709992e4}</destination>
@@ -160,7 +160,10 @@
 			<value>0.028208729686880707</value>
 		</property>
 		<property name="length">
-			<value>2.6845853858784894</value>
+			<value>1.6556473808310488</value>
+		</property>
+		<property name="volume">
+			<value>4</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{4580d34b-5142-42b0-933a-e19fa4c6f8a9}</destination>
@@ -232,7 +235,7 @@
 			<value>-7</value>
 		</property>
 		<property name="pitch">
-			<value>-9.5</value>
+			<value>-12.5</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{82f8856c-5c97-4b04-9681-a8e74a784bb9}</destination>
@@ -311,6 +314,7 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{7192177f-616d-4c43-ab3b-d37e2bdbbc6e}">
 		<relationship name="effects">
+			<destination>{4f3ca854-d3c0-46a5-9607-5836e902b34e}</destination>
 			<destination>{53136a58-abd7-4211-a795-0b800460848d}</destination>
 			<destination>{0bfa315b-e51b-4b85-b72e-d28baf286cd0}</destination>
 		</relationship>
@@ -484,6 +488,11 @@
 			<value>0</value>
 		</property>
 	</object>
+	<object class="HighpassSimpleEffect" id="{4f3ca854-d3c0-46a5-9607-5836e902b34e}">
+		<property name="cutoff">
+			<value>200</value>
+		</property>
+	</object>
 	<object class="MultibandEqEffect" id="{53136a58-abd7-4211-a795-0b800460848d}">
 		<property name="frequencyA">
 			<value>3627.26147</value>
@@ -517,7 +526,7 @@
 	</object>
 	<object class="AutomationPoint" id="{8db53ee0-3e20-4cf3-ab7d-9074528c0dfb}">
 		<property name="position">
-			<value>0.39221735037653599</value>
+			<value>0.15625</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -528,7 +537,7 @@
 	</object>
 	<object class="AutomationPoint" id="{c62aecbe-4464-42a0-8a3b-8636fa0688f4}">
 		<property name="position">
-			<value>2.7127941155653694</value>
+			<value>1.6838561105179295</value>
 		</property>
 		<property name="value">
 			<value>0</value>

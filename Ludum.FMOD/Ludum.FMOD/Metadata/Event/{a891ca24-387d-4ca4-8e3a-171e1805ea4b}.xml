@@ -119,7 +119,7 @@
 			<value>2</value>
 		</property>
 		<property name="volume">
-			<value>-2</value>
+			<value>-3</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{0a6b145a-e05f-44f7-9e36-469b74f317c3}</destination>
@@ -190,6 +190,9 @@
 		<property name="volume">
 			<value>-7</value>
 		</property>
+		<property name="pitch">
+			<value>-8</value>
+		</property>
 		<relationship name="modulators">
 			<destination>{e963b490-925d-4b32-85d2-8db288a8a302}</destination>
 		</relationship>
@@ -204,6 +207,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{97701401-4be8-4347-a754-0d2987614c9d}">
+		<property name="volume">
+			<value>-2</value>
+		</property>
 		<property name="name">
 			<value>Audio 3</value>
 		</property>
@@ -275,6 +281,7 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{34ab36dc-7f7a-4c12-8851-494ce8ac934a}">
 		<relationship name="effects">
+			<destination>{b24e0381-1ce9-473a-8ee7-37bdd2864f36}</destination>
 			<destination>{a7ef2002-f59a-434d-915c-88e85ba80d42}</destination>
 			<destination>{7c248951-8402-448c-b1f3-8549f782050c}</destination>
 		</relationship>
@@ -416,6 +423,11 @@
 		</property>
 		<property name="value">
 			<value>0</value>
+		</property>
+	</object>
+	<object class="HighpassSimpleEffect" id="{b24e0381-1ce9-473a-8ee7-37bdd2864f36}">
+		<property name="cutoff">
+			<value>200</value>
 		</property>
 	</object>
 	<object class="SFXReverbEffect" id="{a7ef2002-f59a-434d-915c-88e85ba80d42}">

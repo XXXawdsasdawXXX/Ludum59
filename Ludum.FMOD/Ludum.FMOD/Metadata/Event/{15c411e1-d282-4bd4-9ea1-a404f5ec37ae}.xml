@@ -113,7 +113,7 @@
 			<value>2.1257708561464108</value>
 		</property>
 		<property name="volume">
-			<value>2</value>
+			<value>2.5</value>
 		</property>
 		<property name="pitch">
 			<value>-5</value>
@@ -191,7 +191,7 @@
 			<value>-7</value>
 		</property>
 		<property name="pitch">
-			<value>-2.20000005</value>
+			<value>-8.5</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{0233590d-cb05-4842-8f2a-f9440c49686a}</destination>
@@ -201,13 +201,12 @@
 		</relationship>
 		<relationship name="sounds">
 			<destination>{252728f7-7385-4bd2-b21b-6f067e4f2a58}</destination>
-			<destination>{ee4b1d80-888f-4dc6-8578-ea6e423279bb}</destination>
 			<destination>{e4e0acf9-14bd-4fdb-99cd-108d72b15dc1}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{65602a43-dd61-4b3d-a125-bf59d65ed518}">
 		<property name="volume">
-			<value>-2.5</value>
+			<value>-5</value>
 		</property>
 		<property name="name">
 			<value>Audio 3</value>
@@ -357,11 +356,6 @@
 			<destination>{7d11fd3d-6c06-413b-a895-16f94e1a5a2b}</destination>
 		</relationship>
 	</object>
-	<object class="SingleSound" id="{ee4b1d80-888f-4dc6-8578-ea6e423279bb}">
-		<relationship name="audioFile">
-			<destination>{239ad520-2a89-4119-b945-dda1b9d32e83}</destination>
-		</relationship>
-	</object>
 	<object class="SingleSound" id="{e4e0acf9-14bd-4fdb-99cd-108d72b15dc1}">
 		<relationship name="audioFile">
 			<destination>{a85343fb-b2df-4f29-820e-2a4e79e4beca}</destination>
@@ -459,7 +453,7 @@
 	</object>
 	<object class="HighpassSimpleEffect" id="{89bf4126-11cb-41ae-af2e-c9318569f438}">
 		<property name="cutoff">
-			<value>320</value>
+			<value>460</value>
 		</property>
 	</object>
 	<object class="MultibandEqEffect" id="{f3a9f850-56f3-40e1-8646-302a2b033608}">
