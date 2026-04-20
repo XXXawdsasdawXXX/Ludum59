@@ -157,7 +157,7 @@
 	</object>
 	<object class="MultiSound" id="{256df41d-93be-45ee-8b03-39522b83505e}">
 		<property name="start">
-			<value>0.070576765188834156</value>
+			<value>0.028208729686880707</value>
 		</property>
 		<property name="length">
 			<value>2.6845853858784894</value>
@@ -177,9 +177,6 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{74da2fca-c460-47a7-8638-ebfaf40580cf}">
-		<property name="volume">
-			<value>-3</value>
-		</property>
 		<property name="name">
 			<value>Audio 2</value>
 		</property>
@@ -498,7 +495,7 @@
 	<object class="MixerBusFader" id="{0bfa315b-e51b-4b85-b72e-d28baf286cd0}" />
 	<object class="AutomationPoint" id="{1ff958f2-8f20-4201-b134-2c4e5f036bf7}">
 		<property name="position">
-			<value>0.070576765188834156</value>
+			<value>0.028208729686880707</value>
 		</property>
 		<property name="value">
 			<value>0</value>
@@ -512,7 +509,7 @@
 	</object>
 	<object class="AutomationPoint" id="{39f4ed9d-415d-453c-8d5d-08e90c26d056}">
 		<property name="position">
-			<value>0.19557676518883416</value>
+			<value>0.15320872968688071</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -520,7 +517,7 @@
 	</object>
 	<object class="AutomationPoint" id="{8db53ee0-3e20-4cf3-ab7d-9074528c0dfb}">
 		<property name="position">
-			<value>0.43458538587848944</value>
+			<value>0.39221735037653599</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -531,7 +528,7 @@
 	</object>
 	<object class="AutomationPoint" id="{c62aecbe-4464-42a0-8a3b-8636fa0688f4}">
 		<property name="position">
-			<value>2.7551621510673225</value>
+			<value>2.7127941155653694</value>
 		</property>
 		<property name="value">
 			<value>0</value>
@@ -542,7 +539,10 @@
 			<value>31.5</value>
 		</property>
 		<property name="level">
-			<value>-19</value>
+			<value>-17.5</value>
+		</property>
+		<property name="dryLevel">
+			<value>-5.5</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{b0f8bacf-3740-464b-bbc1-381ddc4f4afa}" />
