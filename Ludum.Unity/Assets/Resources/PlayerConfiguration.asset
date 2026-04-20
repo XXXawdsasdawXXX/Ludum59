@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bc26855d4334830904fc6f558159571, type: 3}
   m_Name: PlayerConfiguration
   m_EditorClassIdentifier: 
-  <Speed>k__BackingField: 2
+  <Speed>k__BackingField: 1
   <MaxHealth>k__BackingField: 4
   <MaxEnergy>k__BackingField: 100
   <Radar>k__BackingField:
@@ -47,12 +47,12 @@ MonoBehaviour:
       _propertyValue: 5
   <Path>k__BackingField:
     EnergyPrice: 5
-    Duration: 5
+    Duration: 8
     PerkDuration:
       _propertyValue: 2
-    Cooldown: 10
+    Cooldown: 5
     PerkCooldown:
       _propertyValue: 0
-    AgroRadius: 3
+    AgroRadius: 2
     AgroPerkRadius:
       _propertyValue: 2
