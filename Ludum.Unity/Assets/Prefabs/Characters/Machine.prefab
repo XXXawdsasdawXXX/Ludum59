@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af67c4565004be3b677af0f053818e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collider2D: {fileID: 0}
 --- !u!1 &2157214888634600031
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,6 +419,7 @@ GameObject:
   - component: {fileID: 7953307570823739905}
   - component: {fileID: 3330815780525494056}
   - component: {fileID: 2178208674861398207}
+  - component: {fileID: 8179547243814753731}
   m_Layer: 6
   m_Name: View
   m_TagString: Untagged
@@ -526,6 +528,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8179547243814753731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7826409730061835948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 35542545
+      Data2: 1242221572
+      Data3: 794457244
+      Data4: -1736081297
+    Path: event:/SFX/Environment/Terminal
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &8565641004743551506
 GameObject:
   m_ObjectHideFlags: 0

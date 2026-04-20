@@ -281,6 +281,13 @@ MonoBehaviour:
       Data3: -2035875402
       Data4: -611429951
     Path: event:/SFX/Player/Player Death
+  _machineEvent:
+    Guid:
+      Data1: 265108683
+      Data2: 1077816898
+      Data3: -1074365530
+      Data4: 100514756
+    Path: event:/SFX/Environment/Deactivation
   _footstepCooldown: 0.1
 --- !u!212 &2694642843422969073
 SpriteRenderer:
@@ -400,6 +407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af67c4565004be3b677af0f053818e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collider2D: {fileID: 0}
 --- !u!58 &2504783262458263585
 CircleCollider2D:
   m_ObjectHideFlags: 0

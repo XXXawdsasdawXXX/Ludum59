@@ -4,6 +4,7 @@ using UnityEngine;
 namespace Code.Game.Characters.Enemy
 {
     public class EnemyRender : MonoBehaviour
+    
     {
         private static readonly int Attack = Animator.StringToHash("Attack");
         private static readonly int Stan = Animator.StringToHash("Stan");

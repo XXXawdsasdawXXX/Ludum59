@@ -4,6 +4,7 @@ using UnityEngine;
 namespace Code.Game.World
 {
     public class MachineRender : MonoBehaviour
+    
     {
         [field: SerializeField] public Animator Animator { get; private set; }
 

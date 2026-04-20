@@ -16,8 +16,10 @@ namespace Code.Game.Characters.Player
         
         [Header("FMOD Died")]
         [SerializeField] private EventReference _diedEvent;
-
-
+        
+        [Header("FMOD Machine")]
+        [SerializeField] private EventReference _machineEvent;
+        
         private float _lastFootstepTime;
         [SerializeField] private float _footstepCooldown = 0.1f;
         private static readonly int Hand = Animator.StringToHash("Hand");
@@ -27,7 +29,12 @@ namespace Code.Game.Characters.Player
         {
             Animator.SetFloat(AnimationsHash.Speed, speed);
         }
-
+        
+        public void PlayMachine()
+        {
+            RuntimeManager.PlayOneShot(_machineEvent, transform.position);
+        }
+        
         public void HandActivate()
         {
             Animator.SetTrigger(Hand);
