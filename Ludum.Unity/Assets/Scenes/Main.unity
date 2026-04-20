@@ -750,7 +750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
-  mapResolution: {x: 256, y: 64}
+  mapResolution: {x: 256, y: 256}
   mapSize: 16
   mapOffset: {x: 0, y: 0}
   plane: 0

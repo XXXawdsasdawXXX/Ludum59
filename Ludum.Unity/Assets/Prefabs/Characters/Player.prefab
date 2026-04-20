@@ -64,7 +64,7 @@ MonoBehaviour:
     m_Bits: 64
   lineOfSightRaycastCount: 50
   lineOfSightPenetration: 0
-  lineOfSightRaycastAngle: 0
+  lineOfSightRaycastAngle: 360
   lineOfSightRaycastAngleOffset: 0
   lineOfSightSeeOutsideRange: 1
   multithreading: 0
@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 211bc40c64da426793e1a1869e5d305a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Animator>k__BackingField: {fileID: 0}
+  <Animator>k__BackingField: {fileID: 5248118756415154199}
   _renderer: {fileID: 2694642843422969073}
   _footstepEvent:
     Guid:
