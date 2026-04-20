@@ -113,7 +113,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{f7334ab2-768d-4541-b832-36eaa786518d}">
 		<property name="volume">
-			<value>2</value>
+			<value>3</value>
 		</property>
 		<property name="overridingInputFormat">
 			<value>1</value>
