@@ -30,7 +30,7 @@ namespace Code.Game.Characters.Enemy
                 _forward = forward; 
             }
             
-            _render.SetSpeed(_agent.currentSpeed);
+            _render.SetSpeed(_agent.currentSpeed * _agent.maxSpeed);
         }
     }
 }

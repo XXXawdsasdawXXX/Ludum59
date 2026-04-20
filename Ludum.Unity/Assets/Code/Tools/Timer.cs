@@ -6,6 +6,7 @@ namespace Code.Tools
     public class Timer
     {
         public event Action Finished;
+        public float Duration { get; private set; }
         public float Max => _endTime;
         public float Current => Time.time;
 
@@ -27,6 +28,7 @@ namespace Code.Tools
         {
             _startTime = Time.time;
             _endTime = _startTime + duration;
+            Duration = duration;
         }
     }
 }

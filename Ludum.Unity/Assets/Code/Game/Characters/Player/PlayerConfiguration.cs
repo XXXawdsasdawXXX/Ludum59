@@ -14,7 +14,7 @@ namespace Code.Game.Characters.Player
         [field: SerializeField] public RadarModel Radar { get; private set; }
         
         [field: Header("Stan")]
-        [field: SerializeField] public int StanEnergyPrice { get; private set; } = 1;
+        [field: SerializeField] public StanModel Stan { get; private set; }
         
     }
 }

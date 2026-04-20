@@ -8,10 +8,10 @@ using DG.Tweening;
 
 namespace Code.UI.Windows
 {
-    public class RadarAbilityPresenter : UIPresenter<AbilityView>, IInitializeListener, ISubscriber
+    public class StanAbilityPresenter : UIPresenter<AbilityView>, IInitializeListener, ISubscriber
     {
         private PlayerSpawner _playerSpawner;
-        private PlayerRadar _playerRadar;
+        private PlayerStan _playerStan;
         
         public UniTask GameInitialize()
         {
@@ -32,21 +32,21 @@ namespace Code.UI.Windows
 
         private void _onPlayerSpawned(PlayerView player)
         {
-            if (_playerRadar != null)
+            if (_playerStan != null)
             {
-                _playerRadar.Used -= Used;
+                _playerStan.Used -= Used;
             }
             
-            _playerRadar = _playerSpawner.Player.GetCharacterComponent<PlayerRadar>();
-            _playerRadar.Used += Used;
+            _playerStan = _playerSpawner.Player.GetCharacterComponent<PlayerStan>();
+            _playerStan.Used += Used;
         }
 
         private void Used()
         {
             view.Fill.fillAmount = 0;
 
-            float abilityDuration = _playerSpawner.Player.Model.Radar.Duration 
-                              + _playerSpawner.Player.Model.Radar.PerkDuration.PropertyValue;
+            float abilityDuration = _playerSpawner.Player.Model.Stan.Duration 
+                                    + _playerSpawner.Player.Model.Stan.PerkDuration.PropertyValue;
             
             Tween tween = view.Background
                 .DOFade(0, 0.5f)
@@ -54,7 +54,7 @@ namespace Code.UI.Windows
             
             DOVirtual.DelayedCall(abilityDuration, () => tween.Kill());
 
-            view.Fill.DOFillAmount(1, _playerRadar.Cooldown.Duration);
+            view.Fill.DOFillAmount(1, _playerStan.Cooldown.Duration);
         }
     }
 }

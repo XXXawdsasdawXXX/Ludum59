@@ -4,6 +4,7 @@ using Code.Game.World;
 using Cysharp.Threading.Tasks;
 using PolyNav;
 using TriInspector;
+using UnityEditor;
 using UnityEngine;
 
 namespace Code.Game.Characters.Enemy
@@ -34,6 +35,24 @@ namespace Code.Game.Characters.Enemy
         {
             IReadOnlyList<EnemyView> allEnabled = Pool.GetAllEnabled();
     
+            Vector3 center = target.position;
+            float r = distance;
+
+// горизонтальная линия
+            Debug.DrawLine(
+                center + Vector3.left * r,
+                center + Vector3.right * r,
+                Color.yellow,
+                2f
+            );
+
+// вертикальная линия
+            Debug.DrawLine(
+                center + Vector3.up * r,
+                center + Vector3.down * r,
+                Color.yellow,
+                2f);
+            
             float sqrDistance = distance * distance;
             Vector3 targetPos = target.position;
     
@@ -49,7 +68,7 @@ namespace Code.Game.Characters.Enemy
                     result.Add(t);
                 }
             }
-    
+            
             return result;
         }
 
