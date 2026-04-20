@@ -22,8 +22,8 @@ namespace Code.Game.Characters.Player
         {
             if (_energyTimer.IsFinish())
             {
-                Model.Energy.PropertyValue += 10;
-                _energyTimer.Start(5);
+                Model.Energy.PropertyValue += 5;
+                _energyTimer.Start(10);
             }
         }
 
@@ -57,6 +57,9 @@ namespace Code.Game.Characters.Player
             
             PlayerConnection connection = new(this);
             Components.Add(typeof(PlayerConnection), connection);
+
+            PlayerExit exit = new PlayerExit(this);
+            Components.Add(typeof(PlayerExit), exit);
             
             PlayerDeath death = new(this);
             Components.Add(typeof(PlayerDeath), death);
