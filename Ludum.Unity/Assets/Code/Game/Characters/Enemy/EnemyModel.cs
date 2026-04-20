@@ -34,6 +34,7 @@ namespace Code.Game.Characters.Enemy
                 Size = Size,
                 Speed = Speed, 
                 TriggerSize = TriggerSize,
+                Damage = Damage,
                 Follow = new ReactiveProperty<bool>(false),
                 SpeedMultiplier = new ReactiveProperty<float>(SpeedMultiplier.PropertyValue),
                 ShowMarker = new ReactiveProperty<bool>(false),

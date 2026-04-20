@@ -80078,6 +80078,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1003355803194201954, guid: 4e85c6574a247364d8a74b98df6281f0, type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4007538280643128740, guid: 4e85c6574a247364d8a74b98df6281f0, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -80170,8 +80174,21 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 5887937301705822021, guid: 4e85c6574a247364d8a74b98df6281f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6333197751136279408, guid: 4e85c6574a247364d8a74b98df6281f0, type: 3}
+      propertyPath: <TVAnimator>k__BackingField
+      value: 
+      objectReference: {fileID: 4007538281154822155}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e85c6574a247364d8a74b98df6281f0, type: 3}
+--- !u!95 &4007538281154822155 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4007538281154822155, guid: 4e85c6574a247364d8a74b98df6281f0, type: 3}
+  m_PrefabInstance: {fileID: 4007538281154822153}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4056586120594584709
 PrefabInstance:
   m_ObjectHideFlags: 0
