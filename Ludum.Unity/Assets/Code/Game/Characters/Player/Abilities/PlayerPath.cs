@@ -53,6 +53,8 @@ namespace Code.Game.Characters.Player.Abilities
             
             RuntimeManager.PlayOneShot(_soundConfiguration.Path);
             
+            _view.UseAbility();
+            
             float cooldown = _view.Model.Path.Cooldown + _view.Model.Path.PerkCooldown.PropertyValue;
             
             Cooldown.Start(cooldown);

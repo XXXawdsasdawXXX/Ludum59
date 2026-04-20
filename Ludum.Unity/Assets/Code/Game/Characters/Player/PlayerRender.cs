@@ -20,17 +20,29 @@ namespace Code.Game.Characters.Player
 
         private float _lastFootstepTime;
         [SerializeField] private float _footstepCooldown = 0.1f;
+        private static readonly int Hand = Animator.StringToHash("Hand");
+
 
         public void SetSpeed(float speed)
         {
             Animator.SetFloat(AnimationsHash.Speed, speed);
         }
 
+        public void HandActivate()
+        {
+            Animator.SetTrigger(Hand);
+        }
+
+        public void PlayConnection()
+        {
+            Animator.SetTrigger(AnimationsHash.Connection);    
+        }
+
         public void FlipX(bool flipX)
         {
             _renderer.flipX = flipX;
         }
-        
+
         public void PlayFootstep()
         {
             if (Time.time - _lastFootstepTime < _footstepCooldown)

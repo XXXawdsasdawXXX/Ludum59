@@ -6,5 +6,6 @@ namespace Code.Game.Characters
     {
         public static readonly int Speed = Animator.StringToHash("Speed");
 
+        public static readonly int Connection = Animator.StringToHash("Connect");
     }
 }

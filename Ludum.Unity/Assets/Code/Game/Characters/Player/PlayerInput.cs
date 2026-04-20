@@ -14,11 +14,13 @@ namespace Code.Game.Characters.Player
         private const KeyCode PATH_KEY = KeyCode.Alpha1;
         private const KeyCode RADAR_KEY = KeyCode.Alpha2;
         private const KeyCode STAN_KEY = KeyCode.Alpha3;
+        private const KeyCode INTERACTION_KEY = KeyCode.E;
 
         public Vector2 Forward { get; private set; }
         public event Action RadarPressed;
         public event Action StanPressed;
         public event Action PathPressed;
+        public bool InteractionPressed;
 
 
         public void GameUpdate()
@@ -46,6 +48,8 @@ namespace Code.Game.Characters.Player
             {
                 PathPressed?.Invoke();
             }
+
+            InteractionPressed = Input.GetKeyDown(INTERACTION_KEY); 
         }
     }
 }

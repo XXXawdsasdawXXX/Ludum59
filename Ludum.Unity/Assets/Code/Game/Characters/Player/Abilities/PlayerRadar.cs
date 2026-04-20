@@ -72,6 +72,8 @@ namespace Code.Game.Characters.Player.Abilities
             {
                 _isActive = true;
 
+                _view.UseAbility();
+
                 _view.Model.Energy.PropertyValue -= _view.Model.Radar.EnergyPrice;
 
                 Cooldown.Start(_view.Model.Radar.Duration + _view.Model.Radar.PerkDuration.PropertyValue);

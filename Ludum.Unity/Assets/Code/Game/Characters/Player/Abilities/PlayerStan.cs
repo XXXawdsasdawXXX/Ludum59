@@ -47,21 +47,20 @@ namespace Code.Game.Characters.Player.Abilities
 
         private void _stanPressed()
         {
-            Debug.Log(1);
             if (!Condition.AreMet())
             {
                 return;
             }
 
-            Debug.Log(2);
-
+            _view.UseAbility();
+            
             Used?.Invoke();
 
             _view.Model.Energy.PropertyValue -=
                 _view.Model.Stan.EnergyPrice + _view.Model.Stan.PerkEnergyPrice.PropertyValue;
 
             RuntimeManager.PlayOneShot(_audioConfiguration.Stan);
-            
+
             _updateStan().Forget();
         }
 
