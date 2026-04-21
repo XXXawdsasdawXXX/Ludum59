@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="MixerGroup" id="{ba501b94-ec31-423b-867d-179707e2d15b}">
+		<property name="name">
+			<value>Cutscene</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{8130bc90-9b9b-4a78-8c4f-2a183e8a0e0d}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{4b7d127b-7bd9-4ec2-baec-e0f3d398d593}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{00214343-0d83-4f9d-98b9-a62a1032c271}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{8130bc90-9b9b-4a78-8c4f-2a183e8a0e0d}">
+		<relationship name="effects">
+			<destination>{60bb4c7d-b3e0-4739-82a9-7d8b95339bf8}</destination>
+			<destination>{30437983-512a-4d31-9aff-fac0c1182609}</destination>
+			<destination>{b182c6c4-76f1-441a-ab2a-b98d860462fc}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{4b7d127b-7bd9-4ec2-baec-e0f3d398d593}" />
+	<object class="DistortionEffect" id="{60bb4c7d-b3e0-4739-82a9-7d8b95339bf8}">
+		<property name="level">
+			<value>0.099999994</value>
+		</property>
+	</object>
+	<object class="MixerBusFader" id="{30437983-512a-4d31-9aff-fac0c1182609}" />
+	<object class="SFXReverbEffect" id="{b182c6c4-76f1-441a-ab2a-b98d860462fc}">
+		<property name="decayTime">
+			<value>3500</value>
+		</property>
+		<property name="earlyDelay">
+			<value>15</value>
+		</property>
+		<property name="lateDelay">
+			<value>22</value>
+		</property>
+		<property name="HFDecayRatio">
+			<value>100</value>
+		</property>
+		<property name="highCut">
+			<value>20000</value>
+		</property>
+		<property name="earlyLateMix">
+			<value>69</value>
+		</property>
+		<property name="wetLevel">
+			<value>-25.5</value>
+		</property>
+	</object>
+</objects>
