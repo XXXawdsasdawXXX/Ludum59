@@ -66,11 +66,11 @@ namespace Code.Game.Characters.Enemy
         }
         public void PlayAttackMister()
         {
-            PlayOneShot(_attackTvEvent);
+            PlayOneShot(_attackMisterEvent);
         }
         public void PlayAttackDefault()
         {
-            PlayOneShot(_attackMisterEvent);
+            PlayOneShot(_attackDefaultEvent);
         }
 
         public void PlayFootstep()
