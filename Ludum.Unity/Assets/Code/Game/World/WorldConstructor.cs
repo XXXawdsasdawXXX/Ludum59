@@ -143,7 +143,7 @@ namespace Code.Game.World
 
             SpawnMachineAwayFromPlayer(point);
 
-            if (_machineSpawner.Pool.Count() == 3)
+            if (_machineSpawner.Pool.Count() == 2)
             {
                 SpawnBoss();
             }
