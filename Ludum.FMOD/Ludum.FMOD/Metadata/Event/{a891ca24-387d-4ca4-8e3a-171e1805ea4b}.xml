@@ -5,7 +5,7 @@
 			<value>Monster Monk Agro</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{8a1615af-53c6-46a7-a36f-ebcffb8832ee}</destination>
@@ -83,7 +83,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{52d75c7e-1298-478f-9b57-05ce67d7750c}">
 		<property name="volume">
-			<value>4</value>
+			<value>4.5</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{a12ae028-0ea6-4302-a5e8-bf85e1a29f4b}</destination>
@@ -128,6 +128,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{b73ef116-5680-4ae8-8574-2df107514f4a}">
+		<property name="volume">
+			<value>1</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -146,7 +149,7 @@
 			<value>0.42697429187192121</value>
 		</property>
 		<property name="volume">
-			<value>-7</value>
+			<value>-8</value>
 		</property>
 		<property name="pitch">
 			<value>-9.5</value>
@@ -183,10 +186,10 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{a12ae028-0ea6-4302-a5e8-bf85e1a29f4b}">
 		<relationship name="effects">
+			<destination>{e705ac86-01ee-49a5-ba15-1c16059c7efe}</destination>
 			<destination>{f6bd72de-3f03-4678-92f8-4e31e77012e5}</destination>
 			<destination>{56fb8e24-7369-4a7a-bd31-fb940a45ef62}</destination>
 			<destination>{2436fba6-f2a9-4a3d-9ab2-028f18f9e315}</destination>
-			<destination>{345470fc-46e8-437d-b4be-5f41486a6019}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{d65352ed-66fa-49e3-bb95-83107a24d561}" />
@@ -291,6 +294,20 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{0a34c21c-71ff-4e7e-8335-f4971c6ee8a5}" />
+	<object class="MultibandEqEffect" id="{e705ac86-01ee-49a5-ba15-1c16059c7efe}">
+		<property name="filterTypeA">
+			<value>9</value>
+		</property>
+		<property name="frequencyA">
+			<value>21999.9902</value>
+		</property>
+		<property name="qualityA">
+			<value>0.140000001</value>
+		</property>
+		<property name="gainA">
+			<value>9.82758522</value>
+		</property>
+	</object>
 	<object class="DistortionEffect" id="{f6bd72de-3f03-4678-92f8-4e31e77012e5}">
 		<property name="level">
 			<value>0.0949999988</value>
@@ -302,7 +319,6 @@
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{2436fba6-f2a9-4a3d-9ab2-028f18f9e315}" />
-	<object class="SpatialiserEffect" id="{345470fc-46e8-437d-b4be-5f41486a6019}" />
 	<object class="AutomationPoint" id="{804955a9-b0ae-4159-8d4a-89be3a46d1f5}">
 		<property name="position">
 			<value>0.035714460972656986</value>
@@ -349,7 +365,7 @@
 	</object>
 	<object class="HighpassSimpleEffect" id="{b24e0381-1ce9-473a-8ee7-37bdd2864f36}">
 		<property name="cutoff">
-			<value>200</value>
+			<value>320</value>
 		</property>
 	</object>
 	<object class="SFXReverbEffect" id="{a7ef2002-f59a-434d-915c-88e85ba80d42}">

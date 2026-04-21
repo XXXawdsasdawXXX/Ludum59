@@ -5,7 +5,7 @@
 			<value>Mister X agro</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{8a1615af-53c6-46a7-a36f-ebcffb8832ee}</destination>
@@ -266,7 +266,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{e7bbd5cd-b79e-48b9-8fa6-b10f7b011924}">
 		<property name="volume">
-			<value>-1</value>
+			<value>-2.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 5</value>
@@ -321,11 +321,10 @@
 	<object class="MixerBusEffectChain" id="{ebf528d5-250b-48d4-82db-15be1e2082f4}">
 		<relationship name="effects">
 			<destination>{5613f1da-b84d-4452-b964-357746beb8e8}</destination>
-			<destination>{cef9290b-0fac-4f17-bb5e-357424c6aad6}</destination>
 			<destination>{a606e5a1-7749-4d22-9ffb-36fa37ef7131}</destination>
 			<destination>{660510ef-308c-4fab-b5e9-f4d6f17b2232}</destination>
+			<destination>{cef9290b-0fac-4f17-bb5e-357424c6aad6}</destination>
 			<destination>{ee3de047-4d84-4223-8553-c55bd7980c4d}</destination>
-			<destination>{a1473b26-950e-4e61-bb54-8cf4e7ff753a}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{5c71d5a4-c25b-450a-8f0a-09e3655a99db}" />
@@ -499,12 +498,7 @@
 	<object class="MixerBusPanner" id="{da7006cb-2aab-49dd-a2c3-dbf2a8636a5f}" />
 	<object class="HighpassSimpleEffect" id="{5613f1da-b84d-4452-b964-357746beb8e8}">
 		<property name="cutoff">
-			<value>140</value>
-		</property>
-	</object>
-	<object class="DistortionEffect" id="{cef9290b-0fac-4f17-bb5e-357424c6aad6}">
-		<property name="level">
-			<value>0.149999991</value>
+			<value>200</value>
 		</property>
 	</object>
 	<object class="LimiterEffect" id="{a606e5a1-7749-4d22-9ffb-36fa37ef7131}">
@@ -514,14 +508,18 @@
 	</object>
 	<object class="MultibandEqEffect" id="{660510ef-308c-4fab-b5e9-f4d6f17b2232}">
 		<property name="frequencyA">
-			<value>14000</value>
+			<value>9604.93359</value>
 		</property>
 		<property name="qualityA">
-			<value>0.340000004</value>
+			<value>0.599999964</value>
+		</property>
+	</object>
+	<object class="DistortionEffect" id="{cef9290b-0fac-4f17-bb5e-357424c6aad6}">
+		<property name="level">
+			<value>0.179999992</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{ee3de047-4d84-4223-8553-c55bd7980c4d}" />
-	<object class="SpatialiserEffect" id="{a1473b26-950e-4e61-bb54-8cf4e7ff753a}" />
 	<object class="AutomationPoint" id="{c0617e44-267a-4af9-b1d8-234844a6adb1}">
 		<property name="position">
 			<value>0</value>

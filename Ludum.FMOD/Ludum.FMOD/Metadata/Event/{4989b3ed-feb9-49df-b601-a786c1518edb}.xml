@@ -93,7 +93,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{d30be9cb-e007-40a9-8b77-8e8263ed26bc}">
 		<property name="volume">
-			<value>-2</value>
+			<value>-5</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{6a00bb92-4f0b-4156-9a7b-7e050a60a8e5}</destination>
@@ -189,6 +189,9 @@
 		</relationship>
 	</object>
 	<object class="CommandSound" id="{3a763b72-681d-41b7-b53f-6ab6b03ce3f0}">
+		<property name="start">
+			<value>0.03125</value>
+		</property>
 		<property name="length">
 			<value>0.25</value>
 		</property>
@@ -285,7 +288,7 @@
 	</object>
 	<object class="DistortionEffect" id="{a06572c6-0430-450d-85d3-98e0933fd23f}">
 		<property name="level">
-			<value>0.129999995</value>
+			<value>0.099999994</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{b34238d1-cefa-4f2d-9681-95ff6c1bdb8f}" />

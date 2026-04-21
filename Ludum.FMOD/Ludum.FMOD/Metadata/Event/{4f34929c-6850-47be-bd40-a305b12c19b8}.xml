@@ -230,7 +230,7 @@
 			<value>0.60890931053725339</value>
 		</property>
 		<property name="volume">
-			<value>1.5</value>
+			<value>2</value>
 		</property>
 		<property name="pitch">
 			<value>-24</value>
@@ -321,7 +321,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{7c1edfd8-5e64-43ca-bd37-8016a86a8106}">
 		<property name="volume">
-			<value>-1</value>
+			<value>-2.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 4</value>
@@ -572,14 +572,26 @@
 		<property name="filterTypeA">
 			<value>9</value>
 		</property>
+		<property name="filterTypeB">
+			<value>9</value>
+		</property>
 		<property name="frequencyA">
-			<value>135</value>
+			<value>140</value>
+		</property>
+		<property name="frequencyB">
+			<value>8500</value>
 		</property>
 		<property name="qualityA">
 			<value>0.75</value>
 		</property>
+		<property name="qualityB">
+			<value>0.359999985</value>
+		</property>
 		<property name="gainA">
-			<value>-8</value>
+			<value>-7.5</value>
+		</property>
+		<property name="gainB">
+			<value>-3</value>
 		</property>
 	</object>
 	<object class="SFXReverbEffect" id="{66304b36-28c6-43ac-8000-793aed1badaa}">
@@ -831,13 +843,13 @@
 			<value>9</value>
 		</property>
 		<property name="frequencyA">
-			<value>1793.24646</value>
+			<value>2100</value>
 		</property>
 		<property name="qualityA">
-			<value>0.800000012</value>
+			<value>0.680000007</value>
 		</property>
 		<property name="gainA">
-			<value>-16.034481</value>
+			<value>-14.5</value>
 		</property>
 	</object>
 	<object class="HighpassSimpleEffect" id="{a13c3665-b563-48e3-9a29-8daf6665c236}">

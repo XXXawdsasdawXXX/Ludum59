@@ -424,11 +424,11 @@ MonoBehaviour:
     Path: event:/SFX/Enemy/Monster Monk Agro
   _attackMisterEvent:
     Guid:
-      Data1: 365171169
-      Data2: 1272238722
-      Data3: 77898142
-      Data4: -1372066571
-    Path: event:/SFX/Enemy/Monster TV Agro
+      Data1: 1525386900
+      Data2: 1099919585
+      Data3: -1852520009
+      Data4: -836562867
+    Path: event:/SFX/Enemy/Mister X agro
   _footstepCooldown: 0.1
 --- !u!1 &5938909468002144948
 GameObject:
