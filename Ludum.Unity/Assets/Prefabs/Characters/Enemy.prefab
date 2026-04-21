@@ -376,7 +376,7 @@ Animator:
   m_GameObject: {fileID: 5899132127281371319}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 3c393eec02c1e8f45809e46137b2b3ac, type: 2}
+  m_Controller: {fileID: 22100000, guid: f3bd1f1f9803e7c4ea1a1f7b6e80fd6d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -422,6 +422,13 @@ MonoBehaviour:
       Data3: 504838798
       Data4: 1273627928
     Path: event:/SFX/Enemy/Monster Monk Agro
+  _attackMisterEvent:
+    Guid:
+      Data1: 365171169
+      Data2: 1272238722
+      Data3: 77898142
+      Data4: -1372066571
+    Path: event:/SFX/Enemy/Monster TV Agro
   _footstepCooldown: 0.1
 --- !u!1 &5938909468002144948
 GameObject:

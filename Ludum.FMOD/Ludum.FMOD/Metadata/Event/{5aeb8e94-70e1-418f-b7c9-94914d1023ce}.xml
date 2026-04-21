@@ -113,7 +113,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{562a24bb-74b8-4661-bc50-bb017bc6d41b}">
 		<property name="volume">
-			<value>-1</value>
+			<value>3</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{ebf528d5-250b-48d4-82db-15be1e2082f4}</destination>
@@ -266,7 +266,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{e7bbd5cd-b79e-48b9-8fa6-b10f7b011924}">
 		<property name="volume">
-			<value>-6</value>
+			<value>-1</value>
 		</property>
 		<property name="name">
 			<value>Audio 5</value>
@@ -282,8 +282,11 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{f64dde7e-7c5b-4acb-b3de-fb7f4c09f78f}">
+		<property name="start">
+			<value>0.028208729686880707</value>
+		</property>
 		<property name="length">
-			<value>1.8359265223695114</value>
+			<value>1.1905412703131193</value>
 		</property>
 		<property name="timelockedOffset">
 			<value>5.75</value>
@@ -297,7 +300,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{58e5d2f5-4117-4a87-8659-084df10e099a}">
 		<property name="volume">
-			<value>-2.5</value>
+			<value>-1.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 6</value>
@@ -514,7 +517,7 @@
 			<value>14000</value>
 		</property>
 		<property name="qualityA">
-			<value>0.599999964</value>
+			<value>0.340000004</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{ee3de047-4d84-4223-8553-c55bd7980c4d}" />
@@ -695,7 +698,7 @@
 	<object class="MixerBusFader" id="{5ff6a6b9-52f9-4bd6-978a-a2acb4c80d96}" />
 	<object class="AutomationPoint" id="{a2490067-198f-441c-859f-e14866ac1a5a}">
 		<property name="position">
-			<value>0</value>
+			<value>0.028208729686880707</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -706,7 +709,7 @@
 	</object>
 	<object class="AutomationPoint" id="{bb4dfe1a-d8d1-4665-b4d6-f27100bbde80}">
 		<property name="position">
-			<value>1.8359265223695114</value>
+			<value>1.21875</value>
 		</property>
 		<property name="value">
 			<value>0</value>

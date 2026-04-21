@@ -8,7 +8,7 @@
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{97e4eeab-4ba2-4f08-a7d5-b135fa4c16ff}</destination>
+			<destination>{5dcaae38-8948-4004-8780-9b9677024a69}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{b071620d-5b56-476c-85ac-f9b70352523e}</destination>
@@ -95,6 +95,9 @@
 		<property name="timelockedOffset">
 			<value>0.025856824712643663</value>
 		</property>
+		<property name="volume">
+			<value>-1</value>
+		</property>
 		<relationship name="fadeOutCurve">
 			<destination>{9168d5ad-4a52-4020-8872-fd6eb2247235}</destination>
 		</relationship>
@@ -104,7 +107,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{282b56dc-f230-4db5-91f4-e6a1c29dc46e}">
 		<property name="volume">
-			<value>-7</value>
+			<value>-7.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>

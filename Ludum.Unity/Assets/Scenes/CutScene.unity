@@ -131,31 +131,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
       propertyPath: event1.Path
-      value: event:/Cut Scene 1
+      value: event:/Cut Scene/Cut Scene 1
       objectReference: {fileID: 0}
     - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
       propertyPath: event2.Path
-      value: event:/Cut Scene 2
+      value: event:/Cut Scene/Cut Scene 2
       objectReference: {fileID: 0}
     - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
       propertyPath: event3.Path
-      value: event:/Cut Scene 3
+      value: event:/Cut Scene/Cut Scene 3
       objectReference: {fileID: 0}
     - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
       propertyPath: event4.Path
-      value: event:/Cut Scene 4
+      value: event:/Cut Scene/Cut Scene 4
       objectReference: {fileID: 0}
     - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
       propertyPath: event5.Path
-      value: event:/Cut Scene 5
+      value: event:/Cut Scene/Cut Scene 5
       objectReference: {fileID: 0}
     - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
       propertyPath: event6.Path
-      value: event:/Cut Scene 6
+      value: event:/Cut Scene/Cut Scene 6
       objectReference: {fileID: 0}
     - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
       propertyPath: event7.Path
-      value: event:/Cut Scene 7
+      value: event:/Cut Scene/Cut Scene 7
       objectReference: {fileID: 0}
     - target: {fileID: 694126611, guid: f0eadfd9acf4e0742a705de8b694d0df, type: 3}
       propertyPath: event1.Guid.Data1

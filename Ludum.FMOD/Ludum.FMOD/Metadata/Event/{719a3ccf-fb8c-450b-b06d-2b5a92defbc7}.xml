@@ -95,9 +95,6 @@
 		<property name="length">
 			<value>6.5</value>
 		</property>
-		<property name="volume">
-			<value>-1</value>
-		</property>
 		<relationship name="modulators">
 			<destination>{82b0e8e3-6bb8-47fc-8bae-1326241d8cb2}</destination>
 		</relationship>
@@ -109,6 +106,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{2a3cef4b-ca3f-467d-b1d7-7005e8248e34}">
+		<property name="volume">
+			<value>2.5</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -178,7 +178,7 @@
 	</object>
 	<object class="HighpassSimpleEffect" id="{6c413660-8042-45a5-9e3e-9be1714c95bc}">
 		<property name="cutoff">
-			<value>40</value>
+			<value>25</value>
 		</property>
 	</object>
 	<object class="MultibandEqEffect" id="{c041d621-b16e-447e-b190-4f956fa74efe}">
@@ -207,7 +207,7 @@
 			<value>0.100000001</value>
 		</property>
 		<property name="gainA">
-			<value>-4.65517235</value>
+			<value>-3</value>
 		</property>
 		<property name="gainB">
 			<value>-6</value>

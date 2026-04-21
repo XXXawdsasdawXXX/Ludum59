@@ -48,7 +48,10 @@
 			<value>69</value>
 		</property>
 		<property name="wetLevel">
-			<value>-25.5</value>
+			<value>-24</value>
+		</property>
+		<property name="dryLevel">
+			<value>-1</value>
 		</property>
 	</object>
 </objects>
