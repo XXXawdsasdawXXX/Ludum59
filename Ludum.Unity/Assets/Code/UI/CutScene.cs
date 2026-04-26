@@ -20,10 +20,10 @@ namespace Code.UI
         [SerializeField] private EventReference event6;
         [SerializeField] private EventReference event7;
 
-        private async void Start()
+        private async void OnEnable()
         {
-            await UniTask.Delay(TimeSpan.FromSeconds(_animationDuration));
-            SceneManager.LoadScene(sceneBuildIndex: 1);
+            await UniTask.Delay(TimeSpan.FromSeconds(_animationDuration + 2));
+            SceneManager.LoadSceneAsync(sceneBuildIndex: 1);
         }
 
         public void PlayEvent1() => RuntimeManager.PlayOneShot(event1, transform.position);

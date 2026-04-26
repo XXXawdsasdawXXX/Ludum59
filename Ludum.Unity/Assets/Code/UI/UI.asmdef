@@ -12,12 +12,7 @@
         "GUID:f55da0a474f7e6d46949022f61463baa",
         "GUID:0c752da273b17c547ae705acf0f2adf2"
     ],
-    "includePlatforms": [
-        "Editor",
-        "WebGL",
-        "WindowsStandalone32",
-        "WindowsStandalone64"
-    ],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
